@@ -1,25 +1,24 @@
-<template>
-  <div>
-    <h1>This is the App</h1>
-    <hello>
-      <div style="border: 1px solid red; width: 50%; margin: 0 auto">
-        Hello world
-      </div>
-    </hello>
-  </div>
+<template lang="pug">
+  main
+    Header
+    ItemList
 </template>
 
 <script>
-import Hello from './components/Hello.vue';
+import Header from './components/Header.vue';
+import Footer from './components/Footer.vue';
+import AddItem from './components/AddItem.vue';
+import ItemList from './components/ItemList.vue';
 
 export default {
   data() {
-    return {
-      msg: 'Hello world!'
-    };
+    return {};
   },
   components: {
-    hello: Hello
+    Header,
+    Footer,
+    AddItem,
+    ItemList
   }
 };
 </script>

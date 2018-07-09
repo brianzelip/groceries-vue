@@ -1,16 +1,11 @@
 <template lang="pug">
-  div
-    slot
-    p 
+  h1 AddItem
 </template>
 
 <script>
 export default {
   data() {
-    return {
-      msg: 'Hello World'
-    };
+    return {};
   }
 };
 </script>
-
