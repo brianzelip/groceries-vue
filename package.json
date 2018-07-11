@@ -9,6 +9,7 @@
   "author": "bzelip",
   "license": "MIT",
   "dependencies": {
+    "mongoose": "^5.2.2",
     "vue": "^2.5.16",
     "vue-hot-reload-api": "^2.3.0",
     "vue-resource": "^1.5.1"
