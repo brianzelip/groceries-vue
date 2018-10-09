@@ -18,10 +18,3 @@ export default {
   }
 };
 </script>
-
-<style>
-h1,
-h2 {
-  display: inline-block;
-}
-</style>
