@@ -4,7 +4,7 @@
   "description": "vue-cli template for new Vue projects with Pug and Parcel",
   "main": "app.js",
   "scripts": {
-    "start": "parcel index.html"
+    "start": "parcel index.pug"
   },
   "author": "bzelip",
   "license": "MIT",
