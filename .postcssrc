@@ -1,0 +1,7 @@
+{
+  "plugins": {
+    "autoprefixer": true,
+    "postcss-custom-properties": true,
+    "postcss-color-function": true
+  }
+}
