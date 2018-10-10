@@ -1,11 +1,8 @@
 <template lang="pug">
-  form(action="/submit" method="POST")
-    ol.list-reset.border.rounded
-      each item in [1, 2, 3]
-        li.item
-          GroceryFormItemCheckboxAndText
-          GroceryFormItemQtySelector
-          GroceryFormItemStoresSelector
+  li.item
+    GroceryFormItemCheckboxAndText
+    GroceryFormItemQtySelector
+    GroceryFormItemStoresSelector
 </template>
 
 <script>
