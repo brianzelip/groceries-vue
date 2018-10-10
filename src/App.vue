@@ -1,16 +1,19 @@
 <template lang="pug">
-  TheBaseLayout
+  BaseLayout
+    TheGroceryForm(slot="main")
 </template>
 
 <script>
-import TheBaseLayout from './components/TheBaseLayout.vue';
+import BaseLayout from './components/layout/BaseLayout.vue';
+import TheGroceryForm from './components/GroceryForm/TheGroceryForm.vue';
 
 export default {
   data() {
     return {};
   },
   components: {
-    TheBaseLayout
+    BaseLayout,
+    TheGroceryForm
   }
 };
 </script>
