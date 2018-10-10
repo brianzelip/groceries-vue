@@ -6,7 +6,6 @@ import App from './src/App.vue';
 Vue.use(Vuex);
 Vue.use(VueResource);
 
-export const groceryItemsBus = new Vue();
 const store = new Vuex.Store({
   state: {
     count: 0
