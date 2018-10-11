@@ -24,7 +24,7 @@ Thoughts on how to leverage vue
 - are compiled and listed in a Vue component shown to the user to keep track of what's been selected
 
 8. if a user clicks the `+ adhoc item` button:
-   8.1 the following interfaces appear:
+   8.1 the following interfaces appear (note that moms and tj area numbers are not available in adhoc add):
 
    8.1.1. name text input
 
