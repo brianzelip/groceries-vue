@@ -25,15 +25,23 @@ Thoughts on how to leverage vue
 
 8. if a user clicks the `+ adhoc item` button:
    8.1 the following interfaces appear:
+
    8.1.1. name text input
+
    8.1.2. qty select
+
    8.1.3. store to get it from select
+
    8.1.4. default store to get it from select
+
    8.2 the item gets added to the all checked grocery items Vue variable
+
    8.3 the item gets data gets POSTED to the mongodb, maybe as an array of data in case other items are added
 
 9. the user can select one or more emails to send the list to
 
 10. when the user clicks submit:
+
     10.1 the all items checked variable is rendered into an html string and email to the selected recipient(s)
+
     10.2 any adhoc items that were entered are POSTED to the db
