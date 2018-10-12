@@ -7,7 +7,8 @@
           GroceryFormItemQtySelector
           GroceryFormItemStoresSelector
     div
-      pre {{ items }}
+      pre {{ allGroceryItems }}
+    h2 allGroceryItemsCount is: {{ allGroceryItemsCount }}
 </template>
 
 <script>
@@ -28,12 +29,20 @@ export default {
     GroceryFormItemQtySelector,
     GroceryFormItemStoresSelector
   },
+  computed: {
+    allGroceryItems() {
+      return this.$store.state.allGroceryItems;
+    },
+    allGroceryItemsCount() {
+      return this.$store.getters.allGroceryItemsCount;
+    }
+  },
   created() {
     axios
       .get('https://groceries-vue-api.glitch.me/get')
       .then(res => {
         console.log('this.$http worked!', res);
-        this.items = res.data;
+        this.$store.state.allGroceryItems = res.data;
       })
       .catch(error => {
         console.log('ERROR! ->', error);
