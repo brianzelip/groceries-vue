@@ -9,10 +9,10 @@
   "author": "bzelip",
   "license": "MIT",
   "dependencies": {
+    "axios": "^0.18.0",
     "dotenv": "^6.0.0",
     "vue": "^2.5.17",
     "vue-hot-reload-api": "^2.3.0",
-    "vue-resource": "^1.5.1",
     "vuex": "^3.0.1"
   },
   "devDependencies": {
