@@ -4,9 +4,19 @@
     input(class="item__hidden-input" type="checkbox" id="" name="items" value="")
     label(for="" class="item__label col-5")
       span(class="item__checkbox")
-      span(class="item__text blue") item.name
+      span(class="item__text blue") {{ item.name }}
 </template>
 
 <script>
-export default {};
+import fs from 'fs';
+
+export default {
+  props: ['item'],
+  methods: {
+    icon(name) {
+      const svg = fs.readFileSync(`../../../icons/${name}.svg`);
+      return svg;
+    }
+  }
+};
 </script>

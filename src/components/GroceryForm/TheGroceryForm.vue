@@ -1,14 +1,14 @@
 <template lang="pug">
-  form(action="/submit" method="POST")
-    ol.list-reset.border.rounded
-      each item in [1, 2, 3]
-        li.item
-          GroceryFormItemCheckboxAndText
-          GroceryFormItemQtySelector
-          GroceryFormItemStoresSelector
-    div
-      pre {{ allGroceryItems }}
-    h2 allGroceryItemsCount is: {{ allGroceryItemsCount }}
+	form(action="/submit" method="POST")
+		ol.list-reset.border.rounded
+			li.item(v-for="item in allGroceryItems")
+				p {{ item.name }}
+				GroceryFormItemCheckboxAndText(v-bind="item")
+				GroceryFormItemQtySelector(v-bind="item")
+				GroceryFormItemStoresSelector(v-bind="item")
+		div
+			pre {{ allGroceryItems }}
+			h2 allGroceryItemsCount is: {{ allGroceryItemsCount }}
 </template>
 
 <script>
