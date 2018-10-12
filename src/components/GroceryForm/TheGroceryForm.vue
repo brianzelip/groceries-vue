@@ -15,6 +15,8 @@ import GroceryFormItemCheckboxAndText from './GroceryFormItemCheckboxAndText.vue
 import GroceryFormItemQtySelector from './GroceryFormItemQtySelector.vue';
 import GroceryFormItemStoresSelector from './GroceryFormItemStoresSelector.vue';
 
+import axios from 'axios';
+
 export default {
   data() {
     return {
@@ -27,10 +29,15 @@ export default {
     GroceryFormItemStoresSelector
   },
   created() {
-    this.$http.get('https://groceries-vue-api.glitch.me/get').then(res => {
-      console.log('this.$http worked!', res);
-      this.items = res.body;
-    });
+    axios
+      .get('https://groceries-vue-api.glitch.me/get')
+      .then(res => {
+        console.log('this.$http worked!', res);
+        this.items = res.data;
+      })
+      .catch(error => {
+        console.log('ERROR! ->', error);
+      });
   }
 };
 </script>
