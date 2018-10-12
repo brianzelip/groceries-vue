@@ -6,6 +6,8 @@
           GroceryFormItemCheckboxAndText
           GroceryFormItemQtySelector
           GroceryFormItemStoresSelector
+    div
+      pre {{ items }}
 </template>
 
 <script>
@@ -15,12 +17,20 @@ import GroceryFormItemStoresSelector from './GroceryFormItemStoresSelector.vue';
 
 export default {
   data() {
-    return {};
+    return {
+      items: ''
+    };
   },
   components: {
     GroceryFormItemCheckboxAndText,
     GroceryFormItemQtySelector,
     GroceryFormItemStoresSelector
+  },
+  created() {
+    this.$http.get('https://groceries-vue-api.glitch.me/get').then(res => {
+      console.log('this.$http worked!', res);
+      this.items = res.body;
+    });
   }
 };
 </script>
