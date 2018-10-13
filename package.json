@@ -1,10 +1,11 @@
 {
-  "name": "vue-parcel",
-  "version": "0.0.1",
-  "description": "vue-cli template for new Vue projects with Pug and Parcel",
-  "main": "app.js",
+  "name": "groceries-vue",
+  "version": "0.1.0",
+  "description": "Rewrite of my groceries web app in Vue.js",
+  "main": "index.pug",
   "scripts": {
-    "start": "parcel index.pug"
+    "start": "parcel index.pug",
+    "production": "parcel build index.pug"
   },
   "author": "bzelip",
   "license": "MIT",
