@@ -43,7 +43,7 @@ export default {
       return this.$store.getters.allGroceryItemsCount;
     }
   },
-  created() {
+  mounted() {
     axios
       .get('https://groceries-vue-api.glitch.me/get')
       .then(res => {
