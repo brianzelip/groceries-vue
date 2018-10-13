@@ -1,31 +1,37 @@
-<template lang="pug">
-	form(action="/submit" method="POST")
-		ol.list-reset.border.rounded
-			li.item(v-for="item in allGroceryItems")
-				p {{ item.name }}
-				GroceryFormItemCheckboxAndText(v-bind="item")
-				GroceryFormItemQtySelector(v-bind="item")
-				GroceryFormItemStoresSelector(v-bind="item")
-		div
-			pre {{ allGroceryItems }}
-			h2 allGroceryItemsCount is: {{ allGroceryItemsCount }}
+<template>
+	<form action="/submit" method="POST">
+		<ol class="list-reset border rounded">
+			<li class="item" v-for="item in allGroceryItems" v-bind:key="item._id">
+        <GroceryFormItemEditLink/>
+        <GroceryFormItemCheckboxInput :slug="item.slug"/>
+        <GroceryFormItemCheckboxLabel :slug="item.slug" :name="item.name"/>
+        <GroceryFormItemQtySelector :slug="item.slug"/>
+        <GroceryFormItemStoresSelector
+          :stores="item.stores"
+          :slug="item.slug"
+          :defaultStore="item.defaultStore"/>
+      </li>
+    </ol>
+  </form>
 </template>
 
 <script>
-import GroceryFormItemCheckboxAndText from './GroceryFormItemCheckboxAndText.vue';
+import axios from 'axios';
+
+import GroceryFormItemEditLink from './GroceryFormItemEditLink.vue';
+import GroceryFormItemCheckboxInput from './GroceryFormItemCheckboxInput.vue';
+import GroceryFormItemCheckboxLabel from './GroceryFormItemCheckboxLabel.vue';
 import GroceryFormItemQtySelector from './GroceryFormItemQtySelector.vue';
 import GroceryFormItemStoresSelector from './GroceryFormItemStoresSelector.vue';
 
-import axios from 'axios';
-
 export default {
   data() {
-    return {
-      items: ''
-    };
+    return {};
   },
   components: {
-    GroceryFormItemCheckboxAndText,
+    GroceryFormItemEditLink,
+    GroceryFormItemCheckboxInput,
+    GroceryFormItemCheckboxLabel,
     GroceryFormItemQtySelector,
     GroceryFormItemStoresSelector
   },
