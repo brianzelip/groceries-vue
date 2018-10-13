@@ -4,9 +4,9 @@
       p.blue by 
         a(href="http://zelip.me") bzelip
         span.purp  | 
-        a(href="https://github.com/brianzelip/groceries") github
+        a(href="https://github.com/brianzelip/groceries-vue") app source
         span.purp  | 
-        a(href="https://glitch.com/~romantic-study") glitch
+        a(href="https://glitch.com/~groceries-vue-api") api source
 </template>
 
 <script>
