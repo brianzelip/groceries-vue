@@ -5,7 +5,7 @@
   "main": "index.pug",
   "scripts": {
     "start": "parcel index.pug",
-    "production": "parcel build index.pug"
+    "production": "rm -rf dist && parcel build index.pug"
   },
   "author": "bzelip",
   "license": "MIT",
