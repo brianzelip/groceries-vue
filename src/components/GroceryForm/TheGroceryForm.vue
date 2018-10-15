@@ -2,14 +2,14 @@
 	<form action="/submit" method="POST">
 		<ol class="list-reset border rounded">
 			<li class="item" v-for="item in allGroceryItems" v-bind:key="item._id">
-        <GroceryFormItemEditLink/>
-        <GroceryFormItemCheckboxInput :slug="item.slug"/>
-        <GroceryFormItemCheckboxLabel :slug="item.slug" :name="item.name"/>
-        <GroceryFormItemQtySelector :slug="item.slug"/>
+        <GroceryFormItemEditLink></GroceryFormItemEditLink>
+        <GroceryFormItemCheckboxInput :slug="item.slug"></GroceryFormItemCheckboxInput>
+        <GroceryFormItemCheckboxLabel :slug="item.slug" :name="item.name"></GroceryFormItemCheckboxLabel>
+        <GroceryFormItemQtySelector :slug="item.slug"></GroceryFormItemQtySelector>
         <GroceryFormItemStoresSelector
           :stores="item.stores"
           :slug="item.slug"
-          :defaultStore="item.defaultStore"/>
+          :default-store="item.defaultStore"></GroceryFormItemStoresSelector>
       </li>
     </ol>
   </form>
