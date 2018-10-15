@@ -1,18 +1,18 @@
 <template>
   <a class="w-16px flex flex-center mx1 sm-mx2 grey" href="#">
-    <editSolid />
+    <IconEditSolid></IconEditSolid>
   </a>
 </template>
 
 <script>
-import editSolid from '../icons/edit-solid.vue';
+import IconEditSolid from '../Icons/IconEditSolid.vue';
 
 export default {
   data() {
     return {};
   },
   components: {
-    editSolid
+    IconEditSolid
   }
 };
 </script>
