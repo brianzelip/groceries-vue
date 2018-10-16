@@ -1,7 +1,7 @@
 <template>
-	<form action="/submit" method="POST">
-		<ol class="list-reset border rounded">
-			<li class="item" v-for="item in allGroceryItems" v-bind:key="item._id">
+  <form action="/submit" method="POST">
+    <ol class="list-reset border rounded">
+      <li class="item" v-for="item in allGroceryItems" v-bind:key="item._id">
         <GroceryFormItemEditLink></GroceryFormItemEditLink>
         <GroceryFormItemCheckboxInput :slug="item.slug"></GroceryFormItemCheckboxInput>
         <GroceryFormItemCheckboxLabel :slug="item.slug" :name="item.name"></GroceryFormItemCheckboxLabel>
