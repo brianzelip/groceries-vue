@@ -48,22 +48,9 @@ export default {
     axios
       .get('https://groceries-vue-api.glitch.me/get')
       .then(res => {
-        console.log('axio.get worked! res.data =', res.data);
-        console.log(`typeof res.data = ${typeof res.data}`);
-
-        const groceryData = res.data;
-        console.log('groceryData =', groceryData);
-        console.log(`typeof groceryData = ${typeof groceryData}`);
-
-        const newData = res.data.map(obj => obj);
-        console.log('newData', newData);
-        return newData;
+        console.log('axios.get worked! res.data =', res.data);
+        this.$store.state.allGroceryItems = res.data;
       })
-      .then(data => {
-        console.log('data from second then() =', data);
-        return data;
-      })
-      .then(data => (this.$store.state.allGroceryItems = data))
       .catch(error => {
         console.log('ERROR! ->', error);
       });
