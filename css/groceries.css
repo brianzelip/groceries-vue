@@ -460,14 +460,8 @@ a:hover {
   position: relative;
   margin: 0 0.25rem;
 }
-.item__qtySelector-numWrapper {
-  position: relative;
-  width: 1rem;
-  margin: 0 0.25rem;
-}
 
-.item__storesSelector-storeInput,
-.item__qtySelector-numInput {
+.item__storesSelector-storeInput {
   position: absolute;
   top: 0;
   left: 0;
@@ -479,8 +473,7 @@ a:hover {
   cursor: pointer;
 }
 
-.item__storesSelector-storeLabel,
-.item__qtySelector-numLabel {
+.item__storesSelector-storeLabel {
   text-align: center;
   color: var(--purp-muted);
   display: flex;
