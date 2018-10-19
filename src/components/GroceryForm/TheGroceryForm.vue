@@ -12,6 +12,7 @@
           :default-store="item.defaultStore"></GroceryFormItemStoresSelector>
       </li>
     </ol>
+    <TheGroceryFormControls></TheGroceryFormControls>
   </form>
 </template>
 
@@ -23,6 +24,7 @@ import GroceryFormItemCheckboxInput from './GroceryFormItemCheckboxInput.vue';
 import GroceryFormItemCheckboxLabel from './GroceryFormItemCheckboxLabel.vue';
 import GroceryFormItemQtySelector from './GroceryFormItemQtySelector.vue';
 import GroceryFormItemStoresSelector from './GroceryFormItemStoresSelector.vue';
+import TheGroceryFormControls from './TheGroceryFormControls.vue';
 
 export default {
   data() {
@@ -33,7 +35,8 @@ export default {
     GroceryFormItemCheckboxInput,
     GroceryFormItemCheckboxLabel,
     GroceryFormItemQtySelector,
-    GroceryFormItemStoresSelector
+    GroceryFormItemStoresSelector,
+    TheGroceryFormControls
   },
   computed: {
     allGroceryItems() {
