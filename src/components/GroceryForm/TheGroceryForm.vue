@@ -1,9 +1,16 @@
 <template>
   <form action="/submit" method="POST">
     <ol class="list-reset border rounded">
-      <template v-for="item in allGroceryItems">
-				<GroceryFormItem :item="item" :key="item._id"></GroceryFormItem>
-			</template>
+      <li class="item" v-for="item in allGroceryItems" v-bind:key="item._id">
+        <GroceryFormItemEditLink></GroceryFormItemEditLink>
+        <GroceryFormItemCheckboxInput :slug="item.slug"></GroceryFormItemCheckboxInput>
+        <GroceryFormItemCheckboxLabel :slug="item.slug" :name="item.name"></GroceryFormItemCheckboxLabel>
+        <GroceryFormItemQtySelector :slug="item.slug"></GroceryFormItemQtySelector>
+        <GroceryFormItemStoresSelector
+          :stores="item.stores"
+          :slug="item.slug"
+          :default-store="item.defaultStore"></GroceryFormItemStoresSelector>
+      </li>
     </ol>
     <TheGroceryFormControls></TheGroceryFormControls>
   </form>
@@ -12,7 +19,11 @@
 <script>
 import axios from 'axios';
 
-import GroceryFormItem from './GroceryFormItem.vue';
+import GroceryFormItemEditLink from './GroceryFormItemEditLink.vue';
+import GroceryFormItemCheckboxInput from './GroceryFormItemCheckboxInput.vue';
+import GroceryFormItemCheckboxLabel from './GroceryFormItemCheckboxLabel.vue';
+import GroceryFormItemQtySelector from './GroceryFormItemQtySelector.vue';
+import GroceryFormItemStoresSelector from './GroceryFormItemStoresSelector.vue';
 import TheGroceryFormControls from './TheGroceryFormControls.vue';
 
 export default {
@@ -20,7 +31,11 @@ export default {
     return {};
   },
   components: {
-    GroceryFormItem,
+    GroceryFormItemEditLink,
+    GroceryFormItemCheckboxInput,
+    GroceryFormItemCheckboxLabel,
+    GroceryFormItemQtySelector,
+    GroceryFormItemStoresSelector,
     TheGroceryFormControls
   },
   computed: {
