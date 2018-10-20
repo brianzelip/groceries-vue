@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import GroceryFormAddItemBtn from './GroceryForm/GroceryFormAddItemBtn.vue';
+import GroceryFormAddItemBtn from '../GroceryForm/GroceryFormAddItemBtn.vue';
 
 export default {
   components: {
