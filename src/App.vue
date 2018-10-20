@@ -1,19 +1,23 @@
 <template lang="pug">
-  TheBaseLayout
-    TheGroceryForm(slot="main")
+  body.p1.sm-p2.md-p3.bg-texture.flex.flex-column
+    TheHeader
+    main
+      .container
+        router-view
+    TheFooter
 </template>
 
 <script>
-import TheBaseLayout from './components/layout/TheBaseLayout.vue';
-import TheGroceryForm from './components/GroceryForm/TheGroceryForm.vue';
+import TheHeader from './components/global/TheHeader.vue';
+import TheFooter from './components/global/TheFooter.vue';
 
 export default {
   data() {
     return {};
   },
   components: {
-    TheBaseLayout,
-    TheGroceryForm
+    TheHeader,
+    TheFooter
   }
 };
 </script>
