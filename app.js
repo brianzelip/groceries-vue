@@ -12,7 +12,8 @@ Vue.use(VueRouter);
 const router = new VueRouter({
   routes: [
     { path: '/', component: TheGroceryForm },
-    { path: '/add', component: TheItemForm }
+    { path: '/add', component: TheItemForm },
+    { path: '/edit/:id', component: TheItemForm }
   ],
   mode: 'history'
 });
