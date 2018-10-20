@@ -10,7 +10,7 @@
 
 <script>
 import TheGroceryFormEmailSelector from './TheGroceryFormEmailSelector.vue';
-import GroceryFormAddItemBtn from './GroceryFormAddItemBtn.vue';
+import GroceryFormAddItemBtn from '../global/AddItemBtn.vue';
 
 export default {
   components: {
