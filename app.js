@@ -4,7 +4,7 @@ import VueRouter from 'vue-router';
 
 import App from './src/App.vue';
 import TheGroceryForm from './src/components/GroceryForm/TheGroceryForm.vue';
-import TheItemForm from './src/components/ItemForm/TheItemForm.vue';
+import TheItemFormWrapper from './src/components/ItemForm/TheItemFormWrapper.vue';
 
 Vue.use(Vuex);
 Vue.use(VueRouter);
@@ -12,8 +12,16 @@ Vue.use(VueRouter);
 const router = new VueRouter({
   routes: [
     { path: '/', component: TheGroceryForm },
-    { path: '/add', component: TheItemForm },
-    { path: '/edit/:id', component: TheItemForm }
+    {
+      path: '/add',
+      component: TheItemFormWrapper,
+      props: { title: 'add item' }
+    },
+    {
+      path: '/edit/:id',
+      component: TheItemFormWrapper,
+      props: { title: 'edit item' }
+    }
   ],
   mode: 'history'
 });
