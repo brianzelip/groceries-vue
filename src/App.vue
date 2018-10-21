@@ -1,5 +1,5 @@
 <template lang="pug">
-  body.p1.sm-p2.md-p3.bg-texture.flex.flex-column
+  div(data-vue="app")
     TheHeader
     main
       .container
