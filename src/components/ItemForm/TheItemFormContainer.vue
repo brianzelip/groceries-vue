@@ -1,5 +1,5 @@
 <template>
-  <div id="ItemFormWrapper">
+  <div id="TheItemFormContainer">
     <h2 class="fw400">{{ title }}</h2>
     <hr>
     <TheItemForm></TheItemForm>
