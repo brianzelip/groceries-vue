@@ -1,28 +1,15 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import VueRouter from 'vue-router';
+import { routes } from './routes.js';
 
 import App from './src/App.vue';
-import TheGroceryForm from './src/components/GroceryForm/TheGroceryForm.vue';
-import TheItemFormWrapper from './src/components/ItemForm/TheItemFormWrapper.vue';
 
 Vue.use(Vuex);
 Vue.use(VueRouter);
 
 const router = new VueRouter({
-  routes: [
-    { path: '/', component: TheGroceryForm },
-    {
-      path: '/add',
-      component: TheItemFormWrapper,
-      props: { title: 'add item' }
-    },
-    {
-      path: '/edit/:id',
-      component: TheItemFormWrapper,
-      props: { title: 'edit item' }
-    }
-  ],
+  routes,
   mode: 'history'
 });
 
