@@ -1,7 +1,9 @@
+import VueRouter from 'vue-router';
+
 import TheGroceryForm from './src/components/GroceryForm/TheGroceryForm.vue';
 import TheItemFormContainer from './src/components/ItemForm/TheItemFormContainer.vue';
 
-export const routes = [
+const routes = [
   { path: '/', component: TheGroceryForm },
   {
     path: '/add',
@@ -14,3 +16,10 @@ export const routes = [
     props: { title: 'edit item' }
   }
 ];
+
+const router = new VueRouter({
+  routes,
+  mode: 'history'
+});
+
+export default router;
