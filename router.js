@@ -17,8 +17,7 @@ const routes = [
     path: '/edit/:id',
     component: TheItemFormContainer,
     props: {
-      heading: 'edit',
-      id: this.$route.params.id
+      heading: 'edit'
     }
   }
 ];
