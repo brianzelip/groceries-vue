@@ -57,6 +57,11 @@ export default {
       .catch(error => {
         console.log('ERROR! ->', error);
       });
+  },
+  metaInfo() {
+    return {
+      title: 'groceries-vue'
+    };
   }
 };
 </script>

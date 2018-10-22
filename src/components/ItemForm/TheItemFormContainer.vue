@@ -1,6 +1,6 @@
 <template>
   <div id="TheItemFormContainer">
-    <h2 class="fw400">{{ title }}</h2>
+    <h2 class="fw400">{{ heading }}</h2>
     <hr>
     <TheItemForm></TheItemForm>
   </div>
@@ -13,6 +13,11 @@ export default {
   components: {
     TheItemForm
   },
-  props: ['title']
+  props: ['heading'],
+  metaInfo() {
+    return {
+      title: `${this.heading} | groceries-vue`
+    };
+  }
 };
 </script>
