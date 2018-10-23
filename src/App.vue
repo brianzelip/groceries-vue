@@ -15,9 +15,22 @@ export default {
   data() {
     return {};
   },
+  computed: {
+    title() {
+      const appTitle = 'groceries-vue';
+      return this.$route.name === 'home'
+        ? appTitle
+        : `${this.$route.name} item | ${appTitle}`;
+    }
+  },
   components: {
     TheHeader,
     TheFooter
+  },
+  metaInfo() {
+    return {
+      title: this.title
+    };
   }
 };
 </script>
