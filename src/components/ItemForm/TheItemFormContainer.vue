@@ -13,11 +13,6 @@ export default {
   components: {
     TheItemForm
   },
-  props: ['heading'],
-  metaInfo() {
-    return {
-      title: `${this.heading} | groceries-vue`
-    };
-  }
+  props: ['heading']
 };
 </script>
