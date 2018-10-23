@@ -6,15 +6,20 @@ import TheItemFormContainer from './src/components/ItemForm/TheItemFormContainer
 const routes = [
   {
     path: '/',
+    name: 'home',
     component: TheGroceryForm
   },
   {
     path: '/add',
+    name: 'add',
     component: TheItemFormContainer,
-    props: { heading: 'add item' }
+    props: {
+      heading: 'add item'
+    }
   },
   {
     path: '/edit/:id',
+    name: 'edit',
     component: TheItemFormContainer,
     props: {
       heading: 'edit'
