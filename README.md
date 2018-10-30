@@ -51,10 +51,10 @@ Thoughts on how to leverage vue
 
 ## Handling form data in `TheGroceryForm.vue`
 
-The initial DOM only sees a list of items with checkboxes (`v-if`).
+[] The initial DOM only sees a list of items with checkboxes (`v-if`).
 
-If an item's checkbox is checked, then vue shows the qty selector and store selector with the item's default store of choice, if available, marked.
+[] If an item's checkbox is checked, then vue shows the qty selector and store selector with the item's default store of choice, if available, marked.
 
-Vue _also_ knows about the item's `tj` and `moms` `Area`s if available.
+[] Vue _also_ knows about the item's `tj` and `moms` `Area`s if available.
 
-When form is submitted, only the items selected, plus each selected item's qty and store metadata are available to send back to the server or to Vue for further processing.
+[] When form is submitted, only the items selected, plus each selected item's qty and store metadata are available to send back to the server or to Vue for further processing.
