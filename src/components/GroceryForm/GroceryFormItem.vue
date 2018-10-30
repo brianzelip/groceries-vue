@@ -35,3 +35,16 @@ export default {
   props: ['item']
 };
 </script>
+
+<style>
+.item {
+  position: relative;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  border-bottom: 1px solid #3498db;
+}
+.item:last-child {
+  border: 0;
+}
+</style>
