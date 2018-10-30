@@ -1,7 +1,7 @@
 <template>
   <form action="/submit" method="POST">
     <ol class="list-reset border rounded">
-      <li class="item" v-for="item in allGroceryItems" v-bind:key="item._id">
+      <li class="item" v-for="item in allPossibleGroceryItems" v-bind:key="item._id">
         <GroceryFormItemEditLink></GroceryFormItemEditLink>
         <GroceryFormItemCheckboxInput :slug="item.slug"></GroceryFormItemCheckboxInput>
         <GroceryFormItemCheckboxLabel :slug="item.slug" :name="item.name"></GroceryFormItemCheckboxLabel>
@@ -39,11 +39,11 @@ export default {
     TheGroceryFormControls
   },
   computed: {
-    allGroceryItems() {
-      return this.$store.state.allGroceryItems;
+    allPossibleGroceryItems() {
+      return this.$store.state.allPossibleGroceryItems;
     },
-    allGroceryItemsCount() {
-      return this.$store.getters.allGroceryItemsCount;
+    allPossibleGroceryItemsCount() {
+      return this.$store.getters.allPossibleGroceryItemsCount;
     }
   },
   getters: {},
@@ -52,7 +52,7 @@ export default {
       .get('https://groceries-vue-api.glitch.me/get')
       .then(res => {
         console.log('axios.get worked! res.data =', res.data);
-        this.$store.state.allGroceryItems = res.data;
+        this.$store.state.allPossibleGroceryItems = res.data;
       })
       .catch(error => {
         console.log('ERROR! ->', error);

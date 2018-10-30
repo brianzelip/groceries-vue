@@ -5,11 +5,11 @@ Vue.use(Vuex);
 
 const store = new Vuex.Store({
   state: {
-    allGroceryItems: []
+    allPossibleGroceryItems: []
   },
   getters: {
-    allGroceryItemsCount: state => {
-      return state.allGroceryItems.length;
+    allPossibleGroceryItemsCount: state => {
+      return state.allPossibleGroceryItems.length;
     }
   },
   mutations: {}
