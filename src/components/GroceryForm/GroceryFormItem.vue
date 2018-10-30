@@ -3,8 +3,9 @@
 		<GroceryFormItemEditLink></GroceryFormItemEditLink>
 		<GroceryFormItemCheckboxInput :slug="item.slug"></GroceryFormItemCheckboxInput>
 		<GroceryFormItemCheckboxLabel :slug="item.slug" :name="item.name"></GroceryFormItemCheckboxLabel>
-		<GroceryFormItemQtySelector :slug="item.slug"></GroceryFormItemQtySelector>
+		<GroceryFormItemQtySelector v-if="isChecked" :slug="item.slug"></GroceryFormItemQtySelector>
 		<GroceryFormItemStoresSelector
+			v-if="isChecked"
 			:stores="item.stores"
 			:slug="item.slug"
 			:default-store="item.defaultStore"></GroceryFormItemStoresSelector>
@@ -19,6 +20,11 @@ import GroceryFormItemQtySelector from './GroceryFormItemQtySelector.vue';
 import GroceryFormItemStoresSelector from './GroceryFormItemStoresSelector.vue';
 
 export default {
+  data() {
+    return {
+      isChecked: false
+    };
+  },
   components: {
     GroceryFormItemEditLink,
     GroceryFormItemCheckboxInput,
