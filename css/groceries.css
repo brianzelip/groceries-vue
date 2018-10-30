@@ -354,13 +354,6 @@ a:hover {
 }
 
 /* grocery form items */
-.item__hidden-input {
-  position: absolute;
-  top: -9999px;
-  left: -9999px;
-  visibility: hidden;
-  opacity: 0;
-}
 .item__label {
   display: flex;
   align-items: center;

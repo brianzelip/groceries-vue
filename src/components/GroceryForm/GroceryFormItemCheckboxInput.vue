@@ -13,3 +13,12 @@ export default {
 };
 </script>
 
+<style>
+.item__hidden-input {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+  visibility: hidden;
+  opacity: 0;
+}
+</style>
