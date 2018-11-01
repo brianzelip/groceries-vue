@@ -1,5 +1,8 @@
 <template>
-  <label :for="slug" class="item__label col-5">
+  <label
+    :for="slug"
+    class="item__label col-5"
+    v-on:click="$emit('checkbox-change')">
     <span class="item__checkbox"></span>
     <span class="item__text blue">{{ name }}</span>
   </label>
