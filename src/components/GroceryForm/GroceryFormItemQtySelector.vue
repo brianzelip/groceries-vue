@@ -10,6 +10,7 @@
         type="radio"
         v-model.number="qty"
         :value="num"
+        @change="$emit('item-qty-change', qty)"
         :name="`${slug}-qty`"
         :id="`${slug}-${num}`"
         class="item__qtySelector-numInput">

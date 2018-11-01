@@ -11,7 +11,8 @@
       </GroceryFormItemCheckboxLabel>
     <GroceryFormItemQtySelector 
       v-if="isSelected"
-      :slug="item.slug">
+      :slug="item.slug"
+      v-on:item-qty-change="updateQty">
       </GroceryFormItemQtySelector>
     <GroceryFormItemStoresSelector 
       v-if="isSelected" 
@@ -37,6 +38,11 @@ export default {
       qty: null,
       store: null
     };
+  },
+  methods: {
+    updateQty(qty) {
+      this.qty = qty;
+    }
   },
   components: {
     GroceryFormItemEditLink,
