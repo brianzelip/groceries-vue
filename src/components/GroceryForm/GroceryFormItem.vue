@@ -7,14 +7,14 @@
     <GroceryFormItemCheckboxLabel
       :slug="item.slug"
       :name="item.name"
-      v-on:checkbox-change="isChecked = !isChecked">
+      v-on:item-selection-change="itemIsSelected = !itemIsSelected">
       </GroceryFormItemCheckboxLabel>
     <GroceryFormItemQtySelector 
-      v-if="isChecked"
+      v-if="itemIsSelected"
       :slug="item.slug">
       </GroceryFormItemQtySelector>
     <GroceryFormItemStoresSelector 
-      v-if="isChecked" 
+      v-if="itemIsSelected" 
       :stores="item.stores" 
       :slug="item.slug" 
       :default-store="item.defaultStore">
@@ -32,7 +32,7 @@ import GroceryFormItemStoresSelector from './GroceryFormItemStoresSelector.vue';
 export default {
   data() {
     return {
-      isChecked: false
+      itemIsSelected: false
     };
   },
   components: {
