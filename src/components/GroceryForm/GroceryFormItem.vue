@@ -34,8 +34,8 @@ export default {
     return {
       isSelected: false,
       name: this.item.name,
-      qty: 1,
-      store: ''
+      qty: null,
+      store: null
     };
   },
   components: {
