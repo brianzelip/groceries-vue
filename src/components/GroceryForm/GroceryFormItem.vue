@@ -32,7 +32,10 @@ import GroceryFormItemStoresSelector from './GroceryFormItemStoresSelector.vue';
 export default {
   data() {
     return {
-      isSelected: false
+      isSelected: false,
+      name: this.item.name,
+      qty: 1,
+      store: ''
     };
   },
   components: {
