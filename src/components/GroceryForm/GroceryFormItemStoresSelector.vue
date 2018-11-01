@@ -8,9 +8,10 @@
     >
       <input
         type="radio"
+        v-model="storeChoice"
+        :value="store"
         :name="`${slug}-store`"
         :id="`${slug}-${store}`"
-        :value="store"
         :checked="((defaultStore && defaultStore === store) || false)"
         class="item__storesSelector-storeInput"
       >
@@ -26,6 +27,7 @@
 export default {
   data() {
     return {
+      storeChoice: this.defaultStore || null,
       storesRef: {
         tj: { name: 'TJ', order: 0 },
         moms: { name: 'Moms', order: 1 },
