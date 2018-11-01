@@ -22,7 +22,7 @@ import GroceryFormItemStoresSelector from './GroceryFormItemStoresSelector.vue';
 export default {
   data() {
     return {
-      isChecked: false
+      isChecked: true
     };
   },
   components: {
