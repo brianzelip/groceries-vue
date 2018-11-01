@@ -9,8 +9,8 @@
       <input
         type="radio"
         v-model.number="qty"
-        name="qty"
         :value="num"
+        :name="`${slug}-qty`"
         :id="`${slug}-${num}`"
         class="item__qtySelector-numInput">
       <label
