@@ -58,3 +58,21 @@ Thoughts on how to leverage vue
 - [] Vue _also_ knows about the item's `tj` and `moms` `Area`s if available.
 
 - [] When form is submitted, only the items selected, plus each selected item's qty and store metadata are available to send back to the server or to Vue for further processing.
+
+### show metadta selectors when grocery item is clicked
+
+Regarding this attempt in `GroceryFormItem.vue`:
+
+```html
+<GroceryFormItemCheckboxLabel
+  :slug="item.slug"
+  :name="item.name"
+  @click="checkBoxAction"
+></GroceryFormItemCheckboxLabel>
+```
+
+see https://vuejs.org/v2/api/#v-on
+
+you can't do what I'm trying to do here _without_ adding some custom emitting from the child component `GroceryFormItemCheckboxLabel.vue`.
+
+While I like the eventbus approach, for this case I'll plan to use a less global event communication via **custom events**.
