@@ -8,9 +8,10 @@
     >
       <input
         type="radio"
-        :name="`${slug}-qty`"
-        :id="`${slug}-${num}`"
+        v-model.number="qty"
+        name="qty"
         :value="num"
+        :id="`${slug}-${num}`"
         class="item__qtySelector-numInput">
       <label
         :for="`${slug}-${num}`"
@@ -22,7 +23,9 @@
 <script>
 export default {
   data() {
-    return {};
+    return {
+      qty: null
+    };
   },
   props: ['slug']
 };
