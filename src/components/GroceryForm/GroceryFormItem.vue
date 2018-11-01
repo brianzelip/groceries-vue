@@ -1,15 +1,25 @@
 <template>
 	<li class="item">
-		<GroceryFormItemEditLink></GroceryFormItemEditLink>
-		<GroceryFormItemCheckboxInput :slug="item.slug"></GroceryFormItemCheckboxInput>
-		<GroceryFormItemCheckboxLabel :slug="item.slug" :name="item.name" v-on:checkbox-change="isChecked = !isChecked"></GroceryFormItemCheckboxLabel>
-		<GroceryFormItemQtySelector v-if="isChecked" :slug="item.slug"></GroceryFormItemQtySelector>
-		<GroceryFormItemStoresSelector
-			v-if="isChecked"
-			:stores="item.stores"
-			:slug="item.slug"
-			:default-store="item.defaultStore"></GroceryFormItemStoresSelector>
-	</li>
+    <GroceryFormItemEditLink></GroceryFormItemEditLink>
+    <GroceryFormItemCheckboxInput
+      :slug="item.slug">
+      </GroceryFormItemCheckboxInput>
+    <GroceryFormItemCheckboxLabel
+      :slug="item.slug"
+      :name="item.name"
+      v-on:checkbox-change="isChecked = !isChecked">
+      </GroceryFormItemCheckboxLabel>
+    <GroceryFormItemQtySelector 
+      v-if="isChecked"
+      :slug="item.slug">
+      </GroceryFormItemQtySelector>
+    <GroceryFormItemStoresSelector 
+      v-if="isChecked" 
+      :stores="item.stores" 
+      :slug="item.slug" 
+      :default-store="item.defaultStore">
+      </GroceryFormItemStoresSelector>
+  </li>
 </template>
 
 <script>
