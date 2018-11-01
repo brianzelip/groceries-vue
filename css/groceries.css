@@ -428,15 +428,10 @@ a:hover {
 
 .item__storesSelector,
 .item__qtySelector {
-  display: none;
+  display: flex;
   align-items: center;
   flex-wrap: wrap;
   padding: 0 1rem;
-}
-
-.item__hidden-input:checked ~ .item__storesSelector,
-.item__hidden-input:checked ~ .item__qtySelector {
-  display: flex;
 }
 
 .item__storesSelector-storeWrapper {
