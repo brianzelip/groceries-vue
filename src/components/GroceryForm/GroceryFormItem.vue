@@ -21,8 +21,7 @@
       :default-store="item.defaultStore"
       v-on:item-store-change="updateStore">
       </GroceryFormItemStoresSelector>
-    <p style="margin-right: 1rem;">{{ test }}</p>
-    <p>{{ itemData() }}</p>
+    <p>{{ userSelectedItemData() }}</p>
   </li>
 </template>
 
@@ -36,11 +35,11 @@ import GroceryFormItemStoresSelector from './GroceryFormItemStoresSelector.vue';
 export default {
   data() {
     return {
+      _id: this.item._id,
       isSelected: false,
       name: this.item.name,
       qty: 1,
-      store: this.item.defaultStore || null,
-      test: 100
+      store: this.item.defaultStore || null
     };
   },
   methods: {
@@ -51,19 +50,19 @@ export default {
       this.store = storeFromStoresSelector;
     },
     addItemDataToTheGroceryForm() {
-      this.test = this.test + 1;
+      console.log('item +ADDED+ to Grocery Form!');
     },
     removeItemDataFromTheGroceryForm() {
-      this.test = this.test - 1;
+      console.log('item -REMOVED- from Grocery Form!');
     },
-    itemData() {
+    userSelectedItemData() {
       return {
-        origin: 'this.itemData',
+        origin: '`this.userSelectedItemData` in GroceryFormItem.vue',
+        _id: this.item._id,
         isSelected: this.isSelected,
         name: this.name,
         qty: this.qty,
-        store: this.store,
-        test: this.test
+        store: this.store
       };
     }
   },
