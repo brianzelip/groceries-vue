@@ -59,20 +59,16 @@ Thoughts on how to leverage vue
 
 - [] When form is submitted, only the items selected, plus each selected item's qty and store metadata are available to send back to the server or to Vue for further processing.
 
-### show metadta selectors when grocery item is clicked
+### where to now since qtySelector and storesSelector have been vue-ified?
 
-Regarding this attempt in `GroceryFormItem.vue`:
+Now that vue is handling the data for each `GroceryFormItem`, I have to figure out a way to get each selected grocery item data up to `TheGroceryForm`.
 
-```html
-<GroceryFormItemCheckboxLabel
-  :slug="item.slug"
-  :name="item.name"
-  @click="checkBoxAction"
-></GroceryFormItemCheckboxLabel>
-```
+The thing I'm unsuccessfully trying to figure out is:
 
-see https://vuejs.org/v2/api/#v-on
+> can you leverage the `$emit` functionality from within a component's `methods`, or can you only leverage `$emit` from inside a component's template?
 
-you can't do what I'm trying to do here _without_ adding some custom emitting from the child component `GroceryFormItemCheckboxLabel.vue`.
+ie: how do I emit from each `GroceryFormItem` that:
 
-While I like the eventbus approach, for this case I'll plan to use a less global event communication via **custom events**.
+- its `isSelected` has been set to `true`, AND
+- its remaining data props values are made available to `TheGroceryForm`, AND
+- any time any of its remaining data props change this info is made available to `TheGroceryForm`
