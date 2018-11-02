@@ -35,8 +35,8 @@ export default {
     return {
       isSelected: false,
       name: this.item.name,
-      qty: null,
-      store: null
+      qty: 1,
+      store: this.item.defaultStore || null
     };
   },
   methods: {
