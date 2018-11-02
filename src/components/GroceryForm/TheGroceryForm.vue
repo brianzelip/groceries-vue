@@ -25,6 +25,8 @@ export default {
     return {
       userSelectedItems: {
         _id: {
+          comment:
+            'this is an example of the data structure of each object in userSelectedItems',
           name: 'name',
           qty: '',
           store: '',
