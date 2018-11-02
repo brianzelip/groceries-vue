@@ -41,11 +41,11 @@ export default {
     };
   },
   methods: {
-    updateQty(qty) {
-      this.qty = qty;
+    updateQty(qtyFromQtySelector) {
+      this.qty = qtyFromQtySelector;
     },
-    updateStore(s) {
-      this.store = s;
+    updateStore(storeFromStoresSelector) {
+      this.store = storeFromStoresSelector;
     }
   },
   components: {
