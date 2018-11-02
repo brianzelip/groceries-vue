@@ -1,5 +1,5 @@
 <template>
-  <form action="/submit" method="POST">
+  <form method="POST">
     <ol class="list-reset border rounded">
 			<template v-for="item in allPossibleGroceryItems">
 				<GroceryFormItem
