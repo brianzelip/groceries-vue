@@ -22,7 +22,16 @@ import TheGroceryFormControls from './TheGroceryFormControls.vue';
 
 export default {
   data() {
-    return {};
+    return {
+      userSelectedItems: {
+        _id: {
+          name: 'name',
+          qty: '',
+          store: '',
+          storeArea: ''
+        }
+      }
+    };
   },
   components: {
     GroceryFormItem,
@@ -39,9 +48,11 @@ export default {
   methods: {
     addItemToList(dataFromGFItem) {
       console.log('data from GFItem!!!!!', dataFromGFItem);
+      this.userSelectedItems[`${dataFromGFItem._id}`] = dataFromGFItem;
     },
     removeItemFromList(idFromGFItem) {
       console.log('id from GFItem!!!!!', idFromGFItem);
+      delete this.userSelectedItems[`${idFromGFItem}`];
     }
   },
   getters: {},
