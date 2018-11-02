@@ -21,7 +21,6 @@
       :default-store="item.defaultStore"
       v-on:item-store-change="updateStore">
       </GroceryFormItemStoresSelector>
-    <p>{{ userSelectedItemData() }}</p>
   </li>
 </template>
 
@@ -74,6 +73,26 @@ export default {
           console.log(`isSelected is TRUE for ${this.name}!`))
         : (this.removeItemDataFromTheGroceryForm(),
           console.log(`isSelected is FALSE for ${this.name}!`));
+    },
+    qty() {
+      this.addItemDataToTheGroceryForm();
+      console.log(
+        `qty just updated for ${
+          this.name
+        }! So another object of item data for ${
+          this.name
+        } was sent ^^^ the line!`
+      );
+    },
+    store() {
+      this.addItemDataToTheGroceryForm();
+      console.log(
+        `store just updated for ${
+          this.name
+        }! So another object of item data for ${
+          this.name
+        } was sent ^^^ the line!`
+      );
     }
   },
   components: {
