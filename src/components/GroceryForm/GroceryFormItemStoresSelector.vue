@@ -10,6 +10,7 @@
         type="radio"
         v-model="storeChoice"
         :value="store"
+        @change="$emit('item-store-change', storeChoice)"
         :name="`${slug}-store`"
         :id="`${slug}-${store}`"
         :checked="((defaultStore && defaultStore === store) || false)"

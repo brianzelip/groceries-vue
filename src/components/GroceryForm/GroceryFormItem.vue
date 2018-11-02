@@ -18,7 +18,8 @@
       v-if="isSelected" 
       :stores="item.stores" 
       :slug="item.slug" 
-      :default-store="item.defaultStore">
+      :default-store="item.defaultStore"
+      v-on:item-store-change="updateStore">
       </GroceryFormItemStoresSelector>
   </li>
 </template>
@@ -42,6 +43,9 @@ export default {
   methods: {
     updateQty(qty) {
       this.qty = qty;
+    },
+    updateStore(s) {
+      this.store = s;
     }
   },
   components: {
