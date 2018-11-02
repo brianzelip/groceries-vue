@@ -2,7 +2,12 @@
   <form action="/submit" method="POST">
     <ol class="list-reset border rounded">
 			<template v-for="item in allPossibleGroceryItems">
-				<GroceryFormItem :item="item" v-bind:key="item._id"></GroceryFormItem>
+				<GroceryFormItem
+          :item="item"
+          v-bind:key="item._id"
+          v-on:add-item-data="addItemToList"
+          v-on:remove-item-data="removeItemFromList">
+          </GroceryFormItem>
 			</template>
     </ol>
     <TheGroceryFormControls></TheGroceryFormControls>
@@ -29,6 +34,14 @@ export default {
     },
     allPossibleGroceryItemsCount() {
       return this.$store.getters.allPossibleGroceryItemsCount;
+    }
+  },
+  methods: {
+    addItemToList(dataFromGFItem) {
+      console.log('data from GFItem!!!!!', dataFromGFItem);
+    },
+    removeItemFromList(idFromGFItem) {
+      console.log('id from GFItem!!!!!', idFromGFItem);
     }
   },
   getters: {},

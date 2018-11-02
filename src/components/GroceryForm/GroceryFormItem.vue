@@ -51,9 +51,10 @@ export default {
     },
     addItemDataToTheGroceryForm() {
       console.log('item +ADDED+ to Grocery Form!');
+      this.$emit('add-item-data', this.userSelectedItemData());
     },
     removeItemDataFromTheGroceryForm() {
-      console.log('item -REMOVED- from Grocery Form!');
+      this.$emit('remove-item-data', this.item._id);
     },
     userSelectedItemData() {
       return {
@@ -68,7 +69,6 @@ export default {
   },
   watch: {
     isSelected() {
-      let selectedCount = 0;
       this.isSelected
         ? (this.addItemDataToTheGroceryForm(),
           console.log(`isSelected is TRUE for ${this.name}!`))
