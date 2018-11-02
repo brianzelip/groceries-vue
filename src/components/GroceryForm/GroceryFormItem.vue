@@ -21,6 +21,8 @@
       :default-store="item.defaultStore"
       v-on:item-store-change="updateStore">
       </GroceryFormItemStoresSelector>
+    <p style="margin-right: 1rem;">{{ test }}</p>
+    <p>{{ itemData() }}</p>
   </li>
 </template>
 
@@ -37,7 +39,8 @@ export default {
       isSelected: false,
       name: this.item.name,
       qty: 1,
-      store: this.item.defaultStore || null
+      store: this.item.defaultStore || null,
+      test: 100
     };
   },
   methods: {
@@ -46,6 +49,32 @@ export default {
     },
     updateStore(storeFromStoresSelector) {
       this.store = storeFromStoresSelector;
+    },
+    addItemDataToTheGroceryForm() {
+      this.test = this.test + 1;
+    },
+    removeItemDataFromTheGroceryForm() {
+      this.test = this.test - 1;
+    },
+    itemData() {
+      return {
+        origin: 'this.itemData',
+        isSelected: this.isSelected,
+        name: this.name,
+        qty: this.qty,
+        store: this.store,
+        test: this.test
+      };
+    }
+  },
+  watch: {
+    isSelected() {
+      let selectedCount = 0;
+      this.isSelected
+        ? (this.addItemDataToTheGroceryForm(),
+          console.log(`isSelected is TRUE for ${this.name}!`))
+        : (this.removeItemDataFromTheGroceryForm(),
+          console.log(`isSelected is FALSE for ${this.name}!`));
     }
   },
   components: {
