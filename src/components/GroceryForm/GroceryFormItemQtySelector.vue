@@ -25,7 +25,7 @@
 export default {
   data() {
     return {
-      qty: null
+      qty: 1
     };
   },
   props: ['slug']
