@@ -74,3 +74,7 @@ ie: how do I emit from each `GroceryFormItem` that:
 - any time any of its remaining data props change this info is made available to `TheGroceryForm`
 
 -[] add `textarea` for any additional grocery notes, ie, i needed to buy a dishrack today, but thats so seldom that it doesnt need to be on the real list, but an additional notes section wiuld be great to have for these cases.
+
+-[] associate added ad hoc textarea note with a given store, which would make the note item appear in the output store section with all the other same store stuff.
+
+
