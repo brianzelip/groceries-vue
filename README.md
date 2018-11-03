@@ -72,3 +72,5 @@ ie: how do I emit from each `GroceryFormItem` that:
 - its `isSelected` has been set to `true`, AND
 - its remaining data props values are made available to `TheGroceryForm`, AND
 - any time any of its remaining data props change this info is made available to `TheGroceryForm`
+
+-[] add `textarea` for any additional grocery notes, ie, i needed to buy a dishrack today, but thats so seldom that it doesnt need to be on the real list, but an additional notes section wiuld be great to have for these cases.
