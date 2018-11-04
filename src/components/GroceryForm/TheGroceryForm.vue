@@ -8,7 +8,7 @@
           </GroceryFormItem>
 			</template>
     </ol>
-    <TheGroceryFormControls v-on:form-submitted="processFormInput"></TheGroceryFormControls>
+    <TheGroceryFormControls v-on:form-submitted="processForm"></TheGroceryFormControls>
   </form>
 </template>
 
@@ -32,7 +32,7 @@ export default {
     }
   },
   methods: {
-    processFormInput() {}
+    processForm() {}
   },
   getters: {},
   created() {
