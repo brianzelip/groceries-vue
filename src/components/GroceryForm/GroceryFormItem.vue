@@ -71,7 +71,10 @@ export default {
       this.isSelected
         ? (this.addItemDataToTheGroceryForm(),
           (this.$store.state.userSelectedItems[this.item._id] = {
-            _id: this.item._id
+            _id: this.item._id,
+            name: this.name,
+            qty: this.qty,
+            store: this.store
           }),
           console.log(`isSelected is TRUE for ${this.name}!`))
         : (this.removeItemDataFromTheGroceryForm(),
@@ -79,6 +82,7 @@ export default {
           console.log(`isSelected is FALSE for ${this.name}!`));
     },
     qty() {
+      this.$store.state.userSelectedItems[this.item._id].qty = this.qty;
       this.addItemDataToTheGroceryForm();
       console.log(
         `qty just updated for ${
