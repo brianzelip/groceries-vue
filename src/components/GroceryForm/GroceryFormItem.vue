@@ -47,61 +47,24 @@ export default {
     },
     updateStore(storeFromStoresSelector) {
       this.store = storeFromStoresSelector;
-    },
-    addItemDataToTheGroceryForm() {
-      console.log('item +ADDED+ to Grocery Form!');
-      this.$emit('add-item-data', this.userSelectedItemData());
-    },
-    removeItemDataFromTheGroceryForm() {
-      this.$emit('remove-item-data', this.item._id);
-    },
-    userSelectedItemData() {
-      return {
-        origin: '`this.userSelectedItemData` in GroceryFormItem.vue',
-        _id: this.item._id,
-        isSelected: this.isSelected,
-        name: this.name,
-        qty: this.qty,
-        store: this.store
-      };
     }
   },
   watch: {
     isSelected() {
       this.isSelected
-        ? (this.addItemDataToTheGroceryForm(),
-          (this.$store.state.userSelectedItems[this.item._id] = {
+        ? (this.$store.state.userSelectedItems[this.item._id] = {
             _id: this.item._id,
             name: this.name,
             qty: this.qty,
             store: this.store
-          }),
-          console.log(`isSelected is TRUE for ${this.name}!`))
-        : (this.removeItemDataFromTheGroceryForm(),
-          delete this.$store.state.userSelectedItems[this.item._id],
-          console.log(`isSelected is FALSE for ${this.name}!`));
+          })
+        : delete this.$store.state.userSelectedItems[this.item._id];
     },
     qty() {
       this.$store.state.userSelectedItems[this.item._id].qty = this.qty;
-      this.addItemDataToTheGroceryForm();
-      console.log(
-        `qty just updated for ${
-          this.name
-        }! So another object of item data for ${
-          this.name
-        } was sent ^^^ the line!`
-      );
     },
     store() {
       this.$store.state.userSelectedItems[this.item._id].store = this.store;
-      this.addItemDataToTheGroceryForm();
-      console.log(
-        `store just updated for ${
-          this.name
-        }! So another object of item data for ${
-          this.name
-        } was sent ^^^ the line!`
-      );
     }
   },
   components: {
