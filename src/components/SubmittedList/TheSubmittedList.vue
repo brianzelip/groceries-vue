@@ -1,5 +1,8 @@
 <template>
-  <h1>The Submitted List</h1>
+  <div>
+    <h1>The Submitted List</h1>
+    <pre>{{ userSelectedItems }}</pre>
+  </div>
 </template>
 
 <script>

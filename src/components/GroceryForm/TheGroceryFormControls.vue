@@ -1,7 +1,12 @@
 <template>
   <div class="flex flex-column sm-flex-row justify-between flex-wrap">
     <div class="flex flex-center order-2 sm-order-1">
-      <input @click.prevent="submitUserSelectedItems" type="submit" value="submit" class="btn btn-primary bg-blue fw400">
+        <!-- @click.prevent="$emit('form-submitted')" -->
+      <input
+        type="submit"
+        value="submit"
+        @click.prevent="onSubmit"
+        class="btn btn-primary bg-blue fw400">
       <TheGroceryFormEmailSelector></TheGroceryFormEmailSelector>
     </div>
     <GroceryFormAddItemBtn></GroceryFormAddItemBtn>
@@ -18,8 +23,8 @@ export default {
     GroceryFormAddItemBtn
   },
   methods: {
-    submitUserSelectedItems() {
-      console.log('userSelectedItems submitted!!! 🎉🎉🎉');
+    onSubmit() {
+      this.$router.push('/submit');
     }
   }
 };
