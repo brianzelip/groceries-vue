@@ -1,9 +1,9 @@
 import VueRouter from 'vue-router';
 import store from './store.js';
 
-import TheGroceryForm from './src/components/GroceryForm/TheGroceryForm.vue';
-import TheItemFormContainer from './src/components/ItemForm/TheItemFormContainer.vue';
-import TheSubmittedList from './src/components/SubmittedList/TheSubmittedList.vue';
+import TheGroceryForm from './components/GroceryForm/TheGroceryForm.vue';
+import TheItemFormContainer from './components/ItemForm/TheItemFormContainer.vue';
+import TheSubmittedList from './components/SubmittedList/TheSubmittedList.vue';
 
 const routes = [
   {
