@@ -4,13 +4,11 @@
 			<template v-for="item in allPossibleGroceryItems">
 				<GroceryFormItem
           :item="item"
-          v-bind:key="item._id"
-          v-on:add-item-data="addItemToList"
-          v-on:remove-item-data="removeItemFromList">
+          v-bind:key="item._id">
           </GroceryFormItem>
 			</template>
     </ol>
-    <TheGroceryFormControls></TheGroceryFormControls>
+    <TheGroceryFormControls v-on:form-submitted="processFormInput"></TheGroceryFormControls>
   </form>
 </template>
 
@@ -22,18 +20,7 @@ import TheGroceryFormControls from './TheGroceryFormControls.vue';
 
 export default {
   data() {
-    return {
-      userSelectedItems: {
-        _id: {
-          comment:
-            'this is an example of the data structure of each object in userSelectedItems',
-          name: 'name',
-          qty: '',
-          store: '',
-          storeArea: ''
-        }
-      }
-    };
+    return {};
   },
   components: {
     GroceryFormItem,
@@ -42,20 +29,10 @@ export default {
   computed: {
     allPossibleGroceryItems() {
       return this.$store.state.allPossibleGroceryItems;
-    },
-    allPossibleGroceryItemsCount() {
-      return this.$store.getters.allPossibleGroceryItemsCount;
     }
   },
   methods: {
-    addItemToList(dataFromGFItem) {
-      console.log('data from GFItem!!!!!', dataFromGFItem);
-      this.userSelectedItems[`${dataFromGFItem._id}`] = dataFromGFItem;
-    },
-    removeItemFromList(idFromGFItem) {
-      console.log('id from GFItem!!!!!', idFromGFItem);
-      delete this.userSelectedItems[`${idFromGFItem}`];
-    }
+    processFormInput() {}
   },
   getters: {},
   created() {
