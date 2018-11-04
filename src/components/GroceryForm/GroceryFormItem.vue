@@ -93,6 +93,7 @@ export default {
       );
     },
     store() {
+      this.$store.state.userSelectedItems[this.item._id].store = this.store;
       this.addItemDataToTheGroceryForm();
       console.log(
         `store just updated for ${
