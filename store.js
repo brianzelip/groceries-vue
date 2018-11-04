@@ -11,6 +11,9 @@ const store = new Vuex.Store({
   getters: {
     allPossibleGroceryItemsCount: state => {
       return state.allPossibleGroceryItems.length;
+    },
+    userSelectedItemsCount: state => {
+      return Object.keys(state.userSelectedItems).length;
     }
   },
   mutations: {}
