@@ -16,7 +16,10 @@ const store = new Vuex.Store({
       return Object.keys(state.userSelectedItems).length;
     }
   },
-  mutations: {}
+  mutations: {
+    addItemToUserSelectedItems: state => {},
+    removeItemFromUserSelectedItems: state => {}
+  }
 });
 
 export default store;
