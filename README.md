@@ -67,6 +67,8 @@ The thing I'm unsuccessfully trying to figure out is:
 
 > can you leverage the `$emit` functionality from within a component's `methods`, or can you only leverage `$emit` from inside a component's template?
 
+UPDATE: The answer to the above question is YES - see similar call to `$store` in `GroceryFormItem.vue`.
+
 ie: how do I emit from each `GroceryFormItem` that:
 
 - its `isSelected` has been set to `true`, AND
