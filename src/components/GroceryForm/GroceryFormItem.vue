@@ -38,7 +38,9 @@ export default {
       isSelected: false,
       name: this.item.name,
       qty: 1,
-      store: this.item.defaultStore || null
+      store: this.item.defaultStore || null,
+      tjArea: this.item.tjArea,
+      momsArea: this.item.momsArea
     };
   },
   methods: {
@@ -52,12 +54,16 @@ export default {
   watch: {
     isSelected() {
       this.isSelected
-        ? (this.$store.state.userSelectedItems[this.item._id] = {
+        ? ((this.$store.state.userSelectedItems[this.item._id] = {
             _id: this.item._id,
             name: this.name,
             qty: this.qty,
-            store: this.store
-          })
+            store: this.store,
+            tjArea: this.tjArea,
+            momsArea: this.momsArea
+          }),
+          (this.$store.state.userSelectedItems[this.item._id][`a-${2 + 2}`] =
+            'hello'))
         : delete this.$store.state.userSelectedItems[this.item._id];
     },
     qty() {
