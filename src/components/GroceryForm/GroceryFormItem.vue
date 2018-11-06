@@ -68,13 +68,14 @@ export default {
   watch: {
     isSelected() {
       this.isSelected
-        ? ((this.$store.state.userSelectedItems[this.item._id] = {
+        ? this.$store.commit('addItemToUserSelectedItems', {
             _id: this.item._id,
             name: this.name,
             qty: this.qty,
-            store: this.store
-          }),
-          this.storeArea())
+            store: this.store,
+            tjArea: this.tjArea,
+            momsArea: this.momsArea
+          })
         : delete this.$store.state.userSelectedItems[this.item._id];
     },
     qty() {
