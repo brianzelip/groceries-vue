@@ -7,15 +7,19 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+
 export default {
   data() {
     return {};
   },
-  props: ['userSelectedItems'],
   methods: {
     resetUSI() {
       this.$store.commit('resetUserSelectedItems');
     }
+  },
+  computed: {
+    ...mapGetters(['userSelectedItems'])
   }
 };
 </script>

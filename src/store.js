@@ -9,8 +9,14 @@ const store = new Vuex.Store({
     userSelectedItems: {}
   },
   getters: {
+    allPossibleGroceryItems: state => {
+      return state.allPossibleGroceryItems;
+    },
     allPossibleGroceryItemsCount: state => {
       return state.allPossibleGroceryItems.length;
+    },
+    userSelectedItems: state => {
+      return state.userSelectedItems;
     },
     userSelectedItemsCount: state => {
       return Object.keys(state.userSelectedItems).length;

@@ -26,8 +26,7 @@ const routes = [
   {
     path: '/submit',
     name: 'submit',
-    component: TheSubmittedList,
-    props: { userSelectedItems: store.state.userSelectedItems }
+    component: TheSubmittedList
   }
 ];
 
