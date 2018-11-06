@@ -59,7 +59,7 @@ Thoughts on how to leverage vue
 
 - [] When form is submitted, only the items selected, plus each selected item's qty and store metadata are available to send back to the server or to Vue for further processing.
 
-### where to now since qtySelector and storesSelector have been vue-ified?
+### where to now since qtySelector and storesSelector have been vue-ified
 
 Now that vue is handling the data for each `GroceryFormItem`, I have to figure out a way to get each selected grocery item data up to `TheGroceryForm`.
 
@@ -75,8 +75,24 @@ ie: how do I emit from each `GroceryFormItem` that:
 - its remaining data props values are made available to `TheGroceryForm`, AND
 - any time any of its remaining data props change this info is made available to `TheGroceryForm`
 
--[] add `textarea` for any additional grocery notes, ie, i needed to buy a dishrack today, but thats so seldom that it doesnt need to be on the real list, but an additional notes section wiuld be great to have for these cases.
+- [] add `textarea` for any additional grocery notes, ie, i needed to buy a dishrack today, but thats so seldom that it doesnt need to be on the real list, but an additional notes section wiuld be great to have for these cases.
 
--[] associate added ad hoc textarea note with a given store, which would make the note item appear in the output store section with all the other same store stuff.
+- [] associate added ad hoc textarea note with a given store, which would make the note item appear in the output store section with all the other same store stuff.
 
-TODO: reset `userSelectedItems` when header is clicked
+- [x] TODO: reset `userSelectedItems` when header is clicked
+
+---
+
+2018-11-06
+where now?
+
+recent achivements:
+
+- vue form handling is going well
+- use of `$router` and `$store` going well
+- am understanding the concepts and use protocols well
+
+TODO:
+
+- [] refactor all raw state mutations in favor of`$store`, so maybe one or more mutations are left, and at least one action (the initial axios call)
+- [] update data api with email handler (see `itemController.processFormData` and `itemController.outputGroceryList` in the original groceries app api)
