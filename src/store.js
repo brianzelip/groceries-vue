@@ -46,7 +46,7 @@ const store = new Vuex.Store({
     removeItemInUserSelectedItems: (state, _id) => {
       delete state.userSelectedItems[_id];
     },
-    updateItemInUserSelectedItems: stste => {},
+    updateItemInUserSelectedItems: (state, obj) => {},
     resetUserSelectedItems: state => {
       state.userSelectedItems = {};
     }
