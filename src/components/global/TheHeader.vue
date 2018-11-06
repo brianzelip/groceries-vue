@@ -24,11 +24,10 @@ export default {
   },
   methods: {
     resetUserSelectedItems() {
-      // if (this.$route.name === 'home') {
-      //   return;
-      // }
-      this.$store.commit('resetUserSelectedItems');
-      this.$router.push('/');
+      this.$route.name === 'home'
+        ? null
+        : (this.$store.commit('resetUserSelectedItems'),
+          this.$router.push('/'));
     }
   }
 };
