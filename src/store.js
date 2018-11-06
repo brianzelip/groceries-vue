@@ -18,7 +18,9 @@ const store = new Vuex.Store({
   },
   mutations: {
     addItemToUserSelectedItems: state => {},
-    removeItemFromUserSelectedItems: state => {}
+    removeItemFromUserSelectedItems: state => {},
+    updateItemFromUserSelectedItems: stste => {},
+    resetUserSelectedItems: state => {}
   }
 });
 
