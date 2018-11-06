@@ -43,7 +43,9 @@ const store = new Vuex.Store({
         return `${obj[`${obj.store}Area`]}`;
       }
     },
-    removeItemInUserSelectedItems: state => {},
+    removeItemInUserSelectedItems: (state, _id) => {
+      delete state.userSelectedItems[_id];
+    },
     updateItemInUserSelectedItems: stste => {},
     resetUserSelectedItems: state => {
       state.userSelectedItems = {};

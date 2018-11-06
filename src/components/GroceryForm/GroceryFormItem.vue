@@ -76,7 +76,7 @@ export default {
             tjArea: this.tjArea,
             momsArea: this.momsArea
           })
-        : delete this.$store.state.userSelectedItems[this.item._id];
+        : this.$store.commit('removeItemInUserSelectedItems', this.item._id);
     },
     qty() {
       this.$store.state.userSelectedItems[this.item._id].qty = this.qty;
