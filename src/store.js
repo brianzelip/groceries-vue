@@ -20,7 +20,9 @@ const store = new Vuex.Store({
     addItemToUserSelectedItems: state => {},
     removeItemFromUserSelectedItems: state => {},
     updateItemFromUserSelectedItems: stste => {},
-    resetUserSelectedItems: state => {}
+    resetUserSelectedItems: state => {
+      state.userSelectedItems = {};
+    }
   }
 });
 
