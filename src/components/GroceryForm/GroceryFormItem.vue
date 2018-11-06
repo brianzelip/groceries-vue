@@ -55,6 +55,14 @@ export default {
     },
     getStoreArea() {
       return `${this[`${this.store}Area`]}`;
+    },
+    storeArea() {
+      this.hasStoreArea()
+        ? (this.$store.state.userSelectedItems[this.item._id][
+            `${this.store}Area`
+          ] = this.getStoreArea())
+        : null;
+      return;
     }
   },
   watch: {
@@ -66,11 +74,7 @@ export default {
             qty: this.qty,
             store: this.store
           }),
-          this.hasStoreArea()
-            ? (this.$store.state.userSelectedItems[this.item._id][
-                `${this.store}Area`
-              ] = this.getStoreArea())
-            : null)
+          this.storeArea())
         : delete this.$store.state.userSelectedItems[this.item._id];
     },
     qty() {
@@ -78,6 +82,7 @@ export default {
     },
     store() {
       this.$store.state.userSelectedItems[this.item._id].store = this.store;
+      this.storeArea();
     }
   },
   components: {
