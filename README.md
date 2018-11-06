@@ -79,4 +79,4 @@ ie: how do I emit from each `GroceryFormItem` that:
 
 -[] associate added ad hoc textarea note with a given store, which would make the note item appear in the output store section with all the other same store stuff.
 
-
+TODO: reset `userSelectedItems` when header is clicked
