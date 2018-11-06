@@ -49,6 +49,12 @@ export default {
     },
     updateStore(storeFromStoresSelector) {
       this.store = storeFromStoresSelector;
+    },
+    hasStoreArea() {
+      return this[`${this.store}Area`];
+    },
+    getStoreArea() {
+      return `${this[`${this.store}Area`]}`;
     }
   },
   watch: {
@@ -58,12 +64,13 @@ export default {
             _id: this.item._id,
             name: this.name,
             qty: this.qty,
-            store: this.store,
-            tjArea: this.tjArea,
-            momsArea: this.momsArea
+            store: this.store
           }),
-          (this.$store.state.userSelectedItems[this.item._id][`a-${2 + 2}`] =
-            'hello'))
+          this.hasStoreArea()
+            ? (this.$store.state.userSelectedItems[this.item._id][
+                `${this.store}Area`
+              ] = this.getStoreArea())
+            : null)
         : delete this.$store.state.userSelectedItems[this.item._id];
     },
     qty() {
