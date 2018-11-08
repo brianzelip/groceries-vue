@@ -4,6 +4,8 @@
     <h3 class="fw400">here's what the email sent to XXX looks like:</h3>
     <hr>
     <pre>{{ userSelectedItems }}</pre>
+    <hr>
+    <pre>{{ userSelectedStores }}</pre>
     <button class="btn btn-primary" @click="resetUSI">reset userSelectedItems</button>
   </div>
 </template>
@@ -21,7 +23,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['userSelectedItems'])
+    ...mapGetters(['userSelectedItems', 'userSelectedStores'])
   }
 };
 </script>

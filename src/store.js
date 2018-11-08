@@ -20,6 +20,21 @@ const store = new Vuex.Store({
     },
     userSelectedItemsCount: state => {
       return Object.keys(state.userSelectedItems).length;
+    },
+    userSelectedStores: state => {
+      const usi = state.userSelectedItems;
+      const stores = [];
+
+      const itemsIds = Object.keys(usi);
+
+      itemsIds.map(item =>
+        stores.findIndex(usi[item].store) === -1
+          ? stores.push(usi[item].store)
+          : null
+      );
+      console.log('stores is', stores, 'usi is', usi);
+
+      return stores;
     }
   },
   mutations: {
