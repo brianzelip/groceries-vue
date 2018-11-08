@@ -1,6 +1,8 @@
 <template>
   <div>
-    <h1>The Submitted List</h1>
+    <h2 class="fw400">it worked 🎉</h2>
+    <h3 class="fw400">here's what the email sent to XXX looks like:</h3>
+    <hr>
     <pre>{{ userSelectedItems }}</pre>
     <button class="btn btn-primary" @click="resetUSI">reset userSelectedItems</button>
   </div>
