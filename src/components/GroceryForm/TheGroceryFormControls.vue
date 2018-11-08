@@ -27,7 +27,7 @@ export default {
   methods: {
     onSubmit() {
       axios
-        .post('http://localhost:2600/submit', { msg: 'hello' })
+        .post('https://groceries-vue-api.glitch.me/submit', { msg: 'hello' })
         .then(console.log('axios.post just worked!'))
         .then(this.$router.push('/submit'))
         .catch(error => {
