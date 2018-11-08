@@ -14,6 +14,8 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 import TheGroceryFormEmailSelector from './TheGroceryFormEmailSelector.vue';
 import GroceryFormAddItemBtn from '../global/AddItemBtn.vue';
 
@@ -24,7 +26,16 @@ export default {
   },
   methods: {
     onSubmit() {
-      this.$router.push('/submit');
+      axios
+        .post(
+          'https://groceries-vue-api.glitch.me/submit',
+          this.$store.getters.userSelectedItems
+        )
+        .then(console.log('axios POST just worked!'))
+        .then(this.$router.push('/submit'))
+        .catch(error => {
+          console.log('ERROR! ->', error);
+        });
     }
   }
 };
