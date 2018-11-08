@@ -6,7 +6,9 @@
         span.purp  | 
         a(href="https://github.com/brianzelip/groceries-vue") app source
         span.purp  | 
-        a(href="https://glitch.com/~groceries-vue-api") api source
+        a(href="https://glitch.com/~groceries-vue-api") api
+        span.purp  | 
+        a(href="https://github.com/brianzelip/groceries-vue-api") api source
 </template>
 
 <script>
