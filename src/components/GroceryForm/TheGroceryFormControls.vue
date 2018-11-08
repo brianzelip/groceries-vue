@@ -27,7 +27,10 @@ export default {
   methods: {
     onSubmit() {
       axios
-        .post('https://groceries-vue-api.glitch.me/submit', { msg: 'hello' })
+        .post(
+          'https://groceries-vue-api.glitch.me/submit',
+          this.$store.getters.userSelectedItems
+        )
         .then(console.log('axios.post just worked!'))
         .then(this.$router.push('/submit'))
         .catch(error => {
