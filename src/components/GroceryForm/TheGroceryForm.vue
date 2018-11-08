@@ -8,7 +8,7 @@
           </GroceryFormItem>
 			</template>
     </ol>
-    <TheGroceryFormControls v-on:form-submitted="onSubmit"></TheGroceryFormControls>
+    <TheGroceryFormControls v-on:form-submitted="processForm"></TheGroceryFormControls>
   </form>
 </template>
 
@@ -32,15 +32,17 @@ export default {
     }
   },
   methods: {
-    processForm() {},
-    onSubmit() {
+    processForm() {
+      console.log('now `processForm()` is in control!');
+      this.$router.push('/submit');
+    },
+    postDataForEmail() {
       axios
         .post(
           'https://groceries-vue-api.glitch.me/submit',
           this.$store.getters.userSelectedItems
         )
         .then(console.log('axios.post just worked!'))
-        .then(this.$router.push('/submit'))
         .catch(error => {
           console.log('ERROR! ->', error);
         });
