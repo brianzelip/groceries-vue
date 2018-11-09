@@ -21,7 +21,7 @@ const store = new Vuex.Store({
     userSelectedItemsCount: state => {
       return Object.keys(state.userSelectedItems).length;
     },
-    userSelectedStores: state => {
+    userSelectedStores: (state, getters) => {
       const USI = state.userSelectedItems;
       const allStores = [];
 
@@ -29,11 +29,15 @@ const store = new Vuex.Store({
         allStores.push(USI[item].store);
       });
 
-      const uniqueStores = allStores.reduce((acc, store) => {
-        return acc.indexOf(store) === -1 ? (acc.push(store), acc) : acc;
-      }, []);
+      const uniqueSortedStores = allStores
+        .reduce((acc, store) => {
+          return acc.indexOf(store) === -1 ? (acc.push(store), acc) : acc;
+        }, [])
+        .sort(
+          (a, b) => getters.storesRef[a].order - getters.storesRef[b].order
+        );
 
-      return uniqueStores;
+      return uniqueSortedStores;
     },
     storesRef() {
       return {
