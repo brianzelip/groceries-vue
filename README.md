@@ -96,3 +96,9 @@ TODO:
 
 - [] refactor all raw state mutations in favor of`$store`, so maybe one or more mutations are left, and at least one action (the initial axios call)
 - [] update data api with email handler (see `itemController.processFormData` and `itemController.outputGroceryList` in the original groceries app api)
+
+---
+
+### mvc vs vue
+
+With Vue, i'm getting leaner cleaner data earlier. Sor for example, in the mvc groceries app, `req.body.groceryListData` takes a bit of code to create (see `itemController.processFormData`). Whereas in vue, `this.$store.getters.userSelectedItems` is the comporable data object, and it is always current / updated on user input.
