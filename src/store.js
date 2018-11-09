@@ -22,19 +22,18 @@ const store = new Vuex.Store({
       return Object.keys(state.userSelectedItems).length;
     },
     userSelectedStores: state => {
-      const usi = state.userSelectedItems;
-      const stores = [];
+      const USI = state.userSelectedItems;
+      const allStores = [];
 
-      const itemsIds = Object.keys(usi);
+      Object.keys(USI).forEach(item => {
+        allStores.push(USI[item].store);
+      });
 
-      itemsIds.map(item =>
-        stores.findIndex(usi[item].store) === -1
-          ? stores.push(usi[item].store)
-          : null
-      );
-      console.log('stores is', stores, 'usi is', usi);
+      const uniqueStores = allStores.reduce((acc, store) => {
+        return acc.indexOf(store) === -1 ? (acc.push(store), acc) : acc;
+      }, []);
 
-      return stores;
+      return uniqueStores;
     }
   },
   mutations: {
