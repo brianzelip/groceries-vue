@@ -39,6 +39,33 @@ const store = new Vuex.Store({
 
       return uniqueSortedStores;
     },
+    userSelectedItemsByStore: (state, getters) => {
+      const USI = getters.userSelectedItems;
+      const stores = getters.userSelectedStores;
+
+      const exampleOutput = {
+        tj: [
+          { name: '', qty: '', storeArea: 1 },
+          { name: '', qty: '', storeArea: 1 },
+          { name: '', qty: '', storeArea: 1 }
+        ],
+        moms: [
+          { name: '', qty: '', storeArea: 1 },
+          { name: '', qty: '', storeArea: 1 },
+          { name: '', qty: '', storeArea: 1 }
+        ],
+        farmersMarket: [
+          { name: '', qty: '' },
+          { name: '', qty: '' },
+          { name: '', qty: '' }
+        ],
+        noStore: [
+          { name: '', qty: '' },
+          { name: '', qty: '' },
+          { name: '', qty: '' }
+        ]
+      };
+    },
     storesRef() {
       return {
         tj: { name: 'TJ', order: 0 },
