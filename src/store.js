@@ -45,6 +45,14 @@ const store = new Vuex.Store({
       const USI = getters.userSelectedItems;
       const stores = getters.userSelectedStores;
 
+      const userSelectedItemsByStore = {};
+
+      stores.forEach(store => (userSelectedItemsByStore[store] = []));
+
+      Object.keys(USI).forEach(item => {
+        userSelectedItemsByStore[USI[item].store].push(USI[item]);
+      });
+
       //TODO: create a function that returns exampleOutput as below
       // 1. create a prop for each userSelectedStores, whose value is an array of objects
       // 2. for each item, push its item data to the appropriate store array from step 1.
@@ -71,6 +79,7 @@ const store = new Vuex.Store({
           { name: '', qty: '' }
         ]
       };
+      return userSelectedItemsByStore;
     },
     storesRef() {
       return {
