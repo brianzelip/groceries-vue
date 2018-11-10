@@ -102,3 +102,26 @@ TODO:
 ### mvc vs vue
 
 With Vue, i'm getting leaner cleaner data earlier. Sor for example, in the mvc groceries app, `req.body.groceryListData` takes a bit of code to create (see `itemController.processFormData`). Whereas in vue, `this.$store.getters.userSelectedItems` is the comporable data object, and it is always current / updated on user input.
+
+---
+
+### about the app's output data
+
+the user selects:
+
+- which item(s) they want
+- how many of the item (optional)
+- where from the item (optional)
+
+the output process:
+
+- figures out the order of stores to go to for the shopping trip
+  - get `uniqueSortedStores`
+- figures out the order of items to get per store
+  - get all items from a store
+    - get all items from a store with a storeArea
+    - get all items from a store without a storeArea
+- sorts all the items that don't have a store
+  - alphabetically?
+- lists the qty to get per item
+  - provided via item data
