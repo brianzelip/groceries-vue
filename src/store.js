@@ -26,7 +26,9 @@ const store = new Vuex.Store({
       const allStores = [];
 
       Object.keys(USI).forEach(item => {
-        allStores.push(USI[item].store);
+        USI[item].store != null
+          ? allStores.push(USI[item].store)
+          : allStores.push('noStore');
       });
 
       const uniqueSortedStores = allStores
@@ -75,7 +77,8 @@ const store = new Vuex.Store({
         farmersMarket: { name: 'Farmers Market', order: 4 },
         target: { name: 'Target', order: 5 },
         tjMaxx: { name: 'TJ Maxx', order: 6 },
-        riteAid: { name: 'Rite Aid', order: 7 }
+        riteAid: { name: 'Rite Aid', order: 7 },
+        noStore: { name: null, order: 99 }
       };
     }
   },
