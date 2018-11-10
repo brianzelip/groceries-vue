@@ -115,9 +115,9 @@ the user selects:
 
 the output process:
 
-- figures out the order of stores to go to for the shopping trip
+- [x] figures out the order of stores to go to for the shopping trip
   - get `uniqueSortedStores`
-- figures out the order of items to get per store
+- [] figures out the order of items to get per store
   - get all items from a store
     - get all items from a store with a storeArea
     - get all items from a store without a storeArea
