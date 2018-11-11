@@ -50,7 +50,9 @@ const store = new Vuex.Store({
       stores.forEach(store => (userSelectedItemsByStore[store] = []));
 
       Object.keys(USI).forEach(item => {
-        userSelectedItemsByStore[USI[item].store].push(USI[item]);
+        USI[item].store
+          ? userSelectedItemsByStore[USI[item].store].push(USI[item])
+          : userSelectedItemsByStore.noStore.push(USI[item]);
       });
 
       //TODO: create a function that returns exampleOutput as below
