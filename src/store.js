@@ -75,36 +75,36 @@ const store = new Vuex.Store({
     }
   },
   mutations: {
-    addItemToUserSelectedItems: (state, obj) => {
-      state.userSelectedItems[obj._id] = {
-        _id: obj._id,
-        name: obj.name,
-        qty: obj.qty,
-        store: obj.store
+    addItemToUserSelectedItems: (state, payload) => {
+      state.userSelectedItems[payload._id] = {
+        _id: payload._id,
+        name: payload.name,
+        qty: payload.qty,
+        store: payload.store
       };
 
       storeArea();
 
       function storeArea() {
         hasStoreArea()
-          ? (state.userSelectedItems[obj._id][
-              `${obj.store}Area`
+          ? (state.userSelectedItems[payload._id][
+              `${payload.store}Area`
             ] = getStoreArea())
           : null;
       }
 
       function hasStoreArea() {
-        return obj[`${obj.store}Area`];
+        return payload[`${payload.store}Area`];
       }
 
       function getStoreArea() {
-        return `${obj[`${obj.store}Area`]}`;
+        return `${payload[`${payload.store}Area`]}`;
       }
     },
     removeItemInUserSelectedItems: (state, _id) => {
       delete state.userSelectedItems[_id];
     },
-    updateItemInUserSelectedItems: (state, obj) => {},
+    updateItemInUserSelectedItems: (state, payload) => {},
     resetUserSelectedItems: state => {
       state.userSelectedItems = {};
     }
