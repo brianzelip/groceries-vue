@@ -7,6 +7,8 @@
     <hr>
     <pre>{{ userSelectedStores }}</pre>
     <button class="btn btn-primary" @click="resetUSI">reset userSelectedItems</button>
+    <hr>
+    <pre>{{ userSelectedItemsByStore }}</pre>
   </div>
 </template>
 
@@ -23,7 +25,11 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['userSelectedItems', 'userSelectedStores'])
+    ...mapGetters([
+      'userSelectedItems',
+      'userSelectedStores',
+      'userSelectedItemsByStore'
+    ])
   }
 };
 </script>
