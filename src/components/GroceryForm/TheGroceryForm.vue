@@ -4,7 +4,7 @@
 			<template v-for="item in allPossibleGroceryItems">
 				<GroceryFormItem
           :item="item"
-          v-bind:key="item._id">
+          :key="item._id">
           </GroceryFormItem>
 			</template>
     </ol>
