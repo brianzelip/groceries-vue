@@ -14,7 +14,7 @@
 
 <script>
 import axios from 'axios';
-import { mapGetters } from 'vuex';
+import { mapGetters, mapActions } from 'vuex';
 
 import GroceryFormItem from './GroceryFormItem.vue';
 import TheGroceryFormControls from './TheGroceryFormControls.vue';
@@ -31,6 +31,7 @@ export default {
     ...mapGetters(['allPossibleGroceryItems'])
   },
   methods: {
+    ...mapActions(['setAllPossibleGroceryItems']),
     processForm() {
       console.log('now `processForm()` is in control!');
       this.$router.push('/submit');
@@ -47,17 +48,8 @@ export default {
         });
     }
   },
-  getters: {},
   created() {
-    axios
-      .get('https://groceries-vue-api.glitch.me/get')
-      .then(res => {
-        console.log('axios.get worked! res.data =', res.data);
-        this.$store.state.allPossibleGroceryItems = res.data;
-      })
-      .catch(error => {
-        console.log('ERROR! ->', error);
-      });
+    this.setAllPossibleGroceryItems();
   }
 };
 </script>

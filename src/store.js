@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import axios from 'axios';
 
 Vue.use(Vuex);
 
@@ -74,7 +75,23 @@ const store = new Vuex.Store({
       };
     }
   },
+  actions: {
+    setAllPossibleGroceryItems: context => {
+      axios
+        .get('https://groceries-vue-api.glitch.me/get')
+        .then(res => {
+          console.log('axios.get worked! res.data =', res.data);
+          context.commit('setAllPossibleGroceryItems', res.data);
+        })
+        .catch(error => {
+          console.log('ERROR! ->', error);
+        });
+    }
+  },
   mutations: {
+    setAllPossibleGroceryItems: (state, payload) => {
+      state.allPossibleGroceryItems = payload;
+    },
     addItemToUserSelectedItems: (state, payload) => {
       state.userSelectedItems[payload._id] = {
         _id: payload._id,
