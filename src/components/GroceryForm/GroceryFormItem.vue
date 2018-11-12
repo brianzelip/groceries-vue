@@ -66,7 +66,10 @@ export default {
         : null;
       return;
     },
-    ...mapActions(['addItemToUserSelectedItems'])
+    ...mapActions([
+      'addItemToUserSelectedItems',
+      'removeItemInUserSelectedItems'
+    ])
   },
   watch: {
     isSelected() {

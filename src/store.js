@@ -89,6 +89,9 @@ const store = new Vuex.Store({
     },
     addItemToUserSelectedItems: ({ commit }, payload) => {
       commit('addItemToUserSelectedItems', payload);
+    },
+    removeItemInUserSelectedItems: ({ commit }, payload) => {
+      commit('removeItemInUserSelectedItems', payload);
     }
   },
   mutations: {
