@@ -92,6 +92,9 @@ const store = new Vuex.Store({
     },
     removeItemInUserSelectedItems: ({ commit }, payload) => {
       commit('removeItemInUserSelectedItems', payload);
+    },
+    updateItemQty: ({ commit }, payload) => {
+      commit('updateItemQty', payload);
     }
   },
   mutations: {
@@ -128,6 +131,10 @@ const store = new Vuex.Store({
       delete state.userSelectedItems[_id];
     },
     updateItemInUserSelectedItems: (state, payload) => {},
+    updateItemQty: (state, payload) => {
+      state.userSelectedItems[payload._id].qty = payload.qty;
+    },
+    updateItemStore: (state, payload) => {},
     resetUserSelectedItems: state => {
       state.userSelectedItems = {};
     }

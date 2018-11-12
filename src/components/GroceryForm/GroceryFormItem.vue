@@ -68,7 +68,8 @@ export default {
     },
     ...mapActions([
       'addItemToUserSelectedItems',
-      'removeItemInUserSelectedItems'
+      'removeItemInUserSelectedItems',
+      'updateItemQty'
     ])
   },
   watch: {
@@ -85,7 +86,7 @@ export default {
         : this.removeItemInUserSelectedItems(this.item._id);
     },
     qty() {
-      this.$store.state.userSelectedItems[this.item._id].qty = this.qty;
+      this.updateItemQty({ _id: this.item._id, qty: this.qty });
     },
     store() {
       this.$store.state.userSelectedItems[this.item._id].store = this.store;
