@@ -69,7 +69,8 @@ export default {
     ...mapActions([
       'addItemToUserSelectedItems',
       'removeItemInUserSelectedItems',
-      'updateItemQty'
+      'updateItemQty',
+      'updateItemStore'
     ])
   },
   watch: {
@@ -89,8 +90,13 @@ export default {
       this.updateItemQty({ _id: this.item._id, qty: this.qty });
     },
     store() {
-      this.$store.state.userSelectedItems[this.item._id].store = this.store;
-      this.storeArea();
+      this.updateItemStore({
+        _id: this.item._id,
+        store: this.store,
+        storeArea: this.hasStoreArea() ? this[`${store}Area`] : null
+      });
+      // this.$store.state.userSelectedItems[this.item._id].store = this.store;
+      // this.storeArea();
     }
   },
   components: {

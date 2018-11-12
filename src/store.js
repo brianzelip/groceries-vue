@@ -95,6 +95,9 @@ const store = new Vuex.Store({
     },
     updateItemQty: ({ commit }, payload) => {
       commit('updateItemQty', payload);
+    },
+    updateItemStore: ({ commit }, payload) => {
+      commit('updateItemStore', payload);
     }
   },
   mutations: {
@@ -134,7 +137,13 @@ const store = new Vuex.Store({
     updateItemQty: (state, payload) => {
       state.userSelectedItems[payload._id].qty = payload.qty;
     },
-    updateItemStore: (state, payload) => {},
+    updateItemStore: (state, payload) => {
+      state.userSelectedItems[payload._id].store = payload.store;
+      payload.storeArea
+        ? (state.userSelectedItems[payload._id][`${payload.store}Area`] =
+            payload.storeArea)
+        : null;
+    },
     resetUserSelectedItems: state => {
       state.userSelectedItems = {};
     }
