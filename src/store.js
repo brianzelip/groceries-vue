@@ -86,6 +86,9 @@ const store = new Vuex.Store({
         .catch(error => {
           console.log('ERROR! ->', error);
         });
+    },
+    addItemToUserSelectedItems: ({ commit }, payload) => {
+      commit('addItemToUserSelectedItems', payload);
     }
   },
   mutations: {

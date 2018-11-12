@@ -25,6 +25,8 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
+
 import GroceryFormItemEditLink from './GroceryFormItemEditLink.vue';
 import GroceryFormItemCheckboxInput from './GroceryFormItemCheckboxInput.vue';
 import GroceryFormItemCheckboxLabel from './GroceryFormItemCheckboxLabel.vue';
@@ -63,12 +65,13 @@ export default {
           ] = this.getStoreArea())
         : null;
       return;
-    }
+    },
+    ...mapActions(['addItemToUserSelectedItems'])
   },
   watch: {
     isSelected() {
       this.isSelected
-        ? this.$store.commit('addItemToUserSelectedItems', {
+        ? this.addItemToUserSelectedItems({
             _id: this.item._id,
             name: this.name,
             qty: this.qty,
@@ -76,7 +79,7 @@ export default {
             tjArea: this.tjArea,
             momsArea: this.momsArea
           })
-        : this.$store.commit('removeItemInUserSelectedItems', this.item._id);
+        : this.removeItemInUserSelectedItems(this.item._id);
     },
     qty() {
       this.$store.state.userSelectedItems[this.item._id].qty = this.qty;
