@@ -95,8 +95,6 @@ export default {
         store: this.store,
         storeArea: this.hasStoreArea() ? this[`${store}Area`] : null
       });
-      // this.$store.state.userSelectedItems[this.item._id].store = this.store;
-      // this.storeArea();
     }
   },
   components: {
