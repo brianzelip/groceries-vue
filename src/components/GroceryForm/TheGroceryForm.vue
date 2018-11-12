@@ -14,6 +14,7 @@
 
 <script>
 import axios from 'axios';
+import { mapGetters } from 'vuex';
 
 import GroceryFormItem from './GroceryFormItem.vue';
 import TheGroceryFormControls from './TheGroceryFormControls.vue';
@@ -27,9 +28,7 @@ export default {
     TheGroceryFormControls
   },
   computed: {
-    allPossibleGroceryItems() {
-      return this.$store.state.allPossibleGroceryItems;
-    }
+    ...mapGetters(['allPossibleGroceryItems'])
   },
   methods: {
     processForm() {
