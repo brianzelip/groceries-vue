@@ -92,8 +92,8 @@ export default {
     store() {
       this.updateItemStore({
         _id: this.item._id,
-        store: this.store,
-        storeArea: this.hasStoreArea() ? this[`${store}Area`] : null
+        store: this.store
+        // storeArea: this.hasStoreArea() ? this[`${store}Area`] : null
       });
     }
   },
