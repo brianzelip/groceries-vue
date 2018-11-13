@@ -5,9 +5,7 @@ export const setAllPossibleGroceryItems = (state, payload) => {
 export const addItemToUserSelectedItems = (state, payload) => {
   state.userSelectedItems[payload._id] = {
     _id: payload._id,
-
     name: payload.name,
-
     qty: payload.qty,
     store: payload.store
   };
