@@ -18,9 +18,9 @@ export const userSelectedStores = (state, getters) => {
   const USI = state.userSelectedItems;
   const allStores = [];
 
-  Object.keys(USI).forEach(item => {
-    USI[item].store != null
-      ? allStores.push(USI[item].store)
+  Object.keys(USI).forEach(key => {
+    USI[key].store != null
+      ? allStores.push(USI[key].store)
       : allStores.push('noStore');
   });
 
