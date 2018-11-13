@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import router from './src/router.js';
-import store from './src/store.js';
+import store from './src/store/store.js';
 import Meta from 'vue-meta';
 
 import App from './src/App.vue';
