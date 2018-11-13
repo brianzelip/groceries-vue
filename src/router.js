@@ -1,5 +1,4 @@
 import VueRouter from 'vue-router';
-import store from './store.js';
 
 import TheGroceryForm from './components/GroceryForm/TheGroceryForm.vue';
 import TheItemFormContainer from './components/ItemForm/TheItemFormContainer.vue';
