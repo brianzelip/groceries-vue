@@ -125,3 +125,11 @@ the output process:
   - alphabetically?
 - lists the qty to get per item
   - provided via item data
+
+---
+
+Move the action dispatch from `GroceryFormItem` to each child component where the action event actually happens.
+
+- `GroceryFormItemCheckboxLabel`: dispatches`pushItemToUserSelectedItems` (takes `item` object as arg)
+- `GroceryFormItemQtySelector`: dispatches `updateItemQty` (takes item `id` and `qty` as args)
+- `GroceryFormItemStoresSelector`: dispatches `updateItemStore` (takes item `id` and `store` and if `store` = "tj" or "moms" AND there's a `${store}Area`, then update `storeArea`)
