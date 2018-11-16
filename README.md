@@ -133,3 +133,7 @@ Move the action dispatch from `GroceryFormItem` to each child component where th
 - `GroceryFormItemCheckboxLabel`: dispatches`pushItemToUserSelectedItems` (takes `item` object as arg)
 - `GroceryFormItemQtySelector`: dispatches `updateItemQty` (takes item `id` and `qty` as args)
 - `GroceryFormItemStoresSelector`: dispatches `updateItemStore` (takes item `id` and `store` and if `store` = "tj" or "moms" AND there's a `${store}Area`, then update `storeArea`)
+
+Just made a new branch, `action-dispatch-refactor`
+
+Everything seems to be working OK right now as is, before making any changes in the new branch. Any funny business / bugs I see tend to include the ffdev vue dev tools. Before implementing the thoughts above, I'm going to render out the store data on the form page to see how vue, not the devtools, is handling real time data.
