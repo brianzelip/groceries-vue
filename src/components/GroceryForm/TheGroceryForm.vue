@@ -9,6 +9,10 @@
 			</template>
     </ol>
     <TheGroceryFormControls v-on:form-submitted="processForm"></TheGroceryFormControls>
+    <hr>
+    <hr>
+    <p>userSelectedItems</p>
+    <pre>{{ USI }}</pre>
   </form>
 </template>
 
@@ -28,7 +32,10 @@ export default {
     TheGroceryFormControls
   },
   computed: {
-    ...mapGetters(['allPossibleGroceryItems'])
+    ...mapGetters(['allPossibleGroceryItems', 'userSelectedItems']),
+    USI() {
+      return this.$store.getters.userSelectedItems;
+    }
   },
   methods: {
     ...mapActions(['setAllPossibleGroceryItems']),
