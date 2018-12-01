@@ -1,5 +1,8 @@
 <template>
   <li class="item">
+    <!-- TODO:
+      Make a <GroceryFormItemCheckbox> component, pass item to it
+    -->
     <GroceryFormItemEditLink></GroceryFormItemEditLink>
     <GroceryFormItemCheckboxInput :slug="item.slug"></GroceryFormItemCheckboxInput>
     <GroceryFormItemCheckboxLabel
@@ -44,6 +47,14 @@ export default {
       tjArea: this.item.tjArea,
       momsArea: this.item.momsArea
     };
+  },
+  props: ["item"],
+  components: {
+    GroceryFormItemEditLink,
+    GroceryFormItemCheckboxInput,
+    GroceryFormItemCheckboxLabel,
+    GroceryFormItemQtySelector,
+    GroceryFormItemStoresSelector
   },
   methods: {
     updateQty(qtyFromQtySelector) {
@@ -95,15 +106,7 @@ export default {
         // storeArea: this.hasStoreArea() ? this[`${store}Area`] : null
       });
     }
-  },
-  components: {
-    GroceryFormItemEditLink,
-    GroceryFormItemCheckboxInput,
-    GroceryFormItemCheckboxLabel,
-    GroceryFormItemQtySelector,
-    GroceryFormItemStoresSelector
-  },
-  props: ["item"]
+  }
 };
 </script>
 
