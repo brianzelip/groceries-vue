@@ -8,8 +8,8 @@
 </template>
 
 <script>
-import TheHeader from './components/global/TheHeader.vue';
-import TheFooter from './components/global/TheFooter.vue';
+import TheHeader from "./components/global/TheHeader.vue";
+import TheFooter from "./components/global/TheFooter.vue";
 
 export default {
   data() {
@@ -17,8 +17,8 @@ export default {
   },
   computed: {
     title() {
-      const appTitle = 'groceries-vue';
-      return this.$route.name === 'home'
+      const appTitle = "groceries-vue";
+      return this.$route.name === "home"
         ? appTitle
         : `${this.$route.name} item | ${appTitle}`;
     }
