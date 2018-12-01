@@ -1,10 +1,11 @@
 import Vue from 'vue';
 
+// SET
 export const SET_ALL_POSSIBLE_GROCERY_ITEMS = (state, payload) => {
   Vue.set(state, 'allPossibleGroceryItems', payload);
 };
 
-export const addItemToUserSelectedItems = (state, payload) => {
+export const ADD_ITEM_TO_USER_SELECTED_ITEMS = (state, payload) => {
   state.userSelectedItems[payload._id] = {
     _id: payload._id,
     name: payload.name,
@@ -31,17 +32,13 @@ export const addItemToUserSelectedItems = (state, payload) => {
   }
 };
 
-export const removeItemInUserSelectedItems = (state, _id) => {
-  delete state.userSelectedItems[_id];
-};
+export const UPDATE_ITEM_IN_USER_SELECTED_ITEMS = (state, payload) => {};
 
-export const updateItemInUserSelectedItems = (state, payload) => {};
-
-export const updateItemQty = (state, payload) => {
+export const UPDATE_ITEM_QTY = (state, payload) => {
   state.userSelectedItems[payload._id].qty = payload.qty;
 };
 
-export const updateItemStore = (state, payload) => {
+export const UPDATE_ITEM_STORE = (state, payload) => {
   state.userSelectedItems[payload._id].store = payload.store;
   payload.storeArea
     ? (state.userSelectedItems[payload._id][`${payload.store}Area`] =
@@ -49,6 +46,11 @@ export const updateItemStore = (state, payload) => {
     : null;
 };
 
-export const resetUserSelectedItems = state => {
-  state.userSelectedItems = {};
+export const RESET_USER_SELECTED_ITEMS = state => {
+  Vue.set(state, 'userSelectedItems', {});
+};
+
+// DELETE
+export const REMOVE_ITEM_IN_USER_SELECTED_ITEMS = (state, _id) => {
+  delete state.userSelectedItems[_id];
 };
