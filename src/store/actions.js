@@ -22,8 +22,8 @@ export const updateItemInUserSelectedItems = ({ commit }, payload) => {
   commit('UPDATE_ITEM_IN_USER_SELECTED_ITEMS', payload);
 };
 
-export const resetUserSelectedItems = ({ commit }, payload) => {
-  commit('RESET_USER_SELECTED_ITEMS', payload);
+export const resetUserSelectedItems = ({ commit }) => {
+  commit('RESET_USER_SELECTED_ITEMS');
 };
 
 export const removeItemFromUserSelectedItems = ({ commit }, payload) => {
