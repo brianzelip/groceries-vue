@@ -14,10 +14,6 @@ export const UPDATE_ITEM_IN_USER_SELECTED_ITEMS = (state, payload) => {
   Vue.set(state.userSelectedItems[payload._id], payload.key, payload.value);
 };
 
-export const UPDATE_ITEM_QTY = (state, payload) => {
-  state.userSelectedItems[payload._id].qty = payload.qty;
-};
-
 export const UPDATE_ITEM_STORE = (state, payload) => {
   state.userSelectedItems[payload._id].store = payload.store;
   payload.storeArea
