@@ -1,5 +1,11 @@
 import axios from 'axios';
 
+// set all possible groceries
+// add item to USI
+// update item in USI
+// delete item from USI
+// reset USI
+
 export const setAllPossibleGroceryItems = context => {
   axios
     .get('https://groceries-vue-api.glitch.me/get')
@@ -13,21 +19,20 @@ export const setAllPossibleGroceryItems = context => {
 };
 
 export const addItemToUserSelectedItems = ({ commit }, payload) => {
+  //payload is an item object
   commit('ADD_ITEM_TO_USER_SELECTED_ITEMS', payload);
 };
 
-export const removeItemInUserSelectedItems = ({ commit }, payload) => {
-  commit('REMOVE_ITEM_IN_USER_SELECTED_ITEMS', payload);
-};
-
-export const updateItemQty = ({ commit }, payload) => {
-  commit('UPDATE_ITEM_QTY', payload);
-};
-
-export const updateItemStore = ({ commit }, payload) => {
-  commit('UPDATE_ITEM_STORE', payload);
+export const removeItemFromUserSelectedItems = ({ commit }, payload) => {
+  //payload is an item _id string
+  commit('REMOVE_ITEM_FROM_USER_SELECTED_ITEMS', payload);
 };
 
 export const updateItemInUserSelectedItems = ({ commit }, payload) => {
+  //payload is an object like { _id, key, value }
   commit('UPDATE_ITEM_IN_USER_SELECTED_ITEMS', payload);
+};
+
+export const resetUserSelectedItems = ({ commit }, payload) => {
+  commit('RESET_USER_SELECTED_ITEMS', payload);
 };

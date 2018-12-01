@@ -2,24 +2,18 @@ import Vue from 'vue';
 
 // SET
 export const SET_ALL_POSSIBLE_GROCERY_ITEMS = (state, payload) => {
+  //payload is a data array
   Vue.set(state, 'allPossibleGroceryItems', payload);
 };
 
 export const ADD_ITEM_TO_USER_SELECTED_ITEMS = (state, payload) => {
+  //payload is an item object
   Vue.set(state.userSelectedItems, payload._id, payload);
 };
 
 export const UPDATE_ITEM_IN_USER_SELECTED_ITEMS = (state, payload) => {
-  //payload should be: { _id, key, value }
+  //payload is an object like { _id, key, value }
   Vue.set(state.userSelectedItems[payload._id], payload.key, payload.value);
-};
-
-export const UPDATE_ITEM_STORE = (state, payload) => {
-  state.userSelectedItems[payload._id].store = payload.store;
-  payload.storeArea
-    ? (state.userSelectedItems[payload._id][`${payload.store}Area`] =
-        payload.storeArea)
-    : null;
 };
 
 export const RESET_USER_SELECTED_ITEMS = state => {
@@ -27,6 +21,7 @@ export const RESET_USER_SELECTED_ITEMS = state => {
 };
 
 // DELETE
-export const REMOVE_ITEM_IN_USER_SELECTED_ITEMS = (state, _id) => {
-  delete state.userSelectedItems[_id];
+export const REMOVE_ITEM_FROM_USER_SELECTED_ITEMS = (state, payload) => {
+  //payload is an item _id string
+  Vue.delete(state.userSelectedItems, payload);
 };

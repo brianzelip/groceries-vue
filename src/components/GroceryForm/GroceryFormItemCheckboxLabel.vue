@@ -23,7 +23,7 @@ export default {
   methods: {
     ...mapActions([
       "addItemToUserSelectedItems",
-      "removeItemInUserSelectedItems"
+      "removeItemFromUserSelectedItems"
     ])
   },
   watch: {
@@ -36,7 +36,7 @@ export default {
             tjArea: this.item.tjArea,
             momsArea: this.item.momsArea
           })
-        : this.removeItemInUserSelectedItems(this.item._id);
+        : this.removeItemFromUserSelectedItems(this.item._id);
     }
   }
 };
