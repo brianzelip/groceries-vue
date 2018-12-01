@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import AddItemBtn from './AddItemBtn.vue';
+import AddItemBtn from "./AddItemBtn.vue";
 
 export default {
   components: {
@@ -19,15 +19,15 @@ export default {
   },
   computed: {
     showAddItemBtn() {
-      return this.$route.name === 'add' ? false : true;
+      return this.$route.name === "add" ? false : true;
     }
   },
   methods: {
     resetUserSelectedItems() {
-      this.$route.name === 'home'
+      this.$route.name === "home"
         ? null
-        : (this.$store.commit('resetUserSelectedItems'),
-          this.$router.push('/'));
+        : (this.$store.commit("resetUserSelectedItems"),
+          this.$router.push("/"));
     }
   }
 };

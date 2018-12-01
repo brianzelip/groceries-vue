@@ -6,14 +6,17 @@
     <pre>{{ userSelectedItems }}</pre>
     <hr>
     <pre>{{ userSelectedStores }}</pre>
-    <button class="btn btn-primary" @click="resetUSI">reset userSelectedItems</button>
+    <button
+      @click="resetUSI"
+      class="btn btn-primary"
+    >reset userSelectedItems</button>
     <hr>
     <pre>{{ userSelectedItemsByStore }}</pre>
   </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapGetters } from "vuex";
 
 export default {
   data() {
@@ -21,14 +24,14 @@ export default {
   },
   methods: {
     resetUSI() {
-      this.$store.commit('resetUserSelectedItems');
+      this.$store.commit("resetUserSelectedItems");
     }
   },
   computed: {
     ...mapGetters([
-      'userSelectedItems',
-      'userSelectedStores',
-      'userSelectedItemsByStore'
+      "userSelectedItems",
+      "userSelectedStores",
+      "userSelectedItemsByStore"
     ])
   }
 };
