@@ -1,7 +1,6 @@
 import Vue from 'vue';
 
-export const setAllPossibleGroceryItems = (state, payload) => {
-  // state.allPossibleGroceryItems = payload;
+export const SET_ALL_POSSIBLE_GROCERY_ITEMS = (state, payload) => {
   Vue.set(state, 'allPossibleGroceryItems', payload);
 };
 
