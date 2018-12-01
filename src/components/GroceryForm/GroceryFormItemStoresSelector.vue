@@ -1,11 +1,7 @@
 <template>
   <div class="item__storesSelector col-4">
     <span class="mr1 mono purp">from:</span>
-    <div
-      v-for="store in stores"
-      :key="store"
-      class="item__storesSelector-storeWrapper"
-    >
+    <div v-for="store in stores" :key="store" class="item__storesSelector-storeWrapper">
       <input
         type="radio"
         v-model="storeChoice"
@@ -25,7 +21,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapGetters } from "vuex";
 
 export default {
   data() {
@@ -33,9 +29,9 @@ export default {
       storeChoice: this.defaultStore || null
     };
   },
-  props: ['stores', 'slug', 'defaultStore'],
+  props: ["_id", "stores", "slug", "defaultStore"],
   computed: {
-    ...mapGetters(['storesRef'])
+    ...mapGetters(["storesRef"])
   }
 };
 </script>
