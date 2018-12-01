@@ -16,23 +16,21 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 
 export default {
-  data() {
-    return {};
-  },
-  methods: {
-    resetUSI() {
-      this.$store.commit("resetUserSelectedItems");
-    }
-  },
   computed: {
     ...mapGetters([
       "userSelectedItems",
       "userSelectedStores",
       "userSelectedItemsByStore"
     ])
+  },
+  methods: {
+    ...mapActions(["resetUserSelectedItems"]),
+    resetUSI() {
+      this.resetUserSelectedItems();
+    }
   }
 };
 </script>
