@@ -1,15 +1,16 @@
 <template>
   <input
-    type="checkbox"
-    name="items"
     :id="slug"
     :value="slug"
-    class="item__hidden-input">
+    class="item__hidden-input"
+    name="items"
+    type="checkbox"
+  >
 </template>
 
 <script>
 export default {
-  props: ['slug']
+  props: ["slug"]
 };
 </script>
 

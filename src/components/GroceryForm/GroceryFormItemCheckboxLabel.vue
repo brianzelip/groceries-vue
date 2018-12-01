@@ -1,8 +1,8 @@
 <template>
   <label
     :for="item.slug"
-    class="item__label col-5"
     @click="isSelected = !isSelected"
+    class="item__label col-5"
     v-on:click="$emit('item-selection-change')"
   >
     <span class="item__checkbox"></span>

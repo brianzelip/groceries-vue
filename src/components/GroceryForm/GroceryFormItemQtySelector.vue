@@ -1,17 +1,24 @@
 <template>
   <div class="item__qtySelector col-3">
     <span class="mr1 mono purp">qty:</span>
-    <div v-for="num in qtyRange" :key="num" class="item__qtySelector-numWrapper">
+    <div
+      :key="num"
+      class="item__qtySelector-numWrapper"
+      v-for="num in qtyRange"
+    >
       <input
-        type="radio"
-        :name="`${slug}-qty`"
         :id="`${slug}-${num}`"
+        :name="`${slug}-qty`"
         :value="num"
-        class="item__qtySelector-numInput"
-        v-model.number="qty"
         @change="changeQty"
+        class="item__qtySelector-numInput"
+        type="radio"
+        v-model.number="qty"
       >
-      <label :for="`${slug}-${num}`" class="item__qtySelector-numLabel">{{ num }}</label>
+      <label
+        :for="`${slug}-${num}`"
+        class="item__qtySelector-numLabel"
+      >{{ num }}</label>
     </div>
   </div>
 </template>

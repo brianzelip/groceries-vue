@@ -1,16 +1,20 @@
 <template>
   <div class="item__storesSelector col-4">
     <span class="mr1 mono purp">from:</span>
-    <div v-for="_store in stores" :key="_store" class="item__storesSelector-storeWrapper">
+    <div
+      :key="_store"
+      class="item__storesSelector-storeWrapper"
+      v-for="_store in stores"
+    >
       <input
-        type="radio"
+        :checked="((defaultStore && defaultStore === _store) || false)"
         :id="`${slug}-${_store}`"
         :name="`${slug}-store`"
         :value="_store"
-        :checked="((defaultStore && defaultStore === _store) || false)"
-        class="item__storesSelector-storeInput"
-        v-model="store"
         @change="changeStore"
+        class="item__storesSelector-storeInput"
+        type="radio"
+        v-model="store"
       >
       <label
         :for="`${slug}-${_store}`"

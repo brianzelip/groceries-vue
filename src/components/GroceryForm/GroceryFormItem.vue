@@ -9,14 +9,18 @@
       v-on:item-selection-change="isSelected = !isSelected"
     ></GroceryFormItemCheckboxLabel>
 
-    <GroceryFormItemQtySelector v-if="isSelected" :_id="item._id" :slug="item.slug"></GroceryFormItemQtySelector>
+    <GroceryFormItemQtySelector
+      :_id="item._id"
+      :slug="item.slug"
+      v-if="isSelected"
+    ></GroceryFormItemQtySelector>
 
     <GroceryFormItemStoresSelector
-      v-if="isSelected"
       :_id="item._id"
-      :stores="item.stores"
-      :slug="item.slug"
       :default-store="item.defaultStore"
+      :slug="item.slug"
+      :stores="item.stores"
+      v-if="isSelected"
     ></GroceryFormItemStoresSelector>
   </li>
 </template>
