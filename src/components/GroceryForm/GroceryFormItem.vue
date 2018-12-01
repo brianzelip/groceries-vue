@@ -68,7 +68,6 @@ export default {
     ...mapActions([
       "addItemToUserSelectedItems",
       "removeItemInUserSelectedItems",
-      "updateItemQty",
       "updateItemStore"
     ])
   },
