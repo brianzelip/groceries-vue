@@ -6,7 +6,7 @@
   "scripts": {
     "start": "parcel index.pug",
     "production": "rm -rf dist && rm -rf .cache && parcel build index.pug",
-    "p": "rm -rf dist && rm -rf .cache && parcel build index.pug"
+    "p": "npm run production"
   },
   "author": "bzelip",
   "license": "MIT",
