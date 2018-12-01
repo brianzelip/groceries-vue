@@ -27,3 +27,7 @@ export const updateItemQty = ({ commit }, payload) => {
 export const updateItemStore = ({ commit }, payload) => {
   commit('UPDATE_ITEM_STORE', payload);
 };
+
+export const updateItemInUserSelectedItems = ({ commit }, payload) => {
+  commit('UPDATE_ITEM_IN_USER_SELECTED_ITEMS', payload);
+};

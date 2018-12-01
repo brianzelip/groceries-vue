@@ -1,37 +1,36 @@
 <template>
-	<li class="item">
+  <li class="item">
     <GroceryFormItemEditLink></GroceryFormItemEditLink>
-    <GroceryFormItemCheckboxInput
-      :slug="item.slug">
-      </GroceryFormItemCheckboxInput>
+    <GroceryFormItemCheckboxInput :slug="item.slug"></GroceryFormItemCheckboxInput>
     <GroceryFormItemCheckboxLabel
       :slug="item.slug"
       :name="item.name"
-      v-on:item-selection-change="isSelected = !isSelected">
-      </GroceryFormItemCheckboxLabel>
-    <GroceryFormItemQtySelector 
+      v-on:item-selection-change="isSelected = !isSelected"
+    ></GroceryFormItemCheckboxLabel>
+    <GroceryFormItemQtySelector
       v-if="isSelected"
+      :_id="item._id"
       :slug="item.slug"
-      v-on:item-qty-change="updateQty">
-      </GroceryFormItemQtySelector>
-    <GroceryFormItemStoresSelector 
-      v-if="isSelected" 
-      :stores="item.stores" 
-      :slug="item.slug" 
+      v-on:item-qty-change="updateQty"
+    ></GroceryFormItemQtySelector>
+    <GroceryFormItemStoresSelector
+      v-if="isSelected"
+      :stores="item.stores"
+      :slug="item.slug"
       :default-store="item.defaultStore"
-      v-on:item-store-change="updateStore">
-      </GroceryFormItemStoresSelector>
+      v-on:item-store-change="updateStore"
+    ></GroceryFormItemStoresSelector>
   </li>
 </template>
 
 <script>
-import { mapActions } from 'vuex';
+import { mapActions } from "vuex";
 
-import GroceryFormItemEditLink from './GroceryFormItemEditLink.vue';
-import GroceryFormItemCheckboxInput from './GroceryFormItemCheckboxInput.vue';
-import GroceryFormItemCheckboxLabel from './GroceryFormItemCheckboxLabel.vue';
-import GroceryFormItemQtySelector from './GroceryFormItemQtySelector.vue';
-import GroceryFormItemStoresSelector from './GroceryFormItemStoresSelector.vue';
+import GroceryFormItemEditLink from "./GroceryFormItemEditLink.vue";
+import GroceryFormItemCheckboxInput from "./GroceryFormItemCheckboxInput.vue";
+import GroceryFormItemCheckboxLabel from "./GroceryFormItemCheckboxLabel.vue";
+import GroceryFormItemQtySelector from "./GroceryFormItemQtySelector.vue";
+import GroceryFormItemStoresSelector from "./GroceryFormItemStoresSelector.vue";
 
 export default {
   data() {
@@ -67,10 +66,10 @@ export default {
       return;
     },
     ...mapActions([
-      'addItemToUserSelectedItems',
-      'removeItemInUserSelectedItems',
-      'updateItemQty',
-      'updateItemStore'
+      "addItemToUserSelectedItems",
+      "removeItemInUserSelectedItems",
+      "updateItemQty",
+      "updateItemStore"
     ])
   },
   watch: {
@@ -104,7 +103,7 @@ export default {
     GroceryFormItemQtySelector,
     GroceryFormItemStoresSelector
   },
-  props: ['item']
+  props: ["item"]
 };
 </script>
 
