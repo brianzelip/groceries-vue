@@ -6,30 +6,31 @@ export const SET_ALL_POSSIBLE_GROCERY_ITEMS = (state, payload) => {
 };
 
 export const ADD_ITEM_TO_USER_SELECTED_ITEMS = (state, payload) => {
-  state.userSelectedItems[payload._id] = {
-    _id: payload._id,
-    name: payload.name,
-    qty: payload.qty,
-    store: payload.store
-  };
+  Vue.set(state.userSelectedItems, payload._id, payload);
+  // state.userSelectedItems[payload._id] = {
+  //   _id: payload._id,
+  //   name: payload.name,
+  //   qty: payload.qty,
+  //   store: payload.store
+  // };
 
-  storeArea();
+  // storeArea();
 
-  function storeArea() {
-    hasStoreArea()
-      ? (state.userSelectedItems[payload._id][
-          `${payload.store}Area`
-        ] = getStoreArea())
-      : null;
-  }
+  // function storeArea() {
+  //   hasStoreArea()
+  //     ? (state.userSelectedItems[payload._id][
+  //         `${payload.store}Area`
+  //       ] = getStoreArea())
+  //     : null;
+  // }
 
-  function hasStoreArea() {
-    return payload[`${payload.store}Area`];
-  }
+  // function hasStoreArea() {
+  //   return payload[`${payload.store}Area`];
+  // }
 
-  function getStoreArea() {
-    return `${payload[`${payload.store}Area`]}`;
-  }
+  // function getStoreArea() {
+  //   return `${payload[`${payload.store}Area`]}`;
+  // }
 };
 
 export const UPDATE_ITEM_IN_USER_SELECTED_ITEMS = (state, payload) => {};
