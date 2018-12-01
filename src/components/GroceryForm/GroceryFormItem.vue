@@ -15,6 +15,7 @@
     ></GroceryFormItemQtySelector>
     <GroceryFormItemStoresSelector
       v-if="isSelected"
+      :_id="item._id"
       :stores="item.stores"
       :slug="item.slug"
       :default-store="item.defaultStore"

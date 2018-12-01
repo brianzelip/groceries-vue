@@ -1,37 +1,47 @@
 <template>
   <div class="item__storesSelector col-4">
     <span class="mr1 mono purp">from:</span>
-    <div v-for="store in stores" :key="store" class="item__storesSelector-storeWrapper">
+    <div v-for="_store in stores" :key="_store" class="item__storesSelector-storeWrapper">
       <input
         type="radio"
-        v-model="storeChoice"
-        :value="store"
-        @change="$emit('item-store-change', storeChoice)"
+        :id="`${slug}-${_store}`"
         :name="`${slug}-store`"
-        :id="`${slug}-${store}`"
-        :checked="((defaultStore && defaultStore === store) || false)"
+        :value="_store"
+        :checked="((defaultStore && defaultStore === _store) || false)"
         class="item__storesSelector-storeInput"
+        v-model="store"
+        @change="changeStore"
       >
       <label
-        :for="`${slug}-${store}`"
+        :for="`${slug}-${_store}`"
         class="item__storesSelector-storeLabel"
-      >{{ storesRef[store].name.toLowerCase() }}</label>
+      >{{ storesRef[_store].name.toLowerCase() }}</label>
     </div>
   </div>
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 
 export default {
   data() {
     return {
-      storeChoice: this.defaultStore || null
+      store: this.defaultStore || null
     };
   },
   props: ["_id", "stores", "slug", "defaultStore"],
   computed: {
     ...mapGetters(["storesRef"])
+  },
+  methods: {
+    ...mapActions(["updateItemInUserSelectedItems"]),
+    changeStore() {
+      this.updateItemInUserSelectedItems({
+        _id: this._id,
+        key: "store",
+        value: this.store
+      });
+    }
   }
 };
 </script>
