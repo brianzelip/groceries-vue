@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from "vuex";
+import { mapState, mapActions } from "vuex";
 
 export default {
   data() {
@@ -31,7 +31,7 @@ export default {
   },
   props: ["_id", "stores", "slug", "defaultStore"],
   computed: {
-    ...mapGetters(["storesRef"])
+    ...mapState(["storesRef"])
   },
   methods: {
     ...mapActions(["updateItemInUserSelectedItems"]),
