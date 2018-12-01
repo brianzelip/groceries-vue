@@ -7,12 +7,12 @@
 </template>
 
 <script>
-import TheItemForm from './TheItemForm.vue';
+import TheItemForm from "./TheItemForm.vue";
 
 export default {
   components: {
     TheItemForm
   },
-  props: ['heading']
+  props: ["heading"]
 };
 </script>

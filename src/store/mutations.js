@@ -1,52 +1,27 @@
-export const setAllPossibleGroceryItems = (state, payload) => {
-  state.allPossibleGroceryItems = payload;
+import Vue from 'vue';
+
+// SET
+export const SET_ALL_POSSIBLE_GROCERY_ITEMS = (state, payload) => {
+  //payload is a data array
+  Vue.set(state, 'allPossibleGroceryItems', payload);
 };
 
-export const addItemToUserSelectedItems = (state, payload) => {
-  state.userSelectedItems[payload._id] = {
-    _id: payload._id,
-    name: payload.name,
-    qty: payload.qty,
-    store: payload.store
-  };
-
-  storeArea();
-
-  function storeArea() {
-    hasStoreArea()
-      ? (state.userSelectedItems[payload._id][
-          `${payload.store}Area`
-        ] = getStoreArea())
-      : null;
-  }
-
-  function hasStoreArea() {
-    return payload[`${payload.store}Area`];
-  }
-
-  function getStoreArea() {
-    return `${payload[`${payload.store}Area`]}`;
-  }
+export const ADD_ITEM_TO_USER_SELECTED_ITEMS = (state, payload) => {
+  //payload is an item object
+  Vue.set(state.userSelectedItems, payload._id, payload);
 };
 
-export const removeItemInUserSelectedItems = (state, _id) => {
-  delete state.userSelectedItems[_id];
+export const UPDATE_ITEM_IN_USER_SELECTED_ITEMS = (state, payload) => {
+  //payload is an object like { _id, key, value }
+  Vue.set(state.userSelectedItems[payload._id], payload.key, payload.value);
 };
 
-export const updateItemInUserSelectedItems = (state, payload) => {};
-
-export const updateItemQty = (state, payload) => {
-  state.userSelectedItems[payload._id].qty = payload.qty;
+export const RESET_USER_SELECTED_ITEMS = state => {
+  Vue.set(state, 'userSelectedItems', {});
 };
 
-export const updateItemStore = (state, payload) => {
-  state.userSelectedItems[payload._id].store = payload.store;
-  payload.storeArea
-    ? (state.userSelectedItems[payload._id][`${payload.store}Area`] =
-        payload.storeArea)
-    : null;
-};
-
-export const resetUserSelectedItems = state => {
-  state.userSelectedItems = {};
+// DELETE
+export const REMOVE_ITEM_FROM_USER_SELECTED_ITEMS = (state, payload) => {
+  //payload is an item _id string
+  Vue.delete(state.userSelectedItems, payload);
 };

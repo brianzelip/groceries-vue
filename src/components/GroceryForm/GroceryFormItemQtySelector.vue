@@ -2,32 +2,47 @@
   <div class="item__qtySelector col-3">
     <span class="mr1 mono purp">qty:</span>
     <div
-      v-for="num in [2, 3, 4, 5]"
-      v-bind:key="num"
+      :key="num"
       class="item__qtySelector-numWrapper"
+      v-for="num in qtyRange"
     >
       <input
+        :id="`${slug}-${num}`"
+        :name="`${slug}-qty`"
+        :value="num"
+        @change="changeQty"
+        class="item__qtySelector-numInput"
         type="radio"
         v-model.number="qty"
-        :value="num"
-        @change="$emit('item-qty-change', qty)"
-        :name="`${slug}-qty`"
-        :id="`${slug}-${num}`"
-        class="item__qtySelector-numInput">
+      >
       <label
         :for="`${slug}-${num}`"
-        class="item__qtySelector-numLabel">{{ num }}</label>
+        class="item__qtySelector-numLabel"
+      >{{ num }}</label>
     </div>
   </div>
 </template>
 
 <script>
+import { mapActions } from "vuex";
+
 export default {
   data() {
     return {
+      qtyRange: [2, 3, 4, 5],
       qty: 1
     };
   },
-  props: ['slug']
+  props: ["_id", "slug"],
+  methods: {
+    ...mapActions(["updateItemInUserSelectedItems"]),
+    changeQty() {
+      this.updateItemInUserSelectedItems({
+        _id: this._id,
+        key: "qty",
+        value: this.qty
+      });
+    }
+  }
 };
 </script>

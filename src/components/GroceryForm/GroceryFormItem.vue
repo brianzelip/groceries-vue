@@ -1,110 +1,51 @@
 <template>
-	<li class="item">
+  <li class="item">
     <GroceryFormItemEditLink></GroceryFormItemEditLink>
-    <GroceryFormItemCheckboxInput
-      :slug="item.slug">
-      </GroceryFormItemCheckboxInput>
+
+    <GroceryFormItemCheckboxInput :slug="item.slug"></GroceryFormItemCheckboxInput>
+
     <GroceryFormItemCheckboxLabel
+      :item="item"
+      v-on:item-selection-change="isSelected = !isSelected"
+    ></GroceryFormItemCheckboxLabel>
+
+    <GroceryFormItemQtySelector
+      :_id="item._id"
       :slug="item.slug"
-      :name="item.name"
-      v-on:item-selection-change="isSelected = !isSelected">
-      </GroceryFormItemCheckboxLabel>
-    <GroceryFormItemQtySelector 
       v-if="isSelected"
-      :slug="item.slug"
-      v-on:item-qty-change="updateQty">
-      </GroceryFormItemQtySelector>
-    <GroceryFormItemStoresSelector 
-      v-if="isSelected" 
-      :stores="item.stores" 
-      :slug="item.slug" 
+    ></GroceryFormItemQtySelector>
+
+    <GroceryFormItemStoresSelector
+      :_id="item._id"
       :default-store="item.defaultStore"
-      v-on:item-store-change="updateStore">
-      </GroceryFormItemStoresSelector>
+      :slug="item.slug"
+      :stores="item.stores"
+      v-if="isSelected"
+    ></GroceryFormItemStoresSelector>
   </li>
 </template>
 
 <script>
-import { mapActions } from 'vuex';
-
-import GroceryFormItemEditLink from './GroceryFormItemEditLink.vue';
-import GroceryFormItemCheckboxInput from './GroceryFormItemCheckboxInput.vue';
-import GroceryFormItemCheckboxLabel from './GroceryFormItemCheckboxLabel.vue';
-import GroceryFormItemQtySelector from './GroceryFormItemQtySelector.vue';
-import GroceryFormItemStoresSelector from './GroceryFormItemStoresSelector.vue';
+import GroceryFormItemEditLink from "./GroceryFormItemEditLink.vue";
+import GroceryFormItemCheckboxInput from "./GroceryFormItemCheckboxInput.vue";
+import GroceryFormItemCheckboxLabel from "./GroceryFormItemCheckboxLabel.vue";
+import GroceryFormItemQtySelector from "./GroceryFormItemQtySelector.vue";
+import GroceryFormItemStoresSelector from "./GroceryFormItemStoresSelector.vue";
 
 export default {
   data() {
     return {
-      _id: this.item._id,
-      isSelected: false,
-      name: this.item.name,
-      qty: 1,
-      store: this.item.defaultStore || null,
-      tjArea: this.item.tjArea,
-      momsArea: this.item.momsArea
+      isSelected: false
     };
   },
-  methods: {
-    updateQty(qtyFromQtySelector) {
-      this.qty = qtyFromQtySelector;
-    },
-    updateStore(storeFromStoresSelector) {
-      this.store = storeFromStoresSelector;
-    },
-    hasStoreArea() {
-      return this[`${this.store}Area`];
-    },
-    getStoreArea() {
-      return `${this[`${this.store}Area`]}`;
-    },
-    storeArea() {
-      this.hasStoreArea()
-        ? (this.$store.state.userSelectedItems[this.item._id][
-            `${this.store}Area`
-          ] = this.getStoreArea())
-        : null;
-      return;
-    },
-    ...mapActions([
-      'addItemToUserSelectedItems',
-      'removeItemInUserSelectedItems',
-      'updateItemQty',
-      'updateItemStore'
-    ])
-  },
-  watch: {
-    isSelected() {
-      this.isSelected
-        ? this.addItemToUserSelectedItems({
-            _id: this.item._id,
-            name: this.name,
-            qty: this.qty,
-            store: this.store,
-            tjArea: this.tjArea,
-            momsArea: this.momsArea
-          })
-        : this.removeItemInUserSelectedItems(this.item._id);
-    },
-    qty() {
-      this.updateItemQty({ _id: this.item._id, qty: this.qty });
-    },
-    store() {
-      this.updateItemStore({
-        _id: this.item._id,
-        store: this.store
-        // storeArea: this.hasStoreArea() ? this[`${store}Area`] : null
-      });
-    }
-  },
+  props: ["item"],
   components: {
     GroceryFormItemEditLink,
     GroceryFormItemCheckboxInput,
     GroceryFormItemCheckboxLabel,
     GroceryFormItemQtySelector,
     GroceryFormItemStoresSelector
-  },
-  props: ['item']
+  }
 };
 </script>
 
