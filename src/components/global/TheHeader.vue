@@ -3,14 +3,15 @@
     .container.sm-flex.justify-between.mb2
       .sm-flex.flex-center.flex-wrap.mb2.sm-mb0
         h1.m0.lh1
-          a(@click="resetUserSelectedItems").fw400.pointer groceries
+          a(@click="resetApp").fw400.pointer groceries
         h2.mt0.mb0.sm-ml1.h3.fw400.lh1
-          a(@click="resetUserSelectedItems").fw400.pointer make a list and send it
+          a(@click="resetApp").fw400.pointer make a list and send it
       div(v-if="showAddItemBtn").none.sm-block
         AddItemBtn
 </template>
 
 <script>
+import { mapActions } from "vuex";
 import AddItemBtn from "./AddItemBtn.vue";
 
 export default {
@@ -23,11 +24,11 @@ export default {
     }
   },
   methods: {
-    resetUserSelectedItems() {
+    ...mapActions(["resetUserSelectedItems"]),
+    resetApp() {
       this.$route.name === "home"
-        ? null
-        : (this.$store.commit("resetUserSelectedItems"),
-          this.$router.push("/"));
+        ? this.resetUserSelectedItems()
+        : (this.resetUserSelectedItems(), this.$router.push("/"));
     }
   }
 };
