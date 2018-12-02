@@ -26,7 +26,7 @@ export const userSelectedStores = state => {
 };
 
 export const userSelectedItemsByStore = (state, getters) => {
-  const USI = getters.userSelectedItems;
+  const USI = state.userSelectedItems;
   const stores = getters.userSelectedStores;
 
   const userSelectedItemsByStore = {};
