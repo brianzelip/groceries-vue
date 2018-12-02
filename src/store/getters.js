@@ -1,5 +1,13 @@
+export const allPossibleGroceryItems = state => {
+  return state.allPossibleGroceryItems;
+};
+
 export const allPossibleGroceryItemsCount = state => {
   return state.allPossibleGroceryItems.length;
+};
+
+export const userSelectedItems = state => {
+  return state.userSelectedItems;
 };
 
 export const userSelectedItemsCount = state => {

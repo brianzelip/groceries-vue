@@ -16,12 +16,15 @@
 </template>
 
 <script>
-import { mapState, mapGetters, mapActions } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 
 export default {
   computed: {
-    ...mapState(["userSelectedItems"]),
-    ...mapGetters(["userSelectedStores", "userSelectedItemsByStore"])
+    ...mapGetters([
+      "userSelectedItems",
+      "userSelectedStores",
+      "userSelectedItemsByStore"
+    ])
   },
   methods: {
     ...mapActions(["resetUserSelectedItems"]),
