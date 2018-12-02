@@ -14,7 +14,7 @@ export const userSelectedItemsCount = state => {
   return Object.keys(state.userSelectedItems).length;
 };
 
-export const userSelectedStores = (state, getters) => {
+export const userSelectedStores = state => {
   const USI = state.userSelectedItems;
   const allStores = [];
 
@@ -28,7 +28,7 @@ export const userSelectedStores = (state, getters) => {
     .reduce((acc, store) => {
       return acc.indexOf(store) === -1 ? (acc.push(store), acc) : acc;
     }, [])
-    .sort((a, b) => getters.storesRef[a].order - getters.storesRef[b].order);
+    .sort((a, b) => state.storesRef[a].order - state.storesRef[b].order);
 
   return uniqueSortedStores;
 };
