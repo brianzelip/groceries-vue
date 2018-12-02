@@ -28,7 +28,7 @@ import { mapState } from "vuex";
 
 export default {
   computed: {
-    ...mapState("storesRef")
+    ...mapState(["storesRef"])
   }
 };
 </script>
