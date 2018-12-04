@@ -23,20 +23,33 @@ export default {
   methods: {
     ...mapActions([
       "addItemToUserSelectedItems",
-      "removeItemFromUserSelectedItems"
+      "removeItemFromUserSelectedItems",
+      "addItemTousiArr",
+      "removeItemFromusiArr"
     ])
   },
   watch: {
+    // isSelected() {
+    //   this.isSelected
+    //     ? this.addItemToUserSelectedItems({
+    //         _id: this.item._id,
+    //         name: this.item.name,
+    //         store: this.item.defaultStore || null,
+    //         tjArea: this.item.tjArea,
+    //         momsArea: this.item.momsArea
+    //       })
+    //     : this.removeItemFromUserSelectedItems(this.item._id);
+    // }
     isSelected() {
       this.isSelected
-        ? this.addItemToUserSelectedItems({
+        ? this.addItemTousiArr({
             _id: this.item._id,
             name: this.item.name,
             store: this.item.defaultStore || null,
             tjArea: this.item.tjArea,
             momsArea: this.item.momsArea
           })
-        : this.removeItemFromUserSelectedItems(this.item._id);
+        : this.removeItemFromusiArr(this.item._id);
     }
   }
 };
