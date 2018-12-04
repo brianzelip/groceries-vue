@@ -24,6 +24,21 @@ export const userSelectedStores = state => {
 
   return uniqueSortedStores;
 };
+export const usiArrStores = state => {
+  // reduce array of item objects
+  // to an array of all store name strings
+  // to an array of unique store name strings
+  // to an array of sorted unique store name strings
+  return state.usiArr
+    .reduce((acc, item) => {
+      item.store != null ? acc.push(item.store) : acc.push('noStore');
+      return acc;
+    }, [])
+    .reduce((acc, store) => {
+      return acc.indexOf(store) === -1 ? (acc.push(store), acc) : acc;
+    }, [])
+    .sort((a, b) => state.storesRef[a].order - state.storesRef[b].order);
+};
 
 export const userSelectedItemsByStore = (state, getters) => {
   const USI = state.userSelectedItems;

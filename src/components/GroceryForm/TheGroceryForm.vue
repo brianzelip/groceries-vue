@@ -9,12 +9,15 @@
       </template>
     </ol>
     <TheGroceryFormControls v-on:form-submitted="submitForm"></TheGroceryFormControls>
+    <hr>
+    <h3>usiArrStores:</h3>
+    <pre>{{ usiArrStores }}</pre>
   </form>
 </template>
 
 <script>
 import axios from "axios";
-import { mapState, mapActions } from "vuex";
+import { mapState, mapGetters, mapActions } from "vuex";
 
 import GroceryFormItem from "./GroceryFormItem.vue";
 import TheGroceryFormControls from "./TheGroceryFormControls.vue";
@@ -28,7 +31,8 @@ export default {
     TheGroceryFormControls
   },
   computed: {
-    ...mapState(["allPossibleGroceryItems", "userSelectedItems"])
+    ...mapState(["allPossibleGroceryItems", "userSelectedItems"]),
+    ...mapGetters(["usiArrStores"])
   },
   methods: {
     ...mapActions(["setAllPossibleGroceryItems"]),
