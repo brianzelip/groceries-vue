@@ -10,8 +10,8 @@
     </ol>
     <TheGroceryFormControls v-on:form-submitted="submitForm"></TheGroceryFormControls>
     <hr>
-    <h3>usiArrStores:</h3>
-    <pre>{{ usiArrStores }}</pre>
+    <h3>userSelectedItemsByStore:</h3>
+    <pre>{{ userSelectedItemsByStore }}</pre>
   </form>
 </template>
 
@@ -32,7 +32,7 @@ export default {
   },
   computed: {
     ...mapState(["allPossibleGroceryItems", "userSelectedItems"]),
-    ...mapGetters(["usiArrStores"])
+    ...mapGetters(["userSelectedItemsByStore"])
   },
   methods: {
     ...mapActions(["setAllPossibleGroceryItems"]),
