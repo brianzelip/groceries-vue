@@ -42,10 +42,5 @@ export const userSelectedItemsByStore = (state, getters) => {
       : userSelectedItemsByStore.noStore.push(USI[key]);
   });
 
-  const output2 = [
-    { store: 'tj', items: [] },
-    { store: 'moms', items: [] },
-    { store: 'farmersMarket', items: [] }
-  ];
   return userSelectedItemsByStore;
 };
