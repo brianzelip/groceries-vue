@@ -1,7 +1,6 @@
 export const allPossibleGroceryItems = [];
 
 export const userSelectedItems = {};
-export const usiArr = [];
 
 export const storesRef = {
   tj: { name: 'TJ', order: 0 },
