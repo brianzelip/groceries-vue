@@ -34,7 +34,16 @@ export default {
     ...mapActions(["setAllPossibleGroceryItems"]),
     processForm() {
       console.log("now `processForm()` is in control!");
-      this.$router.push("/submit");
+      axios
+        .post(
+          "https://groceries-vue-api.glitch.me/submit",
+          this.userSelectedItems
+        )
+        .then(console.log("axios.post just posted HELLO WORLD!"))
+        .then(this.$router.push("/submit"))
+        .catch(error => {
+          console.log("ERROR! ->", error);
+        });
     },
     postDataForEmail() {
       axios
