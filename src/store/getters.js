@@ -36,10 +36,10 @@ export const userSelectedItemsByStore = (state, getters) => {
 
   stores.forEach(store => (userSelectedItemsByStore[store] = []));
 
-  Object.keys(USI).forEach(item => {
-    USI[item].store
-      ? userSelectedItemsByStore[USI[item].store].push(USI[item])
-      : userSelectedItemsByStore.noStore.push(USI[item]);
+  Object.keys(USI).forEach(key => {
+    USI[key].store
+      ? userSelectedItemsByStore[USI[key].store].push(USI[key])
+      : userSelectedItemsByStore.noStore.push(USI[key]);
   });
 
   return userSelectedItemsByStore;
