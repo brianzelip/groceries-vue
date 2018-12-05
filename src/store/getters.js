@@ -32,7 +32,8 @@ export const userSelectedItemsByStore = (state, getters) => {
   const userSelectedItemsByStore = {};
 
   // First create an obj w/ keys for each userSelectedStore,
-  // then push all items to their respective store.
+  // then push all items to their respective store
+  // then sort the items within each store via storeArea or alphabetically
 
   stores.forEach(store => (userSelectedItemsByStore[store] = []));
 
@@ -41,6 +42,48 @@ export const userSelectedItemsByStore = (state, getters) => {
       ? userSelectedItemsByStore[USI[key].store].push(USI[key])
       : userSelectedItemsByStore.noStore.push(USI[key]);
   });
+
+  // compare function via !MDN, Array/sort#Description
+  function compareByName(a, b) {
+    const nameA = a.name.toUpperCase(); // ignore upper and lowercase
+    const nameB = b.name.toUpperCase(); // ignore upper and lowercase
+    if (nameA < nameB) {
+      return -1;
+    }
+    if (nameA > nameB) {
+      return 1;
+    }
+    // names must be equal
+    return 0;
+  }
+  function compareByTJArea(a, b) {
+    const nameA = a.tjArea.toUpperCase(); // ignore upper and lowercase
+    const nameB = b.tjArea.toUpperCase(); // ignore upper and lowercase
+    if (nameA < nameB) {
+      return -1;
+    }
+    if (nameA > nameB) {
+      return 1;
+    }
+    // names must be equal
+    return 0;
+  }
+  function compareByMomsArea(a, b) {
+    const nameA = a.momsArea.toUpperCase(); // ignore upper and lowercase
+    const nameB = b.momsArea.toUpperCase(); // ignore upper and lowercase
+    if (nameA < nameB) {
+      return -1;
+    }
+    if (nameA > nameB) {
+      return 1;
+    }
+    // names must be equal
+    return 0;
+  }
+
+  if (userSelectedItemsByStore.tj) {
+    return userSelectedItemsByStore.tj.sort(compareByName);
+  }
 
   return userSelectedItemsByStore;
 };
