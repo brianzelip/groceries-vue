@@ -29,12 +29,13 @@ export const userSelectedItemsByStore = (state, getters) => {
   const USI = state.userSelectedItems;
   const stores = getters.userSelectedStores;
 
-  const userSelectedItemsByStore = {};
+  const userSelectedItemsByUnsortedStores = {};
+  const userSelectedItemsBySortedStores = [];
 
   // First create an obj w/ keys for each userSelectedStore,
   // then push all items to their respective store
 
-  stores.forEach(store => (userSelectedItemsByStore[store] = []));
+  stores.forEach(store => (userSelectedItemsByUnsortedStores[store] = []));
 
   // ?: does userSelectedItemsByStore get created correctly?
   // A: YES IT DOES! Comment out everything after the return two lines below,
@@ -44,8 +45,8 @@ export const userSelectedItemsByStore = (state, getters) => {
 
   Object.keys(USI).forEach(key => {
     USI[key].store
-      ? userSelectedItemsByStore[USI[key].store].push(USI[key])
-      : userSelectedItemsByStore.noStore.push(USI[key]);
+      ? userSelectedItemsByUnsortedStores[USI[key].store].push(USI[key])
+      : userSelectedItemsByUnsortedStores.noStore.push(USI[key]);
   });
   // ?: does each store key in userSelectedItemsByStore get pushed to correctly?
   // A: YES IT DOES! Comment out everything after the return two lines below,
@@ -53,51 +54,11 @@ export const userSelectedItemsByStore = (state, getters) => {
   // console.log('userSelectedItemsByStore is:::', userSelectedItemsByStore);
   // return userSelectedItemsByStore;
 
-  return userSelectedItemsByStore;
-};
-
-export const sortedUserSelectedItemsByStore = (state, getters) => {
-  // sort the stores order, then sort the items within each store (via storeArea if TJs or Moms, else alphabetically)
-
-  // compare function via !MDN, Array/sort#Description
-  function compareByName(a, b) {
-    const nameA = a.name.toUpperCase(); // ignore upper and lowercase
-    const nameB = b.name.toUpperCase(); // ignore upper and lowercase
-    if (nameA < nameB) {
-      return -1;
-    }
-    if (nameA > nameB) {
-      return 1;
-    }
-    // names must be equal
-    return 0;
-  }
-  function compareByTJArea(a, b) {
-    const nameA = a.tjArea.toUpperCase(); // ignore upper and lowercase
-    const nameB = b.tjArea.toUpperCase(); // ignore upper and lowercase
-    if (nameA < nameB) {
-      return -1;
-    }
-    if (nameA > nameB) {
-      return 1;
-    }
-    // names must be equal
-    return 0;
-  }
-  function compareByMomsArea(a, b) {
-    const nameA = a.momsArea.toUpperCase(); // ignore upper and lowercase
-    const nameB = b.momsArea.toUpperCase(); // ignore upper and lowercase
-    if (nameA < nameB) {
-      return -1;
-    }
-    if (nameA > nameB) {
-      return 1;
-    }
-    // names must be equal
-    return 0;
-  }
-
-  // if (userSelectedItemsByStore.tj) {
-  //   return userSelectedItemsByStore.tj.sort(compareByName);
-  // }
+  stores.forEach(store => {
+    userSelectedItemsBySortedStores.push({
+      [store]: userSelectedItemsByUnsortedStores[store]
+    });
+  });
+  return userSelectedItemsBySortedStores;
+  // return userSelectedItemsByUnsortedStores;
 };
