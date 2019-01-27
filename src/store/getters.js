@@ -33,7 +33,6 @@ export const userSelectedItemsByStore = (state, getters) => {
 
   // First create an obj w/ keys for each userSelectedStore,
   // then push all items to their respective store
-  // then sort the items within each store via storeArea or alphabetically
 
   stores.forEach(store => (userSelectedItemsByStore[store] = []));
 
@@ -97,4 +96,8 @@ export const userSelectedItemsByStore = (state, getters) => {
   }
 
   return userSelectedItemsByStore;
+};
+
+export const sortedUserSelectedItemsByStore = (state, getters) => {
+  // sort the stores order, then sort the items within each store (via storeArea if TJs or Moms, else alphabetically)
 };
