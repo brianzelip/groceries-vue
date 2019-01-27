@@ -37,22 +37,11 @@ export const userSelectedItemsByStore = (state, getters) => {
 
   stores.forEach(store => (userSelectedItemsByUnsortedStores[store] = []));
 
-  // ?: does userSelectedItemsByStore get created correctly?
-  // A: YES IT DOES! Comment out everything after the return two lines below,
-  // then uncomment the following two lines
-  // console.log('userSelectedItemsByStore is:::', userSelectedItemsByStore);
-  // return userSelectedItemsByStore;
-
   Object.keys(USI).forEach(key => {
     USI[key].store
       ? userSelectedItemsByUnsortedStores[USI[key].store].push(USI[key])
       : userSelectedItemsByUnsortedStores.noStore.push(USI[key]);
   });
-  // ?: does each store key in userSelectedItemsByStore get pushed to correctly?
-  // A: YES IT DOES! Comment out everything after the return two lines below,
-  // then uncomment the following two lines
-  // console.log('userSelectedItemsByStore is:::', userSelectedItemsByStore);
-  // return userSelectedItemsByStore;
 
   stores.forEach(store => {
     userSelectedItemsBySortedStores.push({
@@ -60,5 +49,6 @@ export const userSelectedItemsByStore = (state, getters) => {
     });
   });
   return userSelectedItemsBySortedStores;
-  // return userSelectedItemsByUnsortedStores;
 };
+
+export const sortedItemsBySortedStores = (state, getters) => {};
