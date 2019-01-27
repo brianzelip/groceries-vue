@@ -53,6 +53,12 @@ export const userSelectedItemsByStore = (state, getters) => {
   // console.log('userSelectedItemsByStore is:::', userSelectedItemsByStore);
   // return userSelectedItemsByStore;
 
+  return userSelectedItemsByStore;
+};
+
+export const sortedUserSelectedItemsByStore = (state, getters) => {
+  // sort the stores order, then sort the items within each store (via storeArea if TJs or Moms, else alphabetically)
+
   // compare function via !MDN, Array/sort#Description
   function compareByName(a, b) {
     const nameA = a.name.toUpperCase(); // ignore upper and lowercase
@@ -91,13 +97,7 @@ export const userSelectedItemsByStore = (state, getters) => {
     return 0;
   }
 
-  if (userSelectedItemsByStore.tj) {
-    return userSelectedItemsByStore.tj.sort(compareByName);
-  }
-
-  return userSelectedItemsByStore;
-};
-
-export const sortedUserSelectedItemsByStore = (state, getters) => {
-  // sort the stores order, then sort the items within each store (via storeArea if TJs or Moms, else alphabetically)
+  // if (userSelectedItemsByStore.tj) {
+  //   return userSelectedItemsByStore.tj.sort(compareByName);
+  // }
 };
