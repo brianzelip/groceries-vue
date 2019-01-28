@@ -12,9 +12,6 @@
     <hr>
     <h3>userSelectedItemsByStore:</h3>
     <pre>{{ userSelectedItemsByStore }}</pre>
-    <hr>
-    <h3>sortedItemsBySortedStores:</h3>
-    <pre>{{ sortedItemsBySortedStores }}</pre>
   </form>
 </template>
 
@@ -35,7 +32,7 @@ export default {
   },
   computed: {
     ...mapState(["allPossibleGroceryItems", "userSelectedItems"]),
-    ...mapGetters(["userSelectedItemsByStore", "sortedItemsBySortedStores"])
+    ...mapGetters(["userSelectedItemsByStore"])
   },
   methods: {
     ...mapActions(["setAllPossibleGroceryItems"]),
