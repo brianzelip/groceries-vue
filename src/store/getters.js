@@ -33,48 +33,50 @@ export const userSelectedItemsByStore = (state, getters) => {
 
   const userSelectedItemsByUnsortedStores = {};
   const userSelectedItemsBySortedStores = [];
+  const sortedUserSelectedItemsBySortedStores = [];
 
-  // First create an obj w/ keys for each userSelectedStore,
-  // then push all items to their respective store
-
+  // First add one obj per store to userSelectedItemsByUnsortedStores,
+  // whose key is the store name, and whose value is an empty array.
   stores.forEach(store => (userSelectedItemsByUnsortedStores[store] = []));
 
+  // Next push all item objects to their respective empty store array,
+  // using 'noStore' as the store for any items with no associated store
   Object.keys(USI).forEach(key => {
     USI[key].store
       ? userSelectedItemsByUnsortedStores[USI[key].store].push(USI[key])
       : userSelectedItemsByUnsortedStores.noStore.push(USI[key]);
   });
 
+  // Next order the stores for final output.
   stores.forEach(store => {
     userSelectedItemsBySortedStores.push({
       [store]: userSelectedItemsByUnsortedStores[store]
     });
   });
-  return userSelectedItemsBySortedStores;
-};
 
-export const sortedItemsBySortedStores = (state, getters) => {
-  const USIBS = getters.userSelectedItemsByStore;
-  const result = [];
+  // Next sort the items in each store array.
+  userSelectedItemsBySortedStores.forEach(obj => {
+    const store = Object.keys(obj)[0];
 
-  // return USIBS.map(item => item);
+    const sortedItems = hasArea(store)
+      ? obj[store].sort(compareArea)
+      : obj[store].sort(compareName);
+    sortedUserSelectedItemsBySortedStores.push({ [store]: sortedItems });
 
-  // return `USIBS.map(item => item) == USIBS ::: ${USIBS.map(item => item) ==
-  //   USIBS}`;
+    function hasArea(s) {
+      return s === 'tj' || s === 'moms';
+    }
 
-  function compare(a, b) {
-    if (a.name < b.name) return -1;
-    if (a.name > b.name) return 1;
-    return 0;
-  }
+    function compareName(a, b) {
+      if (a.name < b.name) return -1;
+      if (a.name > b.name) return 1;
+      return 0;
+    }
 
-  USIBS.forEach(obj => {
-    Object.keys(obj).forEach(key => {
-      const items = obj[key];
-      const sortedItems = items.sort(compare);
-      result.push({ [`${key}`]: sortedItems });
-    });
+    function compareArea(a, b) {
+      return a[`${store}Area`] - b[`${store}Area`];
+    }
   });
 
-  return result;
+  return sortedUserSelectedItemsBySortedStores;
 };
