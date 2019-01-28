@@ -1,3 +1,5 @@
+import { assertJSX } from 'babel-types';
+
 export const allPossibleGroceryItemsCount = state => {
   return state.allPossibleGroceryItems.length;
 };
@@ -51,4 +53,28 @@ export const userSelectedItemsByStore = (state, getters) => {
   return userSelectedItemsBySortedStores;
 };
 
-export const sortedItemsBySortedStores = (state, getters) => {};
+export const sortedItemsBySortedStores = (state, getters) => {
+  const USIBS = getters.userSelectedItemsByStore;
+  const result = [];
+
+  // return USIBS.map(item => item);
+
+  // return `USIBS.map(item => item) == USIBS ::: ${USIBS.map(item => item) ==
+  //   USIBS}`;
+
+  function compare(a, b) {
+    if (a.name < b.name) return -1;
+    if (a.name > b.name) return 1;
+    return 0;
+  }
+
+  USIBS.forEach(obj => {
+    Object.keys(obj).forEach(key => {
+      const items = obj[key];
+      const sortedItems = items.sort(compare);
+      result.push({ [`${key}`]: sortedItems });
+    });
+  });
+
+  return result;
+};
