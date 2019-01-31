@@ -78,3 +78,5 @@ export const userSelectedItemsByStore = (state, getters) => {
 
   return sortedUserSelectedItemsBySortedStores;
 };
+
+export const emailBody = (state, getters) => {};
