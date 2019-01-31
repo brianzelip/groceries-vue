@@ -41,7 +41,7 @@ export default {
       axios
         .post(
           "https://groceries-vue-api.glitch.me/submit",
-          this.userSelectedItems
+          this.userSelectedItemsByStore
         )
         .then(console.log("axios.post just posted HELLO WORLD!"))
         .then(this.$router.push("/submit"))
