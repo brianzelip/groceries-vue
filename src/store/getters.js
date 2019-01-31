@@ -1,5 +1,3 @@
-import { assertJSX } from 'babel-types';
-
 export const allPossibleGroceryItemsCount = state => {
   return state.allPossibleGroceryItems.length;
 };
