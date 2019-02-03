@@ -12,6 +12,9 @@
     <hr>
     <h3>userSelectedItemsByStore:</h3>
     <pre>{{ userSelectedItemsByStore }}</pre>
+    <hr>
+    <h3>emailBody:</h3>
+    <pre>{{ emailBody }}</pre>
   </form>
 </template>
 
@@ -32,7 +35,7 @@ export default {
   },
   computed: {
     ...mapState(["allPossibleGroceryItems", "userSelectedItems"]),
-    ...mapGetters(["userSelectedItemsByStore"])
+    ...mapGetters(["userSelectedItemsByStore", "emailBody"])
   },
   methods: {
     ...mapActions(["setAllPossibleGroceryItems"]),
