@@ -79,4 +79,28 @@ export const userSelectedItemsByStore = (state, getters) => {
   return sortedUserSelectedItemsBySortedStores;
 };
 
-export const emailBody = (state, getters) => {};
+export const emailBody = (state, getters) => {
+  const emailTemplate = state.emailTemplate;
+  const USIBS = getters.userSelectedItemsByStore;
+
+  // const templ =
+
+  return USIBS.reduce((acc, item) => {
+    const store = Object.keys(item)[0];
+    const items = USIBS[store];
+    console.log('helo from ACCC, store is: ', store);
+    acc = acc + `${store}`;
+    return acc;
+  }, `AAACCC!!!:::`);
+  // <h1 style="font-size: 1.25rem; font-weight: 400;">other</h1>
+  //   <ol style="margin-bottom: 2rem; padding-left: 0; list-style: none;">
+  //     ${arrayOfItemsWithNoStore
+  //       .map(
+  //         itemName => `
+  //         <li>
+  //           <input type="checkbox" value="${itemName}" id="${itemName}" name="item">
+  //           <label for="${itemName}">${itemName}${
+  //           dataObj[itemName].qty ? ` (x${dataObj[itemName].qty})` : ''
+  //           }</label>
+  //         </li>
+};
