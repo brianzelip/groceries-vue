@@ -9,12 +9,6 @@
       </template>
     </ol>
     <TheGroceryFormControls v-on:form-submitted="submitForm"></TheGroceryFormControls>
-    <hr>
-    <h3>userSelectedItemsByStore:</h3>
-    <pre>{{ userSelectedItemsByStore }}</pre>
-    <hr>
-    <h3>emailBody:</h3>
-    <pre>{{ emailBody }}</pre>
   </form>
 </template>
 
@@ -34,8 +28,8 @@ export default {
     TheGroceryFormControls
   },
   computed: {
-    ...mapState(["allPossibleGroceryItems", "userSelectedItems"]),
-    ...mapGetters(["userSelectedItemsByStore", "emailBody"])
+    ...mapState(["allPossibleGroceryItems"]),
+    ...mapGetters(["emailBody"])
   },
   methods: {
     ...mapActions(["setAllPossibleGroceryItems"]),
