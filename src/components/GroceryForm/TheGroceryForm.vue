@@ -36,10 +36,7 @@ export default {
     submitForm() {
       console.log("now `submitForm()` is in control!");
       axios
-        .post(
-          "https://groceries-vue-api.glitch.me/submit",
-          this.userSelectedItemsByStore
-        )
+        .post("https://groceries-vue-api.glitch.me/submit", this.emailBody)
         .then(console.log("axios.post just posted HELLO WORLD!"))
         .then(this.$router.push("/submit"))
         .catch(error => {
