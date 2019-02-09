@@ -91,8 +91,7 @@ export const emailBody = (state, getters) => {
   }, ``);
 
   function storeTemplate(store, items) {
-    return `
-    <h1 style="font-size: 1.25rem; font-weight: 400;">${
+    return `<h1 style="font-size: 1.25rem; font-weight: 400;">${
       store !== 'noStore' ? storesRef[store].name.toLowerCase() : 'other'
     }</h1>
     <ol style="margin-bottom: 2rem; padding-left: 0; list-style: none;">
@@ -113,8 +112,7 @@ export const emailBody = (state, getters) => {
         `
         )
         .join('')}
-    </ol>
-  `;
+    </ol>`;
   }
 
   return result;
