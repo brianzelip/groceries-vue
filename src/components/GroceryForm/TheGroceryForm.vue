@@ -8,13 +8,13 @@
         ></GroceryFormItem>
       </template>
     </ol>
-    <TheGroceryFormControls v-on:form-submitted="processForm"></TheGroceryFormControls>
+    <TheGroceryFormControls v-on:form-submitted="submitForm"></TheGroceryFormControls>
   </form>
 </template>
 
 <script>
 import axios from "axios";
-import { mapState, mapActions } from "vuex";
+import { mapState, mapGetters, mapActions } from "vuex";
 
 import GroceryFormItem from "./GroceryFormItem.vue";
 import TheGroceryFormControls from "./TheGroceryFormControls.vue";
@@ -28,21 +28,19 @@ export default {
     TheGroceryFormControls
   },
   computed: {
-    ...mapState(["allPossibleGroceryItems", "userSelectedItems"])
+    ...mapState(["allPossibleGroceryItems"]),
+    ...mapGetters(["emailBody"])
   },
   methods: {
     ...mapActions(["setAllPossibleGroceryItems"]),
-    processForm() {
-      console.log("now `processForm()` is in control!");
-      this.$router.push("/submit");
-    },
-    postDataForEmail() {
+    submitForm() {
+      console.log("now `submitForm()` is in control!");
       axios
-        .post(
-          "https://groceries-vue-api.glitch.me/submit",
-          this.$store.getters.userSelectedItems
-        )
-        .then(console.log("axios.post just worked!"))
+        .post("https://groceries-vue-api.glitch.me/submit", {
+          html: this.emailBody
+        })
+        .then(console.log("axios.post just posted HELLO WORLD!"))
+        .then(this.$router.push("/submit"))
         .catch(error => {
           console.log("ERROR! ->", error);
         });
