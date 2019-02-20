@@ -1,22 +1,30 @@
 <template>
   <form>
-    <label
-      class="block"
-      for="name"
-    >name
-      <span class="purp">*</span>
-    </label>
-    label(for="name").block name
-    span.purp *
+    <TheItemNameInput v-on:input="updateName"></TheItemNameInput>
   </form>
 </template>
 
 <script>
 import { mapState } from "vuex";
 
+import TheItemNameInput from "./TheItemNameInput.vue";
+
 export default {
+  data() {
+    return {
+      name: ""
+    };
+  },
   computed: {
     ...mapState(["storesRef"])
+  },
+  methods: {
+    updateName(name) {
+      this.name = name;
+    }
+  },
+  components: {
+    TheItemNameInput
   }
 };
 </script>
