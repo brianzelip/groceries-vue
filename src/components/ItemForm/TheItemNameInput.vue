@@ -4,10 +4,10 @@
       class="block"
       for="name"
     >
-      <h1 class="mt1 mb1 h4 regular">
-        name
-        <span class="purp">*</span>
-      </h1>
+      <h1
+        class="mt1 h4 regular"
+        required
+      >name</h1>
     </label>
     <input
       class="col-12 sm-col-8 md-col-6 field"
@@ -33,3 +33,14 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+h1 {
+  margin-bottom: 3px;
+}
+[required]::after {
+  content: "*";
+  color: var(--purp);
+}
+</style>
+
