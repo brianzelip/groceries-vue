@@ -1,8 +1,23 @@
 <template>
   <section class="flex mt2">
-    <!-- .flex.flex-column
-      - const storesWithAreas = {tj: 'TJ', moms: 'Moms'}
-      each store in Object.keys(storesWithAreas)
+    <div class="flex flex-column">
+      <template v-for="(store, i) in storesWithAreas">
+        <label
+          :for="`${store}-area`"
+          :key="`label-${store}-${i}`"
+          class="block"
+        >{{store}}area</label>
+        <input
+          :id="`${store}-area`"
+          :key="`input-${store}-${i}`"
+          :name="`${store}Area`"
+          class="block field w-90px mb2"
+          type="number"
+        >
+        <!-- label(for=`${store}-area`).block #{storesWithAreas[store]} area -->
+        <!-- input(type="number" id=`${store}-area` name=`${store}Area` disabled=(h.itemHasStore(item, store) ? false : true) value=(item[`${store}Area`])).block.field.w-90px.mb2 -->
+      </template>
+      <!-- each store in Object.keys(storesWithAreas)
         label(for=`${store}-area`).block #{storesWithAreas[store]} area
         input(type="number" id=`${store}-area` name=`${store}Area` disabled=(h.itemHasStore(item, store) ? false : true) value=(item[`${store}Area`])).block.field.w-90px.mb2
     .flex.flex-auto.ml2
@@ -21,6 +36,21 @@
                   each key in Object.keys(store[1]).sort()
                     tr
                       td= key
-    td= store[1][key]-->
+      td= store[1][key]-->
+    </div>
   </section>
 </template>
+
+<script>
+import { mapState } from "vuex";
+
+export default {
+  data() {
+    return {};
+  },
+  computed: {
+    ...mapState(["storesRef", "storesWithAreas"])
+  }
+};
+</script>
+
