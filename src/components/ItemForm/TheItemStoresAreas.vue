@@ -16,52 +16,39 @@
           type="number"
         >
       </template>
+    </div>
+    <div class="flex flex-auto ml2">
       <div
-        :key="i"
-        class="flex flex-auto ml2"
+        :id="`${store}-areas-ref`"
+        :key="`${i}-${store}-areas-ref`"
+        class="col-6 px2"
         v-for="(store, i) in storesWithAreas"
       >
-        <div
-          :id="`${store}-areas-ref`"
-          class="col-6 px2"
-        >
-          <div class="overflow-scroll">
-            <table class="table-light overflow-hidden border rounded mono">
-              <caption>{{`${storesRef[store].name} areas`}}</caption>
-              <thead class="bg-light-grey">
-                <tr>
-                  <th
-                    class="fw400"
-                    scope="col"
-                  >area</th>
-                  <th
-                    class="fw400"
-                    scope="col"
-                  >items</th>
-                </tr>
-              </thead>
-              <tbody class="mono">
-                <tr
-                  :key="i"
-                  v-for="(key, i) in Object.keys(storesAreasRef[`${store}Areas`])"
-                >
-                  <td>{{ key }}</td>
-                  <td>{{ storesAreasRef[`${store}Areas`][key] }}</td>
-                </tr>
-              </tbody>
-            </table>
-            <!-- table(class="table-light overflow-hidden border rounded").mono
-                caption= caption
-                thead.bg-light-grey
-                  tr
-                    th(scope="col").fw400 area
-                    th(scope="col").fw400 items
-                tbody.mono
-                  each key in Object.keys(store[1]).sort()
-                    tr
-                      td= key
-            td= store[1][key]-->
-          </div>
+        <div class="overflow-scroll">
+          <table class="table-light overflow-hidden border rounded mono">
+            <caption>{{`${storesRef[store].name} areas`}}</caption>
+            <thead class="bg-light-grey">
+              <tr>
+                <th
+                  class="fw400"
+                  scope="col"
+                >area</th>
+                <th
+                  class="fw400"
+                  scope="col"
+                >items</th>
+              </tr>
+            </thead>
+            <tbody class="mono">
+              <tr
+                :key="i"
+                v-for="(key, i) in Object.keys(storesAreasRef[`${store}Areas`])"
+              >
+                <td>{{ key }}</td>
+                <td>{{ storesAreasRef[`${store}Areas`][key] }}</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
