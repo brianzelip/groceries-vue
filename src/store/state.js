@@ -14,6 +14,8 @@ export const storesRef = {
   noStore: { name: null, order: 99 }
 };
 
+export const storesWithAreas = ['tj', 'moms'];
+
 export const tjAreas = {
   '1': 'raw nuts, fruit, vegetables',
   '2': 'hummus, eggs, soy milk, oj, cream cheese, sour cream',
