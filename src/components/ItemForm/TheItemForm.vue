@@ -3,6 +3,7 @@
     <TheItemNameInput v-on:input="updateName"></TheItemNameInput>
     <ItemStoreSelector inputType="checkbox"></ItemStoreSelector>
     <ItemStoreSelector inputType="radio"></ItemStoreSelector>
+    <TheStoresAreas></TheStoresAreas>
   </form>
 </template>
 
@@ -11,6 +12,7 @@ import { mapState } from "vuex";
 
 import TheItemNameInput from "./TheItemNameInput.vue";
 import ItemStoreSelector from "./ItemStoreSelector.vue";
+import TheStoresAreas from "./TheStoresAreas.vue";
 
 export default {
   data() {
@@ -28,7 +30,8 @@ export default {
   },
   components: {
     TheItemNameInput,
-    ItemStoreSelector
+    ItemStoreSelector,
+    TheStoresAreas
   }
 };
 </script>
