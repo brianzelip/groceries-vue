@@ -16,12 +16,40 @@
           type="number"
         >
       </template>
-      <div class="flex flex-auto ml2">
+      <div
+        :key="i"
+        class="flex flex-auto ml2"
+        v-for="(store, i) in storesWithAreas"
+      >
         <div
-          :id="`${storeName}-areas-ref`"
+          :id="`${store}-areas-ref`"
           class="col-6 px2"
         >
           <div class="overflow-scroll">
+            <table class="table-light overflow-hidden border rounded mono">
+              <caption>{{`${storesRef[store].name} areas`}}</caption>
+              <thead class="bg-light-grey">
+                <tr>
+                  <th
+                    class="fw400"
+                    scope="col"
+                  >area</th>
+                  <th
+                    class="fw400"
+                    scope="col"
+                  >items</th>
+                </tr>
+              </thead>
+              <tbody class="mono">
+                <tr
+                  :key="i"
+                  v-for="(key, i) in Object.keys(storesAreasRef[`${store}Areas`])"
+                >
+                  <td>{{ key }}</td>
+                  <td>{{ storesAreasRef[`${store}Areas`][key] }}</td>
+                </tr>
+              </tbody>
+            </table>
             <!-- table(class="table-light overflow-hidden border rounded").mono
                 caption= caption
                 thead.bg-light-grey
@@ -48,7 +76,7 @@ export default {
     return {};
   },
   computed: {
-    ...mapState(["storesRef", "storesWithAreas"])
+    ...mapState(["storesRef", "storesWithAreas", "storesAreasRef"])
   }
 };
 </script>
