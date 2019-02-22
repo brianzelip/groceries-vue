@@ -64,7 +64,8 @@ export default {
   },
   computed: {
     ...mapState(["storesRef", "storesWithAreas", "storesAreasRef"])
-  }
+  },
+  props: ["isSelected"]
 };
 </script>
 
