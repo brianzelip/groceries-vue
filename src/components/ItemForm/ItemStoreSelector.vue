@@ -11,6 +11,7 @@
           :name="`${name[inputType]}`"
           :type="`${inputType}`"
           :value="`${store}`"
+          @change="handleCheck($event)"
         >
         <label
           :for="`${inputType}-${store}`"
@@ -34,12 +35,28 @@ export default {
       name: {
         checkbox: "stores",
         radio: "defaultStore"
+      },
+      isSelected: {
+        tj: false,
+        moms: false
       }
     };
   },
   props: ["inputType"],
   computed: {
     ...mapState(["storesRef"])
+  },
+  methods: {
+    handleCheck(e) {
+      if (e.srcElement.value === "tj" || e.srcElement.value === "moms") {
+        this.isSelected[e.srcElement.value] = !this.isSelected[
+          e.srcElement.value
+        ];
+      }
+    }
+  },
+  watch: {
+    isSelected() {}
   }
 };
 </script>
