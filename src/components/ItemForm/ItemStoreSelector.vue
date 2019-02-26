@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapState, mapActions } from "vuex";
 
 export default {
   data() {
@@ -35,19 +35,29 @@ export default {
       name: {
         checkbox: "stores",
         radio: "defaultStore"
-      },
-      selection: []
+      }
     };
   },
   props: ["inputType"],
   computed: {
-    ...mapState(["storesRef"]),
+    ...mapState(["storesRef", "newItem"]),
+    selection: {
+      get() {
+        return this.newItem.stores;
+      },
+      set(payload) {
+        this.setNewItemStores(payload);
+      }
+    },
     tjIsSelected() {
       return this.selection.includes("tj");
     },
     momsIsSelected() {
       return this.selection.includes("moms");
     }
+  },
+  methods: {
+    ...mapActions(["setNewItemStores"])
   },
   watch: {
     tjIsSelected() {
