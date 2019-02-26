@@ -1,5 +1,7 @@
 import Vue from 'vue';
 
+/* GroceryForm mutations */
+
 // SET
 export const SET_ALL_POSSIBLE_GROCERY_ITEMS = (state, payload) => {
   //payload is a data array
@@ -24,4 +26,11 @@ export const RESET_USER_SELECTED_ITEMS = state => {
 export const REMOVE_ITEM_FROM_USER_SELECTED_ITEMS = (state, payload) => {
   //payload is an item _id string
   Vue.delete(state.userSelectedItems, payload);
+};
+
+/* ItemForm mutations */
+
+// SET
+export const RESET_NEW_ITEM = state => {
+  Vue.set(state, 'newItem', {});
 };
