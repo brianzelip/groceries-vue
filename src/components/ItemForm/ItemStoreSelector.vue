@@ -41,7 +41,13 @@ export default {
   },
   props: ["inputType"],
   computed: {
-    ...mapState(["storesRef"])
+    ...mapState(["storesRef"]),
+    tjIsSelected() {
+      return this.selection.includes("tj");
+    },
+    momsIsSelected() {
+      return this.selection.includes("moms");
+    }
   }
 };
 </script>
