@@ -40,3 +40,7 @@ export const resetNewItem = ({ commit }) => {
 export const setNewItemName = ({ commit }, payload) => {
   commit('SET_NEW_ITEM_NAME', payload);
 };
+
+export const setNewItemStores = ({ commit }, payload) => {
+  commit('SET_NEW_ITEM_STORES', payload);
+};
