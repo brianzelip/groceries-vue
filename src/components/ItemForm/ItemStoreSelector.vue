@@ -48,6 +48,14 @@ export default {
     momsIsSelected() {
       return this.selection.includes("moms");
     }
+  },
+  watch: {
+    tjIsSelected() {
+      this.$emit("tj-selection-change", this.tjIsSelected);
+    },
+    momsIsSelected() {
+      this.$emit("moms-selection-change", this.momsIsSelected);
+    }
   }
 };
 </script>
