@@ -36,3 +36,7 @@ export const removeItemFromUserSelectedItems = ({ commit }, payload) => {
 export const resetNewItem = ({ commit }) => {
   commit('RESET_NEW_ITEM');
 };
+
+export const setNewItemName = ({ commit }, payload) => {
+  commit('SET_NEW_ITEM_NAME', payload);
+};
