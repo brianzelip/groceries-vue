@@ -11,6 +11,7 @@
           :name="`${name[inputType]}`"
           :type="`${inputType}`"
           :value="`${store}`"
+          v-model="selection"
         >
         <label
           :for="`${inputType}-${store}`"
