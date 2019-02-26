@@ -25,11 +25,6 @@ import TheItemStoresAreas from "./TheItemStoresAreas.vue";
 export default {
   data() {
     return {
-      name: "",
-      stores: [],
-      defaultStore: "",
-      tjArea: "",
-      momsArea: "",
       tjIsSelected: false,
       momsIsSelected: false
     };
