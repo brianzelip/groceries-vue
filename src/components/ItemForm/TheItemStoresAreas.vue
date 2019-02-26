@@ -62,6 +62,7 @@ export default {
   data() {
     return {};
   },
+  props: ["tjIsSelected", "momsIsSelected"],
   computed: {
     ...mapState(["storesRef", "storesWithAreas", "storesAreasRef"])
   }

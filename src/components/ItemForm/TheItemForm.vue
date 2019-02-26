@@ -7,7 +7,10 @@
       v-on:tj-selection-change="updateTjIsSelected"
     ></ItemStoreSelector>
     <ItemStoreSelector inputType="radio"></ItemStoreSelector>
-    <TheItemStoresAreas :isSelected="isSelected"></TheItemStoresAreas>
+    <TheItemStoresAreas
+      :momsIsSelected="momsIsSelected"
+      :tjIsSelected="tjIsSelected"
+    ></TheItemStoresAreas>
   </form>
 </template>
 
