@@ -32,5 +32,11 @@ export const REMOVE_ITEM_FROM_USER_SELECTED_ITEMS = (state, payload) => {
 
 // SET
 export const RESET_NEW_ITEM = state => {
-  Vue.set(state, 'newItem', {});
+  Vue.set(state, 'newItem', {
+    name: '',
+    stores: [],
+    tjArea: null,
+    momsArea: null,
+    defaultStore: ''
+  });
 };

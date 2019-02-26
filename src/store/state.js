@@ -35,4 +35,10 @@ export const storesAreasRef = {
   }
 };
 
-export const newItem = {};
+export const newItem = {
+  name: '',
+  stores: [],
+  tjArea: null,
+  momsArea: null,
+  defaultStore: ''
+};
