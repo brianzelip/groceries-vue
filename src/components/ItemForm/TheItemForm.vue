@@ -1,7 +1,11 @@
 <template>
   <form>
     <TheItemNameInput v-on:input="updateName"></TheItemNameInput>
-    <ItemStoreSelector inputType="checkbox"></ItemStoreSelector>
+    <ItemStoreSelector
+      inputType="checkbox"
+      v-on:moms-selection-change="updateMomsIsSelected"
+      v-on:tj-selection-change="updateTjIsSelected"
+    ></ItemStoreSelector>
     <ItemStoreSelector inputType="radio"></ItemStoreSelector>
     <TheItemStoresAreas :isSelected="isSelected"></TheItemStoresAreas>
   </form>
@@ -22,10 +26,8 @@ export default {
       defaultStore: "",
       tjArea: "",
       momsArea: "",
-      isSelected: {
-        tj: false,
-        moms: false
-      }
+      tjIsSelected: false,
+      momsIsSelected: false
     };
   },
   computed: {
@@ -34,6 +36,12 @@ export default {
   methods: {
     updateName(name) {
       this.name = name;
+    },
+    updateTjIsSelected(payload) {
+      this.tjIsSelected = payload;
+    },
+    updateMomsIsSelected(payload) {
+      this.momsIsSelected = payload;
     }
   },
   components: {
