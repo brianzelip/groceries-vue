@@ -44,3 +44,7 @@ export const RESET_NEW_ITEM = state => {
 export const SET_NEW_ITEM_NAME = (state, payload) => {
   Vue.set(state.newItem, 'name', payload);
 };
+
+export const SET_NEW_ITEM_STORES = (state, payload) => {
+  Vue.set(state.newItem, 'stores', payload);
+};
