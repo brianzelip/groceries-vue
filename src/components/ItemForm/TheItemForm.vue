@@ -1,6 +1,6 @@
 <template>
   <form>
-    <TheItemNameInput v-on:input="updateName"></TheItemNameInput>
+    <TheItemNameInput></TheItemNameInput>
     <ItemStoreSelector
       inputType="checkbox"
       v-on:moms-selection-change="updateMomsIsSelected"
@@ -36,9 +36,6 @@ export default {
     }
   },
   methods: {
-    updateName(name) {
-      this.name = name;
-    },
     updateTjIsSelected(payload) {
       this.tjIsSelected = payload;
     },
