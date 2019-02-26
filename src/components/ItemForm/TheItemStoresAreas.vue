@@ -1,21 +1,10 @@
 <template>
   <section class="flex mt2">
     <div class="flex flex-column">
-      <template v-for="(store, i) in storesWithAreas">
-        <label
-          :for="`${store}-area`"
-          :key="`label-${store}-${i}`"
-          class="block"
-        >{{ storesRef[store].name }} area</label>
-        <input
-          :id="`${store}-area`"
-          :key="`input-${store}-${i}`"
-          :name="`${store}Area`"
-          class="block field w-90px mb2"
-          disabled
-          type="number"
-        >
-      </template>
+      <ItemStoreAreaLabel store="tj"></ItemStoreAreaLabel>
+      <ItemStoreAreaInput store="tj"></ItemStoreAreaInput>
+      <ItemStoreAreaLabel store="moms"></ItemStoreAreaLabel>
+      <ItemStoreAreaInput store="moms"></ItemStoreAreaInput>
     </div>
     <div class="flex flex-auto ml2">
       <div
@@ -58,11 +47,18 @@
 <script>
 import { mapState } from "vuex";
 
+import ItemStoreAreaLabel from "./ItemStoreAreaLabel.vue";
+import ItemStoreAreaInput from "./ItemStoreAreaInput.vue";
+
 export default {
   data() {
     return {};
   },
   props: ["tjIsSelected", "momsIsSelected"],
+  components: {
+    ItemStoreAreaLabel,
+    ItemStoreAreaInput
+  },
   computed: {
     ...mapState(["storesRef", "storesWithAreas", "storesAreasRef"])
   }
