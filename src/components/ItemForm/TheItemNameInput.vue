@@ -20,16 +20,22 @@
 </template>
 
 <script>
+import { mapState, mapActions } from "vuex";
+
 export default {
-  data() {
-    return {
-      name: ""
-    };
-  },
-  watch: {
-    name() {
-      this.$emit("input", this.name);
+  computed: {
+    ...mapState(["newItem"]),
+    name: {
+      get() {
+        return this.newItem.name;
+      },
+      set(payload) {
+        this.setNewItemName(payload);
+      }
     }
+  },
+  methods: {
+    ...mapActions(["setNewItemName"])
   }
 };
 </script>
