@@ -10,6 +10,7 @@
     <TheItemStoresAreas
       :momsIsSelected="momsIsSelected"
       :tjIsSelected="tjIsSelected"
+      v-if="tjOrMomsIsSelected"
     ></TheItemStoresAreas>
   </form>
 </template>
@@ -34,7 +35,10 @@ export default {
     };
   },
   computed: {
-    ...mapState(["storesRef"])
+    ...mapState(["storesRef"]),
+    tjOrMomsIsSelected() {
+      return this.tjIsSelected ? true : this.momsIsSelected ? true : false;
+    }
   },
   methods: {
     updateName(name) {
