@@ -35,10 +35,7 @@ export default {
         checkbox: "stores",
         radio: "defaultStore"
       },
-      isSelected: {
-        tj: false,
-        moms: false
-      }
+      selection: []
     };
   },
   props: ["inputType"],
