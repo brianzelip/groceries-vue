@@ -34,3 +34,5 @@ export const storesAreasRef = {
     '3': 'bread, dried fruit'
   }
 };
+
+export const newItem = {};
