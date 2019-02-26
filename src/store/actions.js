@@ -1,5 +1,6 @@
 import axios from 'axios';
 
+// GroceryForm actions
 export const setAllPossibleGroceryItems = context => {
   axios
     .get('https://groceries-vue-api.glitch.me/get')
@@ -29,4 +30,9 @@ export const resetUserSelectedItems = ({ commit }) => {
 export const removeItemFromUserSelectedItems = ({ commit }, payload) => {
   //payload is an item _id string
   commit('REMOVE_ITEM_FROM_USER_SELECTED_ITEMS', payload);
+};
+
+// ItemForm actions
+export const resetNewItem = ({ commit }) => {
+  commit('RESET_NEW_ITEM');
 };
