@@ -44,3 +44,7 @@ export const setNewItemName = ({ commit }, payload) => {
 export const setNewItemStores = ({ commit }, payload) => {
   commit('SET_NEW_ITEM_STORES', payload);
 };
+
+export const setNewItemDefaultStore = ({ commit }, payload) => {
+  commit('SET_NEW_ITEM_DEFAULT_STORE', payload);
+};
