@@ -52,3 +52,11 @@ export const SET_NEW_ITEM_STORES = (state, payload) => {
 export const SET_NEW_ITEM_DEFAULT_STORE = (state, payload) => {
   Vue.set(state.newItem, 'defaultStore', payload);
 };
+
+export const SET_NEW_ITEM_TJ_AREA = (state, payload) => {
+  Vue.set(state.newItem, 'tjArea', payload);
+};
+
+export const SET_NEW_ITEM_MOMS_AREA = (state, payload) => {
+  Vue.set(state.newItem, 'momsArea', payload);
+};
