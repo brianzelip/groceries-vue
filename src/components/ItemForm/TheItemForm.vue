@@ -18,7 +18,6 @@
 import { mapState } from "vuex";
 
 import TheItemNameInput from "./TheItemNameInput.vue";
-import ItemStoreSelector from "./ItemStoreSelector.vue";
 import TheItemStoresSelector from "./TheItemStoresSelector.vue";
 import TheItemDefaultStoreSelector from "./TheItemDefaultStoreSelector.vue";
 import TheItemStoresAreas from "./TheItemStoresAreas.vue";
@@ -46,7 +45,6 @@ export default {
   },
   components: {
     TheItemNameInput,
-    ItemStoreSelector,
     TheItemStoresSelector,
     TheItemDefaultStoreSelector,
     TheItemStoresAreas
