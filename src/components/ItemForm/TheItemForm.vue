@@ -11,6 +11,7 @@
       :tjIsSelected="tjIsSelected"
       v-if="tjOrMomsIsSelected"
     ></TheItemStoresAreas>
+    <TheItemFormControls></TheItemFormControls>
   </form>
 </template>
 
@@ -21,6 +22,7 @@ import TheItemNameInput from "./TheItemNameInput.vue";
 import TheItemStoresSelector from "./TheItemStoresSelector.vue";
 import TheItemDefaultStoreSelector from "./TheItemDefaultStoreSelector.vue";
 import TheItemStoresAreas from "./TheItemStoresAreas.vue";
+import TheItemFormControls from "./TheItemFormControls.vue";
 
 export default {
   data() {
@@ -47,7 +49,8 @@ export default {
     TheItemNameInput,
     TheItemStoresSelector,
     TheItemDefaultStoreSelector,
-    TheItemStoresAreas
+    TheItemStoresAreas,
+    TheItemFormControls
   }
 };
 </script>
