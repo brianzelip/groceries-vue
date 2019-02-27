@@ -48,3 +48,7 @@ export const SET_NEW_ITEM_NAME = (state, payload) => {
 export const SET_NEW_ITEM_STORES = (state, payload) => {
   Vue.set(state.newItem, 'stores', payload);
 };
+
+export const SET_NEW_ITEM_DEFAULT_STORE = (state, payload) => {
+  Vue.set(state.newItem, 'defaultStore', payload);
+};
