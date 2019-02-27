@@ -19,3 +19,7 @@ So, in the case of TheItemForm.vue:
 - stores (array of strings)
 - default store (string)
 - if ${tj/moms} then ${tj/moms} area (number)
+
+TODO:
+
+- Refactor the future `TheItemStoresSelector.vue` to control `stores` array and `defaultStore` string.
