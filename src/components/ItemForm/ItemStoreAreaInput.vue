@@ -1,7 +1,7 @@
 <template>
   <input
     :id="`${store}-area`"
-    :key="`input-${store}-${i}`"
+    :key="`input-${store}`"
     :name="`${store}Area`"
     class="block field w-90px mb2"
     disabled
