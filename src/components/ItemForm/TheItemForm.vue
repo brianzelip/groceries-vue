@@ -1,12 +1,11 @@
 <template>
   <form>
     <TheItemNameInput></TheItemNameInput>
-    <ItemStoreSelector
-      inputType="checkbox"
+    <TheItemStoresSelector
       v-on:moms-selection-change="updateMomsIsSelected"
       v-on:tj-selection-change="updateTjIsSelected"
-    ></ItemStoreSelector>
-    <ItemStoreSelector inputType="radio"></ItemStoreSelector>
+    ></TheItemStoresSelector>
+    <TheItemDefaultStoreSelector></TheItemDefaultStoreSelector>
     <TheItemStoresAreas
       :momsIsSelected="momsIsSelected"
       :tjIsSelected="tjIsSelected"
@@ -20,6 +19,8 @@ import { mapState } from "vuex";
 
 import TheItemNameInput from "./TheItemNameInput.vue";
 import ItemStoreSelector from "./ItemStoreSelector.vue";
+import TheItemStoresSelector from "./TheItemStoresSelector.vue";
+import TheItemDefaultStoreSelector from "./TheItemDefaultStoreSelector.vue";
 import TheItemStoresAreas from "./TheItemStoresAreas.vue";
 
 export default {
@@ -46,6 +47,8 @@ export default {
   components: {
     TheItemNameInput,
     ItemStoreSelector,
+    TheItemStoresSelector,
+    TheItemDefaultStoreSelector,
     TheItemStoresAreas
   }
 };
