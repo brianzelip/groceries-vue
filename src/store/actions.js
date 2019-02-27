@@ -48,3 +48,11 @@ export const setNewItemStores = ({ commit }, payload) => {
 export const setNewItemDefaultStore = ({ commit }, payload) => {
   commit('SET_NEW_ITEM_DEFAULT_STORE', payload);
 };
+
+export const setNewItemTjArea = ({ commit }, payload) => {
+  commit('SET_NEW_ITEM_TJ_AREA', payload);
+};
+
+export const setNewItemMomsArea = ({ commit }, payload) => {
+  commit('SET_NEW_ITEM_MOMS_AREA', payload);
+};
