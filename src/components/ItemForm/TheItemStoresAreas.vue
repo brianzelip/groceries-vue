@@ -1,11 +1,9 @@
 <template>
   <section class="flex mt2">
-    <div class="flex flex-column">
-      <ItemStoreAreaLabel store="tj"></ItemStoreAreaLabel>
-      <ItemStoreAreaInput store="tj"></ItemStoreAreaInput>
-      <ItemStoreAreaLabel store="moms"></ItemStoreAreaLabel>
-      <ItemStoreAreaInput store="moms"></ItemStoreAreaInput>
-    </div>
+    <TheItemStoresAreasInputs
+      :momsIsSelected="momsIsSelected"
+      :tjIsSelected="tjIsSelected"
+    ></TheItemStoresAreasInputs>
     <div class="flex flex-auto ml2">
       <div
         :id="`${store}-areas-ref`"
@@ -47,8 +45,7 @@
 <script>
 import { mapState } from "vuex";
 
-import ItemStoreAreaLabel from "./ItemStoreAreaLabel.vue";
-import ItemStoreAreaInput from "./ItemStoreAreaInput.vue";
+import TheItemStoresAreasInputs from "./TheItemStoresAreasInputs.vue";
 
 export default {
   data() {
@@ -56,8 +53,7 @@ export default {
   },
   props: ["tjIsSelected", "momsIsSelected"],
   components: {
-    ItemStoreAreaLabel,
-    ItemStoreAreaInput
+    TheItemStoresAreasInputs
   },
   computed: {
     ...mapState(["storesRef", "storesWithAreas", "storesAreasRef"])
