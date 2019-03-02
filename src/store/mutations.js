@@ -1,5 +1,7 @@
 import Vue from 'vue';
 
+/* GroceryForm mutations */
+
 // SET
 export const SET_ALL_POSSIBLE_GROCERY_ITEMS = (state, payload) => {
   //payload is a data array
@@ -24,4 +26,37 @@ export const RESET_USER_SELECTED_ITEMS = state => {
 export const REMOVE_ITEM_FROM_USER_SELECTED_ITEMS = (state, payload) => {
   //payload is an item _id string
   Vue.delete(state.userSelectedItems, payload);
+};
+
+/* ItemForm mutations */
+
+// SET
+export const RESET_NEW_ITEM = state => {
+  Vue.set(state, 'newItem', {
+    name: '',
+    stores: [],
+    tjArea: null,
+    momsArea: null,
+    defaultStore: ''
+  });
+};
+
+export const SET_NEW_ITEM_NAME = (state, payload) => {
+  Vue.set(state.newItem, 'name', payload);
+};
+
+export const SET_NEW_ITEM_STORES = (state, payload) => {
+  Vue.set(state.newItem, 'stores', payload);
+};
+
+export const SET_NEW_ITEM_DEFAULT_STORE = (state, payload) => {
+  Vue.set(state.newItem, 'defaultStore', payload);
+};
+
+export const SET_NEW_ITEM_TJ_AREA = (state, payload) => {
+  Vue.set(state.newItem, 'tjArea', payload);
+};
+
+export const SET_NEW_ITEM_MOMS_AREA = (state, payload) => {
+  Vue.set(state.newItem, 'momsArea', payload);
 };

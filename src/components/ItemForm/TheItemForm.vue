@@ -1,34 +1,56 @@
-<template lang="pug">
-  form(action="/add" method="POST")
-    label(for="name").block name
-      span.purp *
-    input(type="text" name="name" id="name").col-12.sm-col-8.md-col-6.field
-    .mt2 stores where we get this item:
-      .flex.flex-column.sm-flex-row.sm-flex-wrap.border-bottom
-        div(v-for="store in Object.keys(storesRef)")
-          input(
-            type="checkbox"
-            name="stores"
-            :id="`checkbox-${store}`"
-            :value="`${store}`")
-          label(:for="`checkbox-${store}`").mr2 {{ storesRef[store].name }}
-    .mt2 our default store of choice:
-      .flex.flex-column.sm-flex-row.sm-flex-wrap.border-bottom
-        div(v-for="store in Object.keys(storesRef)")
-          input(
-            type="radio"
-            name="defaultStore"
-            :id="`radio-${store}`"
-            :value="`${store}`")
-          label(for="`radio-${store}`").mr2 {{ storesRef[store].name }}
+<template>
+  <form>
+    <TheItemNameInput></TheItemNameInput>
+    <TheItemStoresSelector
+      v-on:moms-selection-change="updateMomsIsSelected"
+      v-on:tj-selection-change="updateTjIsSelected"
+    ></TheItemStoresSelector>
+    <TheItemDefaultStoreSelector></TheItemDefaultStoreSelector>
+    <TheItemStoresAreas
+      :momsIsSelected="momsIsSelected"
+      :tjIsSelected="tjIsSelected"
+      v-if="tjOrMomsIsSelected"
+    ></TheItemStoresAreas>
+    <TheItemFormControls></TheItemFormControls>
+  </form>
 </template>
 
 <script>
 import { mapState } from "vuex";
 
+import TheItemNameInput from "./TheItemNameInput.vue";
+import TheItemStoresSelector from "./TheItemStoresSelector.vue";
+import TheItemDefaultStoreSelector from "./TheItemDefaultStoreSelector.vue";
+import TheItemStoresAreas from "./TheItemStoresAreas.vue";
+import TheItemFormControls from "./TheItemFormControls.vue";
+
 export default {
+  data() {
+    return {
+      tjIsSelected: false,
+      momsIsSelected: false
+    };
+  },
   computed: {
-    ...mapState(["storesRef"])
+    ...mapState(["storesRef"]),
+    tjOrMomsIsSelected() {
+      return this.tjIsSelected ? true : this.momsIsSelected ? true : false;
+    }
+  },
+  methods: {
+    updateTjIsSelected(payload) {
+      this.tjIsSelected = payload;
+    },
+    updateMomsIsSelected(payload) {
+      this.momsIsSelected = payload;
+    }
+  },
+  components: {
+    TheItemNameInput,
+    TheItemStoresSelector,
+    TheItemDefaultStoreSelector,
+    TheItemStoresAreas,
+    TheItemFormControls
   }
 };
 </script>
