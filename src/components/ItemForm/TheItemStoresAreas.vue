@@ -4,7 +4,10 @@
       :momsIsSelected="momsIsSelected"
       :tjIsSelected="tjIsSelected"
     ></TheItemStoresAreasInputs>
-    <TheItemStoresAreasRefs></TheItemStoresAreasRefs>
+    <TheItemStoresAreasRefs
+      :momsIsSelected="momsIsSelected"
+      :tjIsSelected="tjIsSelected"
+    ></TheItemStoresAreasRefs>
   </section>
 </template>
 
