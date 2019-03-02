@@ -1,47 +1,35 @@
 <template>
-  <div class="flex flex-auto ml2">
+  <div
+    class="flex flex-auto ml2"
+    v-if="tjOrMomsIsSelected"
+  >
     <div
-      :id="`${store}-areas-ref`"
-      :key="`${i}-${store}-areas-ref`"
       class="col-6 px2"
-      v-for="(store, i) in storesWithAreas"
+      id="tj-areas-ref"
+      v-if="tjIsSelected"
     >
-      <div class="overflow-scroll">
-        <table class="table-light overflow-hidden border rounded mono">
-          <caption>{{`${storesRef[store].name} areas`}}</caption>
-          <thead class="bg-light-grey">
-            <tr>
-              <th
-                class="fw400"
-                scope="col"
-              >area</th>
-              <th
-                class="fw400"
-                scope="col"
-              >items</th>
-            </tr>
-          </thead>
-          <tbody class="mono">
-            <tr
-              :key="i"
-              v-for="(key, i) in Object.keys(storesAreasRef[`${store}Areas`])"
-            >
-              <td>{{ key }}</td>
-              <td>{{ storesAreasRef[`${store}Areas`][key] }}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+      <ItemStoresAreasRefsTable store="tj"></ItemStoresAreasRefsTable>
+    </div>
+    <div
+      class="col-6 px2"
+      id="moms-areas-ref"
+      v-if="momsIsSelected"
+    >
+      <ItemStoresAreasRefsTable store="moms"></ItemStoresAreasRefsTable>
     </div>
   </div>
 </template>
 
 <script>
-import { mapState } from "vuex";
+import ItemStoresAreasRefsTable from "./ItemStoresAreasRefsTable.vue";
 
 export default {
+  props: ["tjIsSelected", "momsIsSelected"],
+  components: { ItemStoresAreasRefsTable },
   computed: {
-    ...mapState(["storesRef", "storesWithAreas", "storesAreasRef"])
+    tjOrMomsIsSelected() {
+      return this.tjIsSelected ? true : this.momsIsSelected ? true : false;
+    }
   }
 };
 </script>
