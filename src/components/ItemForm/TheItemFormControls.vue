@@ -1,6 +1,6 @@
 <template>
   <input
-    @click.prevent="postData"
+    @click.prevent="post"
     class="mt2 btn btn-primary bg-blue fw400"
     type="submit"
     value="Save →"
@@ -9,22 +9,20 @@
 
 <script>
 import axios from "axios";
+import { mapState } from "vuex";
 
 export default {
+  computed: {
+    ...mapState(["newItem"])
+  },
   methods: {
     post() {
-      // TODO
-      // submit state.newItem to back end api
-      // ie (via TheGroceryForm.vue):
-      // axios
-      //   .post("https://groceries-vue-api.glitch.me/submit", {
-      //     html: this.emailBody
-      //   })
-      //   .then(console.log("axios.post just posted HELLO WORLD!"))
-      //   .then(this.$router.push("/submit"))
-      //   .catch(error => {
-      //     console.log("ERROR! ->", error);
-      //   });
+      axios
+        .post("https://groceries-vue-api.glitch.me/create", this.newItem)
+        .then(this.$router.push("/"))
+        .catch(error => {
+          console.log("ERROR!:::", error);
+        });
     }
   }
 };
