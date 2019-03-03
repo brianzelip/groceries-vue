@@ -42,3 +42,7 @@ export const newItem = {
   momsArea: null,
   defaultStore: ''
 };
+
+export const itemFormStoresTjIsSelected = false;
+
+export const itemFormStoresMomsIsSelected = false;
