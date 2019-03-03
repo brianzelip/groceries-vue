@@ -20,7 +20,7 @@ const routes = [
     path: '/edit/:id',
     name: 'edit',
     component: TheItemFormContainer,
-    props: { heading: 'edit' }
+    props: { heading: 'edit item' }
   },
   {
     path: '/submit',
