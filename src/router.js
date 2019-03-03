@@ -17,7 +17,7 @@ const routes = [
     props: { heading: 'add item' }
   },
   {
-    path: '/edit/:id',
+    path: '/edit/:_id',
     name: 'edit',
     component: TheItemFormContainer,
     props: { heading: 'edit item' }
