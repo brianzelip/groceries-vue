@@ -56,3 +56,11 @@ export const setNewItemTjArea = ({ commit }, payload) => {
 export const setNewItemMomsArea = ({ commit }, payload) => {
   commit('SET_NEW_ITEM_MOMS_AREA', payload);
 };
+
+export const setItemFormStoresTjIsSelected = ({ commit }, payload) => {
+  commit('SET_ITEM_FORM_STORES_TJ_IS_SELECTED', payload);
+};
+
+export const setItemFormStoresMomsIsSelected = ({ commit }, payload) => {
+  commit('SET_ITEM_FORM_STORES_MOMS_IS_SELECTED', payload);
+};

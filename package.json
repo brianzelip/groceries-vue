@@ -1,6 +1,6 @@
 {
   "name": "groceries-vue",
-  "version": "0.8.0",
+  "version": "0.8.1",
   "description": "Rewrite of my groceries web app in Vue and Parcel",
   "main": "index.pug",
   "scripts": {

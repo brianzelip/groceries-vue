@@ -8,18 +8,18 @@ This document started at v0.7.0, via the `itemForm` branch.
 
 - starting branch: `itemForm`
 - starting point: v0.70
+- creates the ability to add new items to the database
+- ending point: v0.8.0
 
 - this blog post helped me figure out using an array for v-model on form checkboxes: https://alligator.io/vuejs/v-model-two-way-binding/
 
 - re: vue forms - you figure out what kind of data the browser would normally make, and then create those data properties.
 
-So, in the case of TheItemForm.vue:
+2. Use vuex instead of props when multiple components receive the same props.
 
-- name (string)
-- stores (array of strings)
-- default store (string)
-- if ${tj/moms} then ${tj/moms} area (number)
-
-TODO:
-
-- Refactor the future `TheItemStoresSelector.vue` to control `stores` array and `defaultStore` string.
+- starting branch: props-to-vuex
+- starting point: v0.8.0
+- steps:
+  - create new state (props) and getter (computed props)
+  - create mutations and actions to update state
+  - update components
