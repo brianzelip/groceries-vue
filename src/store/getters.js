@@ -115,3 +115,11 @@ export const emailBody = (state, getters) => {
 
   return result;
 };
+
+export const itemFormTjOrMomsIsSelected = state => {
+  return state.itemFormStoresTjIsSelected
+    ? true
+    : state.itemFormStoresMomsIsSelected
+    ? true
+    : false;
+};
