@@ -49,14 +49,18 @@ export default {
     }
   },
   methods: {
-    ...mapActions(["setNewItemStores"])
+    ...mapActions([
+      "setNewItemStores",
+      "setItemFormStoresTjIsSelected",
+      "setItemFormStoresMomsIsSelected"
+    ])
   },
   watch: {
     tjIsSelected() {
-      this.$emit("tj-selection-change", this.tjIsSelected);
+      this.setItemFormStoresTjIsSelected(this.tjIsSelected);
     },
     momsIsSelected() {
-      this.$emit("moms-selection-change", this.momsIsSelected);
+      this.setItemFormStoresMomsIsSelected(this.momsIsSelected);
     }
   }
 };
