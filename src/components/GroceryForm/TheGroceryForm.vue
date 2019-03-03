@@ -8,43 +8,26 @@
         ></GroceryFormItem>
       </template>
     </ol>
-    <TheGroceryFormControls v-on:form-submitted="submitForm"></TheGroceryFormControls>
+    <TheGroceryFormControls></TheGroceryFormControls>
   </form>
 </template>
 
 <script>
-import axios from "axios";
-import { mapState, mapGetters, mapActions } from "vuex";
+import { mapState, mapActions } from "vuex";
 
 import GroceryFormItem from "./GroceryFormItem.vue";
 import TheGroceryFormControls from "./TheGroceryFormControls.vue";
 
 export default {
-  data() {
-    return {};
-  },
   components: {
     GroceryFormItem,
     TheGroceryFormControls
   },
   computed: {
-    ...mapState(["allPossibleGroceryItems"]),
-    ...mapGetters(["emailBody"])
+    ...mapState(["allPossibleGroceryItems"])
   },
   methods: {
-    ...mapActions(["setAllPossibleGroceryItems"]),
-    submitForm() {
-      console.log("now `submitForm()` is in control!");
-      axios
-        .post("https://groceries-vue-api.glitch.me/submit", {
-          html: this.emailBody
-        })
-        .then(console.log("axios.post just posted HELLO WORLD!"))
-        .then(this.$router.push("/submit"))
-        .catch(error => {
-          console.log("ERROR! ->", error);
-        });
-    }
+    ...mapActions(["setAllPossibleGroceryItems"])
   },
   created() {
     this.setAllPossibleGroceryItems();

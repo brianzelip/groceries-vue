@@ -23,3 +23,11 @@ This document started at v0.7.0, via the `itemForm` branch.
   - create new state (props) and getter (computed props)
   - create mutations and actions to update state
   - update components
+- ending point: v0.8.1
+
+3. Use vuex instead of props for submitting the grocery form
+
+- starting branch: grocery-form-control-vuex
+- starting point: v0.8.1
+- ending point: v0.8.2
+- refactor `TheGroceryForm.vue` and `TheGroceryFormControls.vue` to use vuex to submit form from the form controls instead of using custom events to submit via the form parent.
