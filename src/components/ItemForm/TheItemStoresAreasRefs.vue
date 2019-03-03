@@ -1,19 +1,19 @@
 <template>
   <div
     class="flex flex-auto ml2"
-    v-if="tjOrMomsIsSelected"
+    v-if="itemFormTjOrMomsIsSelected"
   >
     <div
       class="col-6 px2"
       id="tj-areas-ref"
-      v-if="tjIsSelected"
+      v-if="itemFormStoresTjIsSelected"
     >
       <ItemStoresAreasRefsTable store="tj"></ItemStoresAreasRefsTable>
     </div>
     <div
       class="col-6 px2"
       id="moms-areas-ref"
-      v-if="momsIsSelected"
+      v-if="itemFormStoresMomsIsSelected"
     >
       <ItemStoresAreasRefsTable store="moms"></ItemStoresAreasRefsTable>
     </div>
@@ -21,15 +21,15 @@
 </template>
 
 <script>
+import { mapState, mapGetters } from "vuex";
+
 import ItemStoresAreasRefsTable from "./ItemStoresAreasRefsTable.vue";
 
 export default {
-  props: ["tjIsSelected", "momsIsSelected"],
   components: { ItemStoresAreasRefsTable },
   computed: {
-    tjOrMomsIsSelected() {
-      return this.tjIsSelected ? true : this.momsIsSelected ? true : false;
-    }
+    ...mapState(["itemFormStoresTjIsSelected", "itemFormStoresMomsIsSelected"]),
+    ...mapGetters(["itemFormTjOrMomsIsSelected"])
   }
 };
 </script>
