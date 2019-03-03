@@ -31,3 +31,9 @@ This document started at v0.7.0, via the `itemForm` branch.
 - starting point: v0.8.1
 - ending point: v0.8.2
 - refactor `TheGroceryForm.vue` and `TheGroceryFormControls.vue` to use vuex to submit form from the form controls instead of using custom events to submit via the form parent.
+
+4. Use `ItemForm` to display existing item data (ie: use ItemForm not just to add a new item to the db, but to display an existing item's data)
+
+- starting branch: show-item-data-in-item-form
+- starting v: v0.8.2
+- ending v: v0.9.0
