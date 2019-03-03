@@ -60,3 +60,19 @@ export const SET_NEW_ITEM_TJ_AREA = (state, payload) => {
 export const SET_NEW_ITEM_MOMS_AREA = (state, payload) => {
   Vue.set(state.newItem, 'momsArea', payload);
 };
+
+export const SET_ITEM_FORM_STORES_TJ_IS_SELECTED = state => {
+  Vue.set(
+    state,
+    'itemFormStoresTjIsSelected',
+    !state.itemFormStoresTjIsSelected
+  );
+};
+
+export const SET_ITEM_FORM_STORES_MOMS_IS_SELECTED = state => {
+  Vue.set(
+    state,
+    'itemFormStoresMomsIsSelected',
+    !state.itemFormStoresMomsIsSelected
+  );
+};
