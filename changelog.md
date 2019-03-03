@@ -21,3 +21,5 @@ This document started at v0.7.0, via the `itemForm` branch.
 - starting point: v0.8.0
 - steps:
   - create new state (props) and getter (computed props)
+  - create mutations and actions to update state
+  - update components
