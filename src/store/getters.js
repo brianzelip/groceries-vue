@@ -123,3 +123,7 @@ export const itemFormTjOrMomsIsSelected = state => {
     ? true
     : false;
 };
+
+export const currentItem = state => _id => {
+  return state.allPossibleGroceryItems.filter(item => item._id === _id);
+};

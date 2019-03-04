@@ -31,8 +31,8 @@ export const REMOVE_ITEM_FROM_USER_SELECTED_ITEMS = (state, payload) => {
 /* ItemForm mutations */
 
 // SET
-export const RESET_NEW_ITEM = state => {
-  Vue.set(state, 'newItem', {
+export const RESET_ITEM_FORM_ITEM = state => {
+  Vue.set(state, 'itemFormItem', {
     name: '',
     stores: [],
     tjArea: null,
@@ -41,24 +41,34 @@ export const RESET_NEW_ITEM = state => {
   });
 };
 
-export const SET_NEW_ITEM_NAME = (state, payload) => {
-  Vue.set(state.newItem, 'name', payload);
+export const SET_ITEM_FORM_ITEM = (state, payload) => {
+  Vue.set(state, 'itemFormItem', payload);
+  payload.tjArea != null
+    ? Vue.set(state, 'itemFormStoresTjIsSelected', true)
+    : null;
+  payload.momsArea != null
+    ? Vue.set(state, 'itemFormStoresMomsIsSelected', true)
+    : null;
 };
 
-export const SET_NEW_ITEM_STORES = (state, payload) => {
-  Vue.set(state.newItem, 'stores', payload);
+export const SET_ITEM_FORM_ITEM_NAME = (state, payload) => {
+  Vue.set(state.itemFormItem, 'name', payload);
 };
 
-export const SET_NEW_ITEM_DEFAULT_STORE = (state, payload) => {
-  Vue.set(state.newItem, 'defaultStore', payload);
+export const SET_ITEM_FORM_ITEM_STORES = (state, payload) => {
+  Vue.set(state.itemFormItem, 'stores', payload);
 };
 
-export const SET_NEW_ITEM_TJ_AREA = (state, payload) => {
-  Vue.set(state.newItem, 'tjArea', payload);
+export const SET_ITEM_FORM_ITEM_DEFAULT_STORE = (state, payload) => {
+  Vue.set(state.itemFormItem, 'defaultStore', payload);
 };
 
-export const SET_NEW_ITEM_MOMS_AREA = (state, payload) => {
-  Vue.set(state.newItem, 'momsArea', payload);
+export const SET_ITEM_FORM_ITEM_TJ_AREA = (state, payload) => {
+  Vue.set(state.itemFormItem, 'tjArea', payload);
+};
+
+export const SET_ITEM_FORM_ITEM_MOMS_AREA = (state, payload) => {
+  Vue.set(state.itemFormItem, 'momsArea', payload);
 };
 
 export const SET_ITEM_FORM_STORES_TJ_IS_SELECTED = state => {

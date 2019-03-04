@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 
 import TheItemNameInput from "./TheItemNameInput.vue";
 import TheItemStoresSelector from "./TheItemStoresSelector.vue";
@@ -26,7 +26,15 @@ export default {
     TheItemFormControls
   },
   computed: {
-    ...mapGetters(["itemFormTjOrMomsIsSelected"])
+    ...mapGetters(["itemFormTjOrMomsIsSelected", "currentItem"])
+  },
+  methods: {
+    ...mapActions(["setItemFormItem"])
+  },
+  created() {
+    this.$route.name === "edit"
+      ? this.setItemFormItem(this.currentItem(this.$route.params._id)[0])
+      : console.log("$route must NOT be 'edit'");
   }
 };
 </script>
