@@ -37,12 +37,22 @@ export default {
     }
   },
   methods: {
-    ...mapActions(["setItemFormItem"])
+    ...mapActions(["setItemFormItem", "resetItemFormItem"])
   },
   created() {
     this.routeName === "edit"
       ? this.setItemFormItem(this.currentItem(this.$route.params._id)[0])
-      : console.log("$route must NOT be 'edit'");
+      : this.resetItemFormItem();
+  },
+  watch: {
+    routeName() {
+      this.routeName === "add"
+        ? this.resetItemFormItem()
+        : console.log(
+            "TheItemForm.vue says: no need to run this.resetItemFormItem since the to route is an edit item route!, see:::",
+            `routeName is=> ${routeName}`
+          );
+    }
   }
 };
 </script>
