@@ -1,6 +1,6 @@
 <template>
   <li class="item">
-    <GroceryFormItemEditLink></GroceryFormItemEditLink>
+    <GroceryFormItemEditLink :_id="item._id"></GroceryFormItemEditLink>
 
     <GroceryFormItemCheckboxInput :slug="item.slug"></GroceryFormItemCheckboxInput>
 
