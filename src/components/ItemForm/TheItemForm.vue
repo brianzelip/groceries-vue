@@ -40,7 +40,7 @@ export default {
     ...mapActions(["setItemFormItem"])
   },
   created() {
-    this.$route.name === "edit"
+    this.routeName === "edit"
       ? this.setItemFormItem(this.currentItem(this.$route.params._id)[0])
       : console.log("$route must NOT be 'edit'");
   }
