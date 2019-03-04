@@ -39,13 +39,19 @@ export const RESET_ITEM_FORM_ITEM = state => {
     momsArea: null,
     defaultStore: ''
   });
+
+  Vue.set(state, 'itemFormStoresTjIsSelected', false);
+
+  Vue.set(state, 'itemFormStoresMomsIsSelected', false);
 };
 
 export const SET_ITEM_FORM_ITEM = (state, payload) => {
   Vue.set(state, 'itemFormItem', payload);
+
   payload.tjArea != null
     ? Vue.set(state, 'itemFormStoresTjIsSelected', true)
     : null;
+
   payload.momsArea != null
     ? Vue.set(state, 'itemFormStoresMomsIsSelected', true)
     : null;
