@@ -29,11 +29,11 @@ export default {
     TheItemFormControls
   },
   computed: {
-    ...mapGetters(["itemFormTjOrMomsIsSelected", "currentItem"]),
+    ...mapGetters(["itemFormTjOrMomsIsSelected", "currentItemFormItem"]),
     heading() {
       return this.routeName === "add"
         ? `add item`
-        : `edit ${this.currentItem(this.$route.params._id)[0].name}`;
+        : `edit ${this.currentItemFormItem(this.$route.params._id)[0].name}`;
     }
   },
   methods: {
@@ -41,7 +41,9 @@ export default {
   },
   created() {
     this.routeName === "edit"
-      ? this.setItemFormItem(this.currentItem(this.$route.params._id)[0])
+      ? this.setItemFormItem(
+          this.currentItemFormItem(this.$route.params._id)[0]
+        )
       : this.resetItemFormItem();
   },
   watch: {
