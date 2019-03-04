@@ -41,6 +41,10 @@ export const RESET_ITEM_FORM_ITEM = state => {
   });
 };
 
+export const SET_ITEM_FORM_ITEM = (state, payload) => {
+  Vue.set(state, 'itemFormItem', payload);
+};
+
 export const SET_ITEM_FORM_ITEM_NAME = (state, payload) => {
   Vue.set(state.itemFormItem, 'name', payload);
 };
