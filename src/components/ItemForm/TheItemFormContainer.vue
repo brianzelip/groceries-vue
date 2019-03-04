@@ -7,12 +7,21 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 import TheItemForm from "./TheItemForm.vue";
 
 export default {
   components: {
     TheItemForm
   },
-  props: ["heading"]
+  computed: {
+    ...mapGetters(["currentItem"]),
+    heading() {
+      return this.$route.name === "add"
+        ? `add item`
+        : `edit ${this.currentItem(this.$route.params._id)[0].name}`;
+    }
+  }
 };
 </script>
