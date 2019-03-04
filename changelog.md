@@ -37,3 +37,5 @@ This document started at v0.7.0, via the `itemForm` branch.
 - starting branch: show-item-data-in-item-form
 - starting v: v0.8.2
 - ending v: v0.9.0
+- steps:
+  - create new getter that returns a function that accepts an item \_id, and uses the \_id to query all grocery items to return the current item to display in the edit item route.
