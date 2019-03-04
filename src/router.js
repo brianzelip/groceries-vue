@@ -13,12 +13,14 @@ const routes = [
   {
     path: '/add',
     name: 'add',
-    component: TheItemFormContainer
+    component: TheItemFormContainer,
+    props: { routeName: 'add' }
   },
   {
     path: '/edit/:_id',
     name: 'edit',
-    component: TheItemFormContainer
+    component: TheItemFormContainer,
+    props: { routeName: 'edit' }
   },
   {
     path: '/submit',
