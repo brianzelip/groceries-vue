@@ -77,18 +77,10 @@ export const SET_ITEM_FORM_ITEM_MOMS_AREA = (state, payload) => {
   Vue.set(state.itemFormItem, 'momsArea', payload);
 };
 
-export const SET_ITEM_FORM_STORES_TJ_IS_SELECTED = state => {
-  Vue.set(
-    state,
-    'itemFormStoresTjIsSelected',
-    !state.itemFormStoresTjIsSelected
-  );
+export const SET_ITEM_FORM_STORES_TJ_IS_SELECTED = (state, payload) => {
+  Vue.set(state, 'itemFormStoresTjIsSelected', payload);
 };
 
-export const SET_ITEM_FORM_STORES_MOMS_IS_SELECTED = state => {
-  Vue.set(
-    state,
-    'itemFormStoresMomsIsSelected',
-    !state.itemFormStoresMomsIsSelected
-  );
+export const SET_ITEM_FORM_STORES_MOMS_IS_SELECTED = (state, payload) => {
+  Vue.set(state, 'itemFormStoresMomsIsSelected', payload);
 };
