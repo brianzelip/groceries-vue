@@ -26,7 +26,16 @@ export default {
     TheItemFormControls
   },
   computed: {
-    ...mapGetters(["itemFormTjOrMomsIsSelected"])
+    ...mapGetters(["itemFormTjOrMomsIsSelected", "currentItem"])
+  },
+  created() {
+    const vm = this;
+    console.log("HEREs the THIS MOTHERFUCKER:::::", this);
+    console.log("this.$route.params._id", this.$route.params._id);
+    console.log(
+      "here comes the curentItem!!!",
+      vm.currentItem(vm.$route.params._id)
+    );
   }
 };
 </script>
