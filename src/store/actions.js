@@ -37,6 +37,10 @@ export const resetItemFormItem = ({ commit }) => {
   commit('RESET_ITEM_FORM_ITEM');
 };
 
+export const setItemFormItem = ({ commit }, payload) => {
+  commit('SET_ITEM_FORM_ITEM', payload);
+};
+
 export const setItemFormItemName = ({ commit }, payload) => {
   commit('SET_ITEM_FORM_ITEM_NAME', payload);
 };
