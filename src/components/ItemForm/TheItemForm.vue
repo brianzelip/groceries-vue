@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 
 import TheItemNameInput from "./TheItemNameInput.vue";
 import TheItemStoresSelector from "./TheItemStoresSelector.vue";
@@ -28,14 +28,13 @@ export default {
   computed: {
     ...mapGetters(["itemFormTjOrMomsIsSelected", "currentItem"])
   },
+  methods: {
+    ...mapActions(["setItemFormItem"])
+  },
   created() {
-    const vm = this;
-    console.log("HEREs the THIS MOTHERFUCKER:::::", this);
-    console.log("this.$route.params._id", this.$route.params._id);
-    console.log(
-      "here comes the curentItem!!!",
-      vm.currentItem(vm.$route.params._id)
-    );
+    this.$route.name === "edit"
+      ? this.setItemFormItem(this.currentItem(this.$route.params._id)[0])
+      : console.log("$route must NOT be 'edit'");
   }
 };
 </script>
