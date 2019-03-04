@@ -5,7 +5,7 @@
     :name="`${store}Area`"
     class="block field w-90px mb2"
     type="number"
-    v-model="input"
+    v-model.number="input"
   >
 </template>
 
@@ -18,7 +18,7 @@ export default {
     ...mapState(["itemFormItem"]),
     input: {
       get() {
-        return this.itemFormItem[`${this.capFirstLetter(this.store)}Area`];
+        return this.itemFormItem[`${this.store}Area`];
       },
       set(payload) {
         this[`setItemFormItem${this.capFirstLetter(this.store)}Area`](payload);
