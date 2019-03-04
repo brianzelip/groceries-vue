@@ -1,6 +1,6 @@
 <template>
   <router-link
-    :to="`/edit/${id}`"
+    :to="`/edit/${_id}`"
     class="w-16px flex flex-center mx1 sm-mx2 grey"
   >
     <!-- <i class="far fa-edit"></i> -->
@@ -20,6 +20,6 @@
 
 <script>
 export default {
-  props: ["id"]
+  props: ["_id"]
 };
 </script>
