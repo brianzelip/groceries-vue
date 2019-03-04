@@ -15,18 +15,18 @@ import { mapState, mapActions } from "vuex";
 export default {
   props: ["store"],
   computed: {
-    ...mapState(["newItem"]),
+    ...mapState(["itemFormItem"]),
     input: {
       get() {
-        return this.newItem[`${this.capFirstLetter(this.store)}Area`];
+        return this.itemFormItem[`${this.capFirstLetter(this.store)}Area`];
       },
       set(payload) {
-        this[`setNewItem${this.capFirstLetter(this.store)}Area`](payload);
+        this[`setItemFormItem${this.capFirstLetter(this.store)}Area`](payload);
       }
     }
   },
   methods: {
-    ...mapActions(["setNewItemTjArea", "setNewItemMomsArea"]),
+    ...mapActions(["setItemFormItemTjArea", "setItemFormItemMomsArea"]),
     capFirstLetter(string) {
       return `${string.slice(0, 1).toUpperCase()}${string.slice(1)}`;
     }

@@ -35,7 +35,7 @@ export const storesAreasRef = {
   }
 };
 
-export const newItem = {
+export const itemFormItem = {
   name: '',
   stores: [],
   tjArea: null,

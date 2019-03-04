@@ -33,28 +33,28 @@ export const removeItemFromUserSelectedItems = ({ commit }, payload) => {
 };
 
 // ItemForm actions
-export const resetNewItem = ({ commit }) => {
-  commit('RESET_NEW_ITEM');
+export const resetItemFormItem = ({ commit }) => {
+  commit('RESET_ITEM_FORM_ITEM');
 };
 
-export const setNewItemName = ({ commit }, payload) => {
-  commit('SET_NEW_ITEM_NAME', payload);
+export const setItemFormItemName = ({ commit }, payload) => {
+  commit('SET_ITEM_FORM_ITEM_NAME', payload);
 };
 
-export const setNewItemStores = ({ commit }, payload) => {
-  commit('SET_NEW_ITEM_STORES', payload);
+export const setItemFormItemStores = ({ commit }, payload) => {
+  commit('SET_ITEM_FORM_ITEM_STORES', payload);
 };
 
-export const setNewItemDefaultStore = ({ commit }, payload) => {
-  commit('SET_NEW_ITEM_DEFAULT_STORE', payload);
+export const setItemFormItemDefaultStore = ({ commit }, payload) => {
+  commit('SET_ITEM_FORM_ITEM_DEFAULT_STORE', payload);
 };
 
-export const setNewItemTjArea = ({ commit }, payload) => {
-  commit('SET_NEW_ITEM_TJ_AREA', payload);
+export const setItemFormItemTjArea = ({ commit }, payload) => {
+  commit('SET_ITEM_FORM_ITEM_TJ_AREA', payload);
 };
 
-export const setNewItemMomsArea = ({ commit }, payload) => {
-  commit('SET_NEW_ITEM_MOMS_AREA', payload);
+export const setItemFormItemMomsArea = ({ commit }, payload) => {
+  commit('SET_ITEM_FORM_ITEM_MOMS_AREA', payload);
 };
 
 export const setItemFormStoresTjIsSelected = ({ commit }, payload) => {

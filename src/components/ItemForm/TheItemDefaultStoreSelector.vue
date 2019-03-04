@@ -32,18 +32,18 @@ export default {
     };
   },
   computed: {
-    ...mapState(["storesRef", "newItem"]),
+    ...mapState(["storesRef", "itemFormItem"]),
     selection: {
       get() {
-        return this.newItem.defaultStore;
+        return this.itemFormItem.defaultStore;
       },
       set(payload) {
-        this.setNewItemDefaultStore(payload);
+        this.setItemFormItemDefaultStore(payload);
       }
     }
   },
   methods: {
-    ...mapActions(["setNewItemDefaultStore"])
+    ...mapActions(["setItemFormItemDefaultStore"])
   }
 };
 </script>

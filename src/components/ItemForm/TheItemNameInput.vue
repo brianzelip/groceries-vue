@@ -24,18 +24,18 @@ import { mapState, mapActions } from "vuex";
 
 export default {
   computed: {
-    ...mapState(["newItem"]),
+    ...mapState(["itemFormItem"]),
     name: {
       get() {
-        return this.newItem.name;
+        return this.itemFormItem.name;
       },
       set(payload) {
-        this.setNewItemName(payload);
+        this.setItemFormItemName(payload);
       }
     }
   },
   methods: {
-    ...mapActions(["setNewItemName"])
+    ...mapActions(["setItemFormItemName"])
   }
 };
 </script>

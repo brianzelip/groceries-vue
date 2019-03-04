@@ -32,13 +32,13 @@ export default {
     };
   },
   computed: {
-    ...mapState(["storesRef", "newItem"]),
+    ...mapState(["storesRef", "itemFormItem"]),
     selection: {
       get() {
-        return this.newItem.stores;
+        return this.itemFormItem.stores;
       },
       set(payload) {
-        this.setNewItemStores(payload);
+        this.setItemFormItemStores(payload);
       }
     },
     tjIsSelected() {
@@ -50,7 +50,7 @@ export default {
   },
   methods: {
     ...mapActions([
-      "setNewItemStores",
+      "setItemFormItemStores",
       "setItemFormStoresTjIsSelected",
       "setItemFormStoresMomsIsSelected"
     ])
