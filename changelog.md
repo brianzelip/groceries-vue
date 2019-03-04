@@ -39,3 +39,4 @@ This document started at v0.7.0, via the `itemForm` branch.
 - ending v: v0.9.0
 - steps:
   - create new getter that returns a function that accepts an item \_id, and uses the \_id to query all grocery items to return the current item to display in the edit item route.
+  - change the scope of the item form state via its name, ie: `newItem` to `itemFormItem`. Whereas the former scope is only about new items, the latter allows for both new and existing items.
