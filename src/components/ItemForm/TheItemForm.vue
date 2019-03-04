@@ -1,5 +1,7 @@
 <template>
-  <form>
+  <form id="TheItemForm">
+    <h2 class="fw400">{{ heading }}</h2>
+    <hr>
     <TheItemNameInput></TheItemNameInput>
     <TheItemStoresSelector></TheItemStoresSelector>
     <TheItemDefaultStoreSelector></TheItemDefaultStoreSelector>
@@ -18,6 +20,7 @@ import TheItemStoresAreas from "./TheItemStoresAreas.vue";
 import TheItemFormControls from "./TheItemFormControls.vue";
 
 export default {
+  props: ["routeName"],
   components: {
     TheItemNameInput,
     TheItemStoresSelector,
@@ -26,15 +29,32 @@ export default {
     TheItemFormControls
   },
   computed: {
-    ...mapGetters(["itemFormTjOrMomsIsSelected", "currentItem"])
+    ...mapGetters(["itemFormTjOrMomsIsSelected", "currentItemFormItem"]),
+    heading() {
+      return this.routeName === "add"
+        ? `add item`
+        : `edit ${this.currentItemFormItem(this.$route.params._id)[0].name}`;
+    }
   },
   methods: {
-    ...mapActions(["setItemFormItem"])
+    ...mapActions(["setItemFormItem", "resetItemFormItem"])
   },
   created() {
-    this.$route.name === "edit"
-      ? this.setItemFormItem(this.currentItem(this.$route.params._id)[0])
-      : console.log("$route must NOT be 'edit'");
+    this.routeName === "edit"
+      ? this.setItemFormItem(
+          this.currentItemFormItem(this.$route.params._id)[0]
+        )
+      : this.resetItemFormItem();
+  },
+  watch: {
+    routeName() {
+      this.routeName === "add"
+        ? this.resetItemFormItem()
+        : console.log(
+            "TheItemForm.vue says: no need to run this.resetItemFormItem since the to route is an edit item route!, see:::",
+            `routeName is=> ${routeName}`
+          );
+    }
   }
 };
 </script>

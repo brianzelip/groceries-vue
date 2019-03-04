@@ -41,3 +41,32 @@ This document started at v0.7.0, via the `itemForm` branch.
   - create new getter that returns a function that accepts an item \_id, and uses the \_id to query all grocery items to return the current item to display in the edit item route.
   - change the scope of the item form state via its name, ie: `newItem` to `itemFormItem`. Whereas the former scope is only about new items, the latter allows for both new and existing items.
   - need to reset `itemFormItem` state on route change (reset when go to '/')
+
+5. Reset `itemFormItem` state when route changes
+
+- starting v: v0.9.0
+- ending v: v0.10.0
+- steps:
+  - I thought i could just register the `resetItemFormItem` action inside the `AddItemBtn.vue` component, then dispatch that action on button click. But this didn't work for some reason.
+  - So i searched for 'vue watch route change', and found [this reddit post](https://www.reddit.com/r/vuejs/comments/77i8vh/vuerouter_how_to_react_to_url_changes/donk0pd), which helped to decipher whats going on [in the VueRouter docs about watching the route](https://router.vuejs.org/guide/essentials/dynamic-matching.html#reacting-to-params-changes), ie:
+
+```js
+// To react to params changes in the same component, you can simply watch the $route object:
+
+const User = {
+  template: '...',
+  watch: {
+    $route(to, from) {
+      // react to route changes...
+    }
+  }
+};
+```
+
+But then I also read the rest of the comment, which reads:
+
+> Though a better solution would be to use the route as a passed parameter as a prop to the component such that the profile has a prop called userId and then put a watcher on the userId and if it changes, refetch the new data. This would also allow you to use your profile component regardless of the route.
+
+This provided the insight to delete `TheItemFormContainer` entirely, since i was using a `created()` and a `watch` in it as well as in `TheItemForm`.
+
+The solution I went with leaves only one set of created/watch, and simplifies the application.
