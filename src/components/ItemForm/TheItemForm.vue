@@ -1,5 +1,7 @@
 <template>
-  <form>
+  <form id="TheItemForm">
+    <h2 class="fw400">{{ heading }}</h2>
+    <hr>
     <TheItemNameInput></TheItemNameInput>
     <TheItemStoresSelector></TheItemStoresSelector>
     <TheItemDefaultStoreSelector></TheItemDefaultStoreSelector>
@@ -18,6 +20,7 @@ import TheItemStoresAreas from "./TheItemStoresAreas.vue";
 import TheItemFormControls from "./TheItemFormControls.vue";
 
 export default {
+  props: ["routeName"],
   components: {
     TheItemNameInput,
     TheItemStoresSelector,
@@ -26,7 +29,12 @@ export default {
     TheItemFormControls
   },
   computed: {
-    ...mapGetters(["itemFormTjOrMomsIsSelected", "currentItem"])
+    ...mapGetters(["itemFormTjOrMomsIsSelected", "currentItem"]),
+    heading() {
+      return this.routeName === "add"
+        ? `add item`
+        : `edit ${this.currentItem(this.$route.params._id)[0].name}`;
+    }
   },
   methods: {
     ...mapActions(["setItemFormItem"])
