@@ -1,3 +1,5 @@
+export const api = 'https://groceries-vue-api.glitch.me/';
+
 export const allPossibleGroceryItems = [];
 
 export const userSelectedItems = {};

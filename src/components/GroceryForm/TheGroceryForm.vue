@@ -19,6 +19,7 @@ import GroceryFormItem from "./GroceryFormItem.vue";
 import TheGroceryFormControls from "./TheGroceryFormControls.vue";
 
 export default {
+  props: ["flash"],
   components: {
     GroceryFormItem,
     TheGroceryFormControls

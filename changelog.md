@@ -70,3 +70,9 @@ But then I also read the rest of the comment, which reads:
 This provided the insight to delete `TheItemFormContainer` entirely, since i was using a `created()` and a `watch` in it as well as in `TheItemForm`.
 
 The solution I went with leaves only one set of created/watch, and simplifies the application.
+
+6. Send itemFormItem data to API to update item data in the data base
+
+- branch name: update-item-via-api
+- starting point: v0.10.1
+- ending point: v0.11.0
