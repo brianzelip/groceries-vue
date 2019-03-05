@@ -1,4 +1,4 @@
-export const api = 'https://groceries-vue-api.glitch.me/';
+export const api = 'https://groceries-vue-api.glitch.me';
 
 export const allPossibleGroceryItems = [];
 
