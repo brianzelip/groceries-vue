@@ -1,6 +1,7 @@
 <template>
   <router-link
-    :to="`/edit/${_id}`"
+    :to="`/edit/${item._id}`"
+    @click.native="setState"
     class="w-16px flex flex-center mx1 sm-mx2 grey"
   >
     <!-- <i class="far fa-edit"></i> -->
@@ -19,7 +20,14 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
 export default {
-  props: ["_id"]
+  props: ["item"],
+  methods: {
+    ...mapActions(["setItemFormItem"]),
+    setState() {
+      this.setItemFormItem(this.item);
+    }
+  }
 };
 </script>
