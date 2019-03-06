@@ -76,3 +76,12 @@ The solution I went with leaves only one set of created/watch, and simplifies th
 - branch name: update-item-via-api
 - starting point: v0.10.1
 - ending point: v0.11.0
+
+7. Delete an item from the data base
+
+- branch name: delete-item
+- starting point: v0.11.0
+- ending point: v0.12.0
+- steps:
+  - add button to template
+  - wire up button to post item \_id to api
