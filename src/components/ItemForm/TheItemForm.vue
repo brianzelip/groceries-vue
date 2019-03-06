@@ -7,6 +7,7 @@
     <TheItemDefaultStoreSelector></TheItemDefaultStoreSelector>
     <TheItemStoresAreas v-if="itemFormTjOrMomsIsSelected"></TheItemStoresAreas>
     <TheItemFormControls></TheItemFormControls>
+    <TheItemFormModal></TheItemFormModal>
   </form>
 </template>
 
@@ -18,6 +19,7 @@ import TheItemStoresSelector from "./TheItemStoresSelector.vue";
 import TheItemDefaultStoreSelector from "./TheItemDefaultStoreSelector.vue";
 import TheItemStoresAreas from "./TheItemStoresAreas.vue";
 import TheItemFormControls from "./TheItemFormControls.vue";
+import TheItemFormModal from "./TheItemFormModal.vue";
 
 export default {
   props: ["routeName"],
@@ -26,7 +28,8 @@ export default {
     TheItemStoresSelector,
     TheItemDefaultStoreSelector,
     TheItemStoresAreas,
-    TheItemFormControls
+    TheItemFormControls,
+    TheItemFormModal
   },
   computed: {
     ...mapGetters(["itemFormTjOrMomsIsSelected", "currentItemFormItem"]),
