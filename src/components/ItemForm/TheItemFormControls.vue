@@ -1,10 +1,19 @@
 <template>
-  <input
-    @click.prevent="postData"
-    class="mt2 btn btn-primary bg-blue fw400"
-    type="submit"
-    value="Save →"
-  >
+  <section class="mt2">
+    <input
+      @click.prevent="postData"
+      class="btn btn-primary bg-blue fw400"
+      type="submit"
+      value="Save →"
+    >
+    <button
+      @click="deleteItem"
+      class="ml2 btn btn-primary bg-grey fw400 hover-bg-red"
+      id="delete-btn"
+      type="button"
+      v-if="isEditRoute"
+    >Delete</button>
+  </section>
 </template>
 
 <script>
@@ -13,7 +22,10 @@ import { mapState } from "vuex";
 
 export default {
   computed: {
-    ...mapState(["api", "itemFormItem"])
+    ...mapState(["api", "itemFormItem"]),
+    isEditRoute() {
+      return this.$route.name === "edit";
+    }
   },
   methods: {
     postData() {
@@ -41,6 +53,23 @@ export default {
             name: "home",
             params: {
               flash: `Successfully updated <strong>${
+                this.itemFormItem.name
+              }</strong>!`
+            }
+          })
+        )
+        .catch(error => {
+          console.log("ERROR!:::", error);
+        });
+    },
+    deleteItem() {
+      axios
+        .post(`${this.api}/delete/${this.$route.params._id}`)
+        .then(
+          this.$router.push({
+            name: "home",
+            params: {
+              flash: `Successfully deleted <strong>${
                 this.itemFormItem.name
               }</strong>!`
             }
