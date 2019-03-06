@@ -16,8 +16,6 @@ export const storesRef = {
   noStore: { name: null, order: 99 }
 };
 
-export const storesWithAreas = ['tj', 'moms'];
-
 export const storesAreasRef = {
   tjAreas: {
     '1': 'raw nuts, fruit, vegetables',
