@@ -21,15 +21,13 @@ import axios from "axios";
 import { mapState } from "vuex";
 
 export default {
+  props: ["isEditRoute"],
   computed: {
-    ...mapState(["api", "itemFormItem"]),
-    isEditRoute() {
-      return this.$route.name === "edit";
-    }
+    ...mapState(["api", "itemFormItem"])
   },
   methods: {
     postData() {
-      this.$route.name === "add" ? this.create() : this.update();
+      this.isEditRoute ? this.update() : this.create();
     },
     create() {
       axios
