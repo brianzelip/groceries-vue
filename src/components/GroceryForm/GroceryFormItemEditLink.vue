@@ -4,7 +4,6 @@
     @click.native="setState"
     class="w-16px flex flex-center mx1 sm-mx2 grey"
   >
-    <!-- <i class="far fa-edit"></i> -->
     <svg
       fill="currentcolor"
       height="32"
@@ -21,6 +20,7 @@
 
 <script>
 import { mapActions } from "vuex";
+
 export default {
   props: ["item"],
   methods: {
