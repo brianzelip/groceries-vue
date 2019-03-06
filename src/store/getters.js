@@ -1,5 +1,3 @@
-import Vue from 'vue';
-
 export const allPossibleGroceryItemsCount = state => {
   return state.allPossibleGroceryItems.length;
 };
@@ -128,9 +126,4 @@ export const itemFormTjOrMomsIsSelected = state => {
 
 export const currentItemFormItem = state => _id => {
   return state.allPossibleGroceryItems.filter(item => item._id === _id);
-};
-
-export const isEditRoute = state => () => {
-  const vm = new Vue();
-  return vm.$route.name === 'edit' ? true : false;
 };
