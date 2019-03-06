@@ -7,7 +7,7 @@
     <TheItemDefaultStoreSelector></TheItemDefaultStoreSelector>
     <TheItemStoresAreas v-if="itemFormTjOrMomsIsSelected"></TheItemStoresAreas>
     <TheItemFormControls></TheItemFormControls>
-    <TheItemFormControlsModal></TheItemFormControlsModal>
+    <TheItemFormControlsModal v-if="isEditRoute"></TheItemFormControlsModal>
   </form>
 </template>
 
@@ -32,7 +32,11 @@ export default {
     TheItemFormControlsModal
   },
   computed: {
-    ...mapGetters(["itemFormTjOrMomsIsSelected", "currentItemFormItem"]),
+    ...mapGetters([
+      "itemFormTjOrMomsIsSelected",
+      "currentItemFormItem",
+      "isEditRoute"
+    ]),
     heading() {
       return this.routeName === "add"
         ? `add item`
