@@ -15,7 +15,7 @@
 
 <script>
 import axios from "axios";
-import { mapState, mapGetters, mapActions } from "vuex";
+import { mapState, mapGetters } from "vuex";
 
 import TheGroceryFormEmailSelector from "./TheGroceryFormEmailSelector.vue";
 import GroceryFormAddItemBtn from "../global/AddItemBtn.vue";
@@ -30,7 +30,6 @@ export default {
     ...mapGetters(["emailBody"])
   },
   methods: {
-    ...mapActions(["resetEmailTo"]),
     submitForm() {
       axios
         .post("https://groceries-vue-api.glitch.me/submit", {
@@ -44,7 +43,6 @@ export default {
           )
         )
         .then(this.$router.push("/submit"))
-        .then(this.resetEmailTo())
         .catch(error => {
           console.log("ERROR! ->", error);
         });
