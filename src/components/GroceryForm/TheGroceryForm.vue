@@ -28,10 +28,11 @@ export default {
     ...mapState(["allPossibleGroceryItems"])
   },
   methods: {
-    ...mapActions(["setAllPossibleGroceryItems"])
+    ...mapActions(["setAllPossibleGroceryItems", "resetEmailTo"])
   },
   created() {
     this.setAllPossibleGroceryItems();
+    this.resetEmailTo();
   }
 };
 </script>
