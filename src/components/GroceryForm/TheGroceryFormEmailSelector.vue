@@ -5,7 +5,7 @@
       id="emailA"
       name="emailTo"
       type="checkbox"
-      v-model="emailTo"
+      v-model="recipients"
       value="a"
     >
     <label
@@ -20,7 +20,7 @@
       id="emailB"
       name="emailTo"
       type="checkbox"
-      v-model="emailTo"
+      v-model="recipients"
       value="b"
     >
     <label
@@ -34,11 +34,22 @@
 </template>
 
 <script>
+import { mapState, mapActions } from "vuex";
+
 export default {
-  data() {
-    return {
-      emailTo: []
-    };
+  computed: {
+    ...mapState(["emailTo"]),
+    recipients: {
+      get() {
+        return this.emailTo;
+      },
+      set(payload) {
+        this.setEmailTo(payload);
+      }
+    }
+  },
+  methods: {
+    ...mapActions(["setEmailTo"])
   }
 };
 </script>
