@@ -25,13 +25,42 @@
 </template>
 
 <script>
+import axios from "axios";
 import { mapState } from "vuex";
 
 export default {
   computed: {
-    ...mapState(["itemFormItem"]),
+    ...mapState(["api", "itemFormItem"]),
     name() {
       return this.itemFormItem.name;
+    }
+  },
+  methods: {
+    deleteItem() {
+      if (this.$route.params._id != this.itemFormItem._id) {
+        console.log(
+          `RATS!\n\n${this.$route.params._id} != ${this.itemFormItem._id} :(`
+        );
+        return;
+      }
+      axios
+        .post(`${this.api}/delete/${this.itemFormItem._id}`)
+        .then(
+          this.$router.push({
+            name: "home",
+            params: {
+              flash: `Successfully deleted <strong>${
+                this.itemFormItem.name
+              }</strong>!`
+            }
+          })
+        )
+        .catch(error => {
+          console.log("ERROR!:::", error);
+        });
+    },
+    close() {
+      this.$emit("close");
     }
   }
 };
