@@ -7,13 +7,16 @@
       value="Save →"
     >
     <button
-      @click="deleteItem"
+      @click="showModal = true"
       class="ml2 btn btn-primary bg-grey fw400 hover-bg-red"
       id="delete-btn"
       type="button"
       v-if="isEditRoute"
     >Delete</button>
-    <TheItemFormControlsModal v-if="showModal"></TheItemFormControlsModal>
+    <TheItemFormControlsModal
+      v-if="showModal"
+      v-on:close="showModal = false"
+    ></TheItemFormControlsModal>
   </section>
 </template>
 
@@ -26,7 +29,7 @@ import TheItemFormControlsModal from "./TheItemFormControlsModal.vue";
 export default {
   data() {
     return {
-      showModal: true
+      showModal: false
     };
   },
   props: ["isEditRoute"],
@@ -56,29 +59,12 @@ export default {
         return;
       }
       axios
-        .post(`${this.api}/edit/${this.$route.params._id}`, this.itemFormItem)
+        .post(`${this.api}/edit/${this.itemFormItem._id}`, this.itemFormItem)
         .then(
           this.$router.push({
             name: "home",
             params: {
               flash: `Successfully updated <strong>${
-                this.itemFormItem.name
-              }</strong>!`
-            }
-          })
-        )
-        .catch(error => {
-          console.log("ERROR!:::", error);
-        });
-    },
-    deleteItem() {
-      axios
-        .post(`${this.api}/delete/${this.$route.params._id}`)
-        .then(
-          this.$router.push({
-            name: "home",
-            params: {
-              flash: `Successfully deleted <strong>${
                 this.itemFormItem.name
               }</strong>!`
             }
