@@ -94,3 +94,12 @@ The solution I went with leaves only one set of created/watch, and simplifies th
 - steps:
   - make current delete button open confirm modal
   - add confirm modal
+
+9. Control who gets emailed the submitted grocery list
+
+- branch name: grocery-form-email
+- starting point: v0.13.0
+- ending point: v0.14.0
+- steps:
+  - wire up data fields to form inputs
+  - send email receipients to api along with submitted list
