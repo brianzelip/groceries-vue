@@ -26,13 +26,13 @@ export default {
     GroceryFormAddItemBtn
   },
   computed: {
-    ...mapState(["emailTo"]),
+    ...mapState(["api", "emailTo"]),
     ...mapGetters(["emailBody"])
   },
   methods: {
     submitForm() {
       axios
-        .post("https://groceries-vue-api.glitch.me/submit", {
+        .post(`${this.api}/submit`, {
           html: this.emailBody,
           recipients: this.emailTo
         })
