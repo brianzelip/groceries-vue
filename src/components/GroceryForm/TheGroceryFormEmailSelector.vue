@@ -2,30 +2,30 @@
   <div class="form__emailSelector">
     <input
       class="form__emailSelector--hidden-input"
-      id="emailA"
+      id="abbie"
       name="emailTo"
       type="checkbox"
       v-model="recipients"
-      value="a"
+      value="abbie"
     >
     <label
       class="form__emailSelector--label"
-      for="emailA"
+      for="abbie"
     >
       <span class="form__emailSelector--checkbox"></span>
       <span class="form__emailSelector--text">email abbie</span>
     </label>
     <input
       class="form__emailSelector--hidden-input"
-      id="emailB"
+      id="brian"
       name="emailTo"
       type="checkbox"
       v-model="recipients"
-      value="b"
+      value="brian"
     >
     <label
       class="form__emailSelector--label"
-      for="emailB"
+      for="brian"
     >
       <span class="form__emailSelector--checkbox"></span>
       <span class="form__emailSelector--text">email brian</span>
