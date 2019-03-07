@@ -22,6 +22,14 @@ export const RESET_USER_SELECTED_ITEMS = state => {
   Vue.set(state, 'userSelectedItems', {});
 };
 
+export const SET_EMAIL_TO = (state, payload) => {
+  Vue.set(state, 'emailTo', payload);
+};
+
+export const RESET_EMAIL_TO = state => {
+  Vue.set(state, 'emailTo', []);
+};
+
 // DELETE
 export const REMOVE_ITEM_FROM_USER_SELECTED_ITEMS = (state, payload) => {
   //payload is an item _id string
