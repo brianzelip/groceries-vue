@@ -33,7 +33,7 @@ import { mapState } from "vuex";
 export default {
   props: ["store"],
   computed: {
-    ...mapState(["storesRef", "storesWithAreas", "storesAreasRef"])
+    ...mapState(["storesRef", "storesAreasRef"])
   }
 };
 </script>

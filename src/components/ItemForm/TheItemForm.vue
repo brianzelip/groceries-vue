@@ -6,44 +6,49 @@
     <TheItemStoresSelector></TheItemStoresSelector>
     <TheItemDefaultStoreSelector></TheItemDefaultStoreSelector>
     <TheItemStoresAreas v-if="itemFormTjOrMomsIsSelected"></TheItemStoresAreas>
-    <TheItemFormControls></TheItemFormControls>
+    <TheItemFormControls :isEditRoute="isEditRoute"></TheItemFormControls>
+    <!-- <TheItemFormControlsModal v-if="isEditRoute"></TheItemFormControlsModal> -->
   </form>
 </template>
 
 <script>
-import { mapGetters, mapActions } from "vuex";
+import { mapState, mapGetters, mapActions } from "vuex";
 
 import TheItemNameInput from "./TheItemNameInput.vue";
 import TheItemStoresSelector from "./TheItemStoresSelector.vue";
 import TheItemDefaultStoreSelector from "./TheItemDefaultStoreSelector.vue";
 import TheItemStoresAreas from "./TheItemStoresAreas.vue";
 import TheItemFormControls from "./TheItemFormControls.vue";
+import TheItemFormControlsModal from "./TheItemFormControlsModal.vue";
 
 export default {
-  props: ["routeName"],
   components: {
     TheItemNameInput,
     TheItemStoresSelector,
     TheItemDefaultStoreSelector,
     TheItemStoresAreas,
-    TheItemFormControls
+    TheItemFormControls,
+    TheItemFormControlsModal
   },
   computed: {
-    ...mapGetters(["itemFormTjOrMomsIsSelected", "currentItemFormItem"]),
+    ...mapState(["itemFormItem"]),
+    ...mapGetters(["itemFormTjOrMomsIsSelected"]),
+    routeName() {
+      return this.$route.name;
+    },
+    isEditRoute() {
+      return this.routeName === "edit";
+    },
     heading() {
-      return this.routeName === "add"
-        ? `add item`
-        : `edit ${this.currentItemFormItem(this.$route.params._id)[0].name}`;
+      return this.isEditRoute ? `edit ${this.itemFormItem.name}` : `add item`;
     }
   },
   methods: {
     ...mapActions(["setItemFormItem", "resetItemFormItem"])
   },
   created() {
-    this.routeName === "edit"
-      ? this.setItemFormItem(
-          this.currentItemFormItem(this.$route.params._id)[0]
-        )
+    this.isEditRoute
+      ? console.log("TheItemForm create() says: ROUTENAME IS EDIT!!!")
       : this.resetItemFormItem();
   },
   watch: {
@@ -52,7 +57,7 @@ export default {
         ? this.resetItemFormItem()
         : console.log(
             "TheItemForm.vue says: no need to run this.resetItemFormItem since the to route is an edit item route!, see:::",
-            `routeName is=> ${routeName}`
+            `routeName is=> ${this.routeName}`
           );
     }
   }

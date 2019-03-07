@@ -7,12 +7,16 @@
       value="Save →"
     >
     <button
-      @click="deleteItem"
+      @click="showModal = true"
       class="ml2 btn btn-primary bg-grey fw400 hover-bg-red"
       id="delete-btn"
       type="button"
       v-if="isEditRoute"
     >Delete</button>
+    <TheItemFormControlsModal
+      v-if="showModal"
+      v-on:close="showModal = false"
+    ></TheItemFormControlsModal>
   </section>
 </template>
 
@@ -20,16 +24,24 @@
 import axios from "axios";
 import { mapState } from "vuex";
 
+import TheItemFormControlsModal from "./TheItemFormControlsModal.vue";
+
 export default {
+  data() {
+    return {
+      showModal: false
+    };
+  },
+  props: ["isEditRoute"],
+  components: {
+    TheItemFormControlsModal
+  },
   computed: {
-    ...mapState(["api", "itemFormItem"]),
-    isEditRoute() {
-      return this.$route.name === "edit";
-    }
+    ...mapState(["api", "itemFormItem"])
   },
   methods: {
     postData() {
-      this.$route.name === "add" ? this.create() : this.update();
+      this.isEditRoute ? this.update() : this.create();
     },
     create() {
       axios
@@ -47,29 +59,12 @@ export default {
         return;
       }
       axios
-        .post(`${this.api}/edit/${this.$route.params._id}`, this.itemFormItem)
+        .post(`${this.api}/edit/${this.itemFormItem._id}`, this.itemFormItem)
         .then(
           this.$router.push({
             name: "home",
             params: {
               flash: `Successfully updated <strong>${
-                this.itemFormItem.name
-              }</strong>!`
-            }
-          })
-        )
-        .catch(error => {
-          console.log("ERROR!:::", error);
-        });
-    },
-    deleteItem() {
-      axios
-        .post(`${this.api}/delete/${this.$route.params._id}`)
-        .then(
-          this.$router.push({
-            name: "home",
-            params: {
-              flash: `Successfully deleted <strong>${
                 this.itemFormItem.name
               }</strong>!`
             }

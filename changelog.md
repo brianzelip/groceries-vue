@@ -85,3 +85,12 @@ The solution I went with leaves only one set of created/watch, and simplifies th
 - steps:
   - add button to template
   - wire up button to post item \_id to api
+
+8. Ask the user to confirm deletion of an item
+
+- branch name: confirm-delete
+- starting point: v0.12.0
+- ending point: v0.13.0
+- steps:
+  - make current delete button open confirm modal
+  - add confirm modal
