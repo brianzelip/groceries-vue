@@ -13,3 +13,21 @@
                   a.btn.h3.p0.cursor(onClick="this.parentElement.remove()") &times;-->
   </section>
 </template>
+
+<style scoped>
+/* via groceries.css */
+
+/* Success */
+.flash--success {
+  background-color: var(--bg-color-success);
+  color: var(--color-success);
+  border-color: var(--border-color-success);
+}
+
+/* Error */
+.flash--error {
+  background-color: var(--bg-color-error);
+  color: var(--color-error);
+  border-color: var(--border-color-error);
+}
+</style>
