@@ -1,6 +1,6 @@
 <template>
   <aside
-    class="top-0 left-0 bottom-0 right-0 fixed vh100 flex-center justify-center bg-tint"
+    class="top-0 left-0 bottom-0 right-0 fixed vh100 flex flex-center justify-center bg-tint"
     id="modal"
   >
     <form
