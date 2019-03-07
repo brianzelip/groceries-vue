@@ -1,12 +1,12 @@
 import axios from 'axios';
 
 // GroceryForm actions
-export const setAllPossibleGroceryItems = context => {
+export const setAllPossibleGroceryItems = ({ state, commit }) => {
   axios
-    .get('https://groceries-vue-api.glitch.me/get')
+    .get(`${state.api}/get`)
     .then(res => {
       console.log('axios.get worked! res.data =', res.data);
-      context.commit('SET_ALL_POSSIBLE_GROCERY_ITEMS', res.data);
+      commit('SET_ALL_POSSIBLE_GROCERY_ITEMS', res.data);
     })
     .catch(error => {
       console.log('ERROR! ->', error);
