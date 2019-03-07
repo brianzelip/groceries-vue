@@ -4,7 +4,7 @@
       p.blue by 
         a(href="http://zelip.me") bzelip
         span.purp  | 
-        a(href="https://github.com/brianzelip/groceries-vue") app source
+        a(href="https://github.com/brianzelip/groceries-vue") source
         span.purp  | 
         a(href="https://glitch.com/~groceries-vue-api") api
         span.purp  | 
