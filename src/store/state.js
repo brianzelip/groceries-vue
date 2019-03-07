@@ -4,6 +4,8 @@ export const allPossibleGroceryItems = [];
 
 export const userSelectedItems = {};
 
+export const emailTo = [];
+
 export const storesRef = {
   tj: { name: 'TJ', order: 0 },
   moms: { name: 'Moms', order: 1 },
