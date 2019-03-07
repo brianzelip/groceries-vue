@@ -32,6 +32,14 @@ export const removeItemFromUserSelectedItems = ({ commit }, payload) => {
   commit('REMOVE_ITEM_FROM_USER_SELECTED_ITEMS', payload);
 };
 
+export const setEmailTo = ({ commit }, payload) => {
+  commit('SET_EMAIL_TO', payload);
+};
+
+export const resetEmailTo = ({ commit }) => {
+  commit('RESET_EMAIL_TO');
+};
+
 // ItemForm actions
 export const resetItemFormItem = ({ commit }) => {
   commit('RESET_ITEM_FORM_ITEM');
