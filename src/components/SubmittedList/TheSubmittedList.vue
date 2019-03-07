@@ -8,10 +8,11 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapState, mapGetters } from "vuex";
 
 export default {
   computed: {
+    ...mapState(["emailTo"]),
     ...mapGetters(["emailBody"])
   }
 };
