@@ -14,8 +14,7 @@
       <div>
         <button
           class="btn btn-outline red hover-bg-red fw400"
-          for="delete-confirmation-form"
-          id="confirm-button"
+          id="confirm-delete"
           type="button"
         >Confirm</button>
         <button
