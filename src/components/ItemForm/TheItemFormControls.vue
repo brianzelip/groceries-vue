@@ -13,6 +13,7 @@
       type="button"
       v-if="isEditRoute"
     >Delete</button>
+    <TheItemFormControlsModal v-if="showModal"></TheItemFormControlsModal>
   </section>
 </template>
 
@@ -20,8 +21,18 @@
 import axios from "axios";
 import { mapState } from "vuex";
 
+import TheItemFormControlsModal from "./TheItemFormControlsModal.vue";
+
 export default {
+  data() {
+    return {
+      showModal: true
+    };
+  },
   props: ["isEditRoute"],
+  components: {
+    TheItemFormControlsModal
+  },
   computed: {
     ...mapState(["api", "itemFormItem"])
   },
