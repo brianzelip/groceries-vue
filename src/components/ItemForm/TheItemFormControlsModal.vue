@@ -10,11 +10,13 @@
       </p>
       <div>
         <button
+          @click="deleteItem"
           class="btn btn-outline red hover-bg-red fw400"
           id="confirm-delete-btn"
           type="button"
         >Confirm</button>
         <button
+          @click="close"
           class="btn btn-outline hover-bg-blue ml2 fw400"
           id="cancel-delete-btn"
           type="button"
