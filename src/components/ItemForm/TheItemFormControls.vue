@@ -22,7 +22,7 @@
 
 <script>
 import axios from "axios";
-import { mapState } from "vuex";
+import { mapState, mapActions } from "vuex";
 
 import TheItemFormControlsModal from "./TheItemFormControlsModal.vue";
 
@@ -40,6 +40,7 @@ export default {
     ...mapState(["api", "itemFormItem"])
   },
   methods: {
+    ...mapActions(["addFlash"]),
     postData() {
       this.isEditRoute ? this.update() : this.create();
     },
@@ -60,6 +61,14 @@ export default {
       }
       axios
         .post(`${this.api}/edit/${this.itemFormItem._id}`, this.itemFormItem)
+        .then(
+          this.addFlash({
+            type: "success",
+            msg: `Successfully updated <strong>${
+              this.itemFormItem.name
+            }</strong>!`
+          })
+        )
         .then(
           this.$router.push({
             name: "home",
