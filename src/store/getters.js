@@ -127,3 +127,7 @@ export const itemFormTjOrMomsIsSelected = state => {
 export const currentItemFormItem = state => _id => {
   return state.allPossibleGroceryItems.filter(item => item._id === _id);
 };
+
+export const haveAtLeastOneFlash = state => {
+  return state.flashes.length > 0;
+};
