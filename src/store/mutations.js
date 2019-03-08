@@ -92,3 +92,13 @@ export const SET_ITEM_FORM_STORES_TJ_IS_SELECTED = (state, payload) => {
 export const SET_ITEM_FORM_STORES_MOMS_IS_SELECTED = (state, payload) => {
   Vue.set(state, 'itemFormStoresMomsIsSelected', payload);
 };
+
+/* Flashes */
+
+// SET
+export const ADD_FLASH = (state, payload) => {
+  const index = () => {
+    return state.flashes.length > 0 ? state.flashes.length - 1 : 0;
+  };
+  Vue.set(state.flashes, index(), payload);
+};
