@@ -243,13 +243,13 @@ input[type='week'] {
   --state-success: var(--color-green);
   --state-error: var(--color-red);
 
-  --bg-color-success: color(var(--state-success) tint(75%));
-  --color-success: color(var(--state-success) lightness(25%));
-  --border-color-success: color(var(--bg-color-success) shade(25%));
+  --bg-color-success: color(#45db34 tint(75%));
+  --color-success: color(#45db34 lightness(25%));
+  --border-color-success: color(color(#45db34 tint(75%)) shade(25%));
 
-  --bg-color-error: color(var(--state-error) tint(75%));
-  --color-error: color(var(--state-error) lightness(25%));
-  --border-color-error: color(var(--bg-color-error) shade(25%));
+  --bg-color-error: color(#db3445 tint(75%));
+  --color-error: color(#db3445 lightness(25%));
+  --border-color-error: color(color(#db3445 tint(75%)) shade(25%));
 }
 
 .flash {
