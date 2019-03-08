@@ -48,3 +48,5 @@ export const itemFormItem = {
 export const itemFormStoresTjIsSelected = false;
 
 export const itemFormStoresMomsIsSelected = false;
+
+export const flashes = [];
