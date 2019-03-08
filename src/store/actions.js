@@ -76,3 +76,8 @@ export const setItemFormStoresTjIsSelected = ({ commit }, payload) => {
 export const setItemFormStoresMomsIsSelected = ({ commit }, payload) => {
   commit('SET_ITEM_FORM_STORES_MOMS_IS_SELECTED', payload);
 };
+
+// Flash actions
+export const addFlash = ({ commit }, payload) => {
+  commit('ADD_FLASH', payload);
+};
