@@ -1,33 +1,33 @@
 <template>
   <section>
-    <h1>⚡</h1>
-    <!--if locals.flashes && Object.keys(locals.flashes).length > 0
-        section
-          .container
-            //- pre= h.dump(locals.flashes)
-            - const categories = Object.keys(locals.flashes)
-            each category in categories
-              each message in flashes[category]
-                section(class=`flex flex-center flash flash--${category} mb3`)
-                  h1.m0.h4.regular.flex-grow!= message
-                  a.btn.h3.p0.cursor(onClick="this.parentElement.remove()") &times;-->
+    <div
+      :key="i"
+      v-for="(flash, i) in flashes"
+    >
+      <div
+        :class="[`flash--${flash.type}`]"
+        class="container flex flex-center mb3 flash"
+      >
+        <h1
+          class="flex-grow m0 h4 regular"
+          v-html="flash.msg"
+        ></h1>
+        <button
+          class="btn h3 p0 cursor"
+          href
+        >&times;</button>
+      </div>
+    </div>
   </section>
 </template>
 
-<style scoped>
-/* via groceries.css */
+<script>
+import { mapState } from "vuex";
 
-/* Success */
-.flash--success {
-  background-color: var(--bg-color-success);
-  color: var(--color-success);
-  border-color: var(--border-color-success);
-}
-
-/* Error */
-.flash--error {
-  background-color: var(--bg-color-error);
-  color: var(--color-error);
-  border-color: var(--border-color-error);
-}
-</style>
+export default {
+  computed: {
+    ...mapState(["flashes"])
+  },
+  props: ["_flash"]
+};
+</script>
