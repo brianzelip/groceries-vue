@@ -42,7 +42,7 @@ export default {
   methods: {
     ...mapActions(["addFlash"]),
     postData() {
-      this.isEditRoute ? this.update() : this.create();
+      this.isEditRoute ? this.edit() : this.create();
     },
     create() {
       axios
@@ -52,7 +52,7 @@ export default {
           console.log("ERROR!:::", error);
         });
     },
-    update() {
+    edit() {
       if (this.$route.params._id != this.itemFormItem._id) {
         console.log(
           `RATS!\n\n${this.$route.params._id} != ${this.itemFormItem._id} :(`
@@ -64,7 +64,7 @@ export default {
         .then(
           this.addFlash({
             type: "success",
-            msg: `Successfully updated <strong>${
+            msg: `Successfully edited <strong>${
               this.itemFormItem.name
             }</strong>!`
           })
@@ -73,7 +73,7 @@ export default {
           this.$router.push({
             name: "home",
             params: {
-              flash: `Successfully updated <strong>${
+              flash: `Successfully edited <strong>${
                 this.itemFormItem.name
               }</strong>!`
             }
