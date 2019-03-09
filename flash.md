@@ -1,0 +1,31 @@
+# flash ⚡
+
+- Q: What's the reason for a flash?
+- A: Tell the user something happened.
+  - Q: What kind of something can happen?
+  - A: An error event, and a success event
+    - Q: When does an error event happen?
+    - A: On the grocery form:
+      - A: when the form is submitted w/out selecting at least one email recipient
+        - Q: Where is this error flash rendered?
+        - A: On the grocery form
+      - A: when the form is submitted w/out selecting at least one item
+        - Q: Where is this error flash rendered?
+        - A: On the grocery form
+    - A: On the add item form:
+      - A: when form is submitted with out an item name
+        - Q: Where is this error flash rendered?
+        - A: On the add item form
+    - A: On the edit item form:
+      - A: when the form is submitted with out an item name
+        - Q: Where is this error flash rendered?
+        - A: On the edit item form
+    - Q: When does a success event happen?
+    - A: On the add item form:
+      - A: when an item is saved successfully
+        - Q: Where is this success flash rendered?
+        - A: On the add item form (ie: adding an item takes you right back to the add item form. this prioritizes data entry over grocery list making)
+    - A: On the edit item form:
+      - A: when an item is edited successfully
+        - Q: Where is this success flash rendered?
+        - A: On the grocery form (ie: editing an item takes you back to the home page)
