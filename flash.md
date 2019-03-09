@@ -22,7 +22,7 @@
         - A: On the edit item form
     - Q: When does a success event happen?
     - A: On the add item form:
-      - A: when an item is saved successfully
+      - A: when an item is added successfully
         - Q: Where is this success flash rendered?
         - A: On the add item form (ie: adding an item takes you right back to the add item form. this prioritizes data entry over grocery list making)
     - A: On the edit item form:
