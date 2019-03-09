@@ -1,5 +1,7 @@
 # flash ⚡
 
+## Q & A
+
 - Q: What's the reason for a flash?
 - A: Tell the user something happened.
   - Q: What kind of something can happen?
@@ -29,3 +31,53 @@
       - A: when an item is edited successfully
         - Q: Where is this success flash rendered?
         - A: On the grocery form (ie: editing an item takes you back to the home page)
+
+## Implications
+
+```js
+const flash = {
+  msg: '',
+  type: '',
+  id: '',
+  routeWhereInitiated: '',
+  routeWhereRendered: ''
+};
+```
+
+### Examples:
+
+```js
+const addItemSuccess = {
+  type: 'success',
+  msg: `Successfully added <strong>${item.name}</strong>!`,
+  id: unixTimeStamp,
+  routeWhereInitiated: 'add item form',
+  routeWhereRendered: 'add item form'
+};
+
+const editItemSuccess = {
+  type: 'success',
+  msg: `Successfully updated <strong>${item.name}</strong>! <a href="/edit/${
+    item._id
+  }">View item</a>.`,
+  id: unixTimeStamp,
+  routeWhereInitiated: 'add item form',
+  routeWhereRendered: 'grocery form'
+};
+
+const groceryFormSelectError = {
+  type: 'error',
+  msg: `Select something will ya!`,
+  id: unixTimeStamp,
+  routeWhereInitiated: 'grocery form',
+  routeWhereRendered: 'grocery form'
+};
+
+const groceryFormEmailError = {
+  type: 'error',
+  msg: `Send the list to someone will ya!`,
+  id: unixTimeStamp,
+  routeWhereInitiated: 'grocery form',
+  routeWhereRendered: 'grocery form'
+};
+```
