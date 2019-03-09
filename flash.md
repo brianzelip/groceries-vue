@@ -47,6 +47,9 @@ const flash = {
 ### Examples:
 
 ```js
+// The var names below are for example only;
+// the objects themselves are what get committed to state.
+
 const addItemSuccessFlash = {
   type: 'success',
   msg: `Successfully added <strong>${item.name}</strong>!`,
