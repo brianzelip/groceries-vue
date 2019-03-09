@@ -47,7 +47,7 @@ const flash = {
 ### Examples:
 
 ```js
-const addItemSuccess = {
+const addItemSuccessFlash = {
   type: 'success',
   msg: `Successfully added <strong>${item.name}</strong>!`,
   id: unixTimeStamp,
@@ -55,7 +55,7 @@ const addItemSuccess = {
   routeWhereRendered: 'add item form'
 };
 
-const editItemSuccess = {
+const editItemSuccessFlash = {
   type: 'success',
   msg: `Successfully updated <strong>${item.name}</strong>! <a href="/edit/${
     item._id
@@ -65,7 +65,7 @@ const editItemSuccess = {
   routeWhereRendered: 'grocery form'
 };
 
-const groceryFormSelectError = {
+const groceryFormSelectErrorFlash = {
   type: 'error',
   msg: `Select something will ya!`,
   id: unixTimeStamp,
@@ -73,7 +73,7 @@ const groceryFormSelectError = {
   routeWhereRendered: 'grocery form'
 };
 
-const groceryFormEmailError = {
+const groceryFormEmailErrorFlash = {
   type: 'error',
   msg: `Send the list to someone will ya!`,
   id: unixTimeStamp,
