@@ -31,7 +31,7 @@ export default {
     TheItemFormControlsModal
   },
   computed: {
-    ...mapState(["itemFormItem"]),
+    ...mapState(["itemFormItem", "flashes"]),
     ...mapGetters(["itemFormTjOrMomsIsSelected"]),
     routeName() {
       return this.$route.name;
@@ -44,11 +44,12 @@ export default {
     }
   },
   methods: {
-    ...mapActions(["setItemFormItem", "resetItemFormItem"])
+    ...mapActions(["setItemFormItem", "resetItemFormItem", "resetFlashes"])
   },
   created() {
     this.isEditRoute
-      ? console.log("TheItemForm create() says: ROUTENAME IS EDIT!!!")
+      ? (console.log("TheItemForm create() says: ROUTENAME IS EDIT!!!"),
+        this.flashes.length > 0 ? this.resetFlashes() : null)
       : this.resetItemFormItem();
   },
   watch: {
