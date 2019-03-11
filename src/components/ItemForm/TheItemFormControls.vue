@@ -40,18 +40,24 @@ export default {
     ...mapState(["api", "itemFormItem"])
   },
   methods: {
-    ...mapActions(["addFlash", "setItemFormItem", "resetItemFormItem"]),
+    ...mapActions([
+      "setAllPossibleGroceryItems",
+      "addFlash",
+      "setItemFormItem",
+      "resetItemFormItem"
+    ]),
     postData() {
       this.isEditRoute ? this.edit() : this.create();
     },
     create() {
       axios
         .post(`${this.api}/create`, this.itemFormItem)
-        // .then(payload => {
-        //   this.setItemFormItem(payload.data);
-        // })
         .then(payload => {
           const data = payload.data;
+          this.setAllPossibleGroceryItems();
+          return data;
+        })
+        .then(data => {
           this.addFlash({
             flashType: "success",
             formType: "add",
@@ -59,7 +65,6 @@ export default {
             _id: data._id,
             flashId: Date.now()
           });
-          return data;
         })
         .then(() => {
           this.resetItemFormItem();
