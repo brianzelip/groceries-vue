@@ -40,14 +40,31 @@ export default {
     ...mapState(["api", "itemFormItem"])
   },
   methods: {
-    ...mapActions(["addFlash"]),
+    ...mapActions(["addFlash", "setItemFormItem", "resetItemFormItem"]),
     postData() {
       this.isEditRoute ? this.edit() : this.create();
     },
     create() {
       axios
         .post(`${this.api}/create`, this.itemFormItem)
-        .then(this.$router.push("/"))
+        // .then(payload => {
+        //   this.setItemFormItem(payload.data);
+        // })
+        .then(payload => {
+          const data = payload.data;
+          this.addFlash({
+            type: "success",
+            msg: `Successfully created <strong>${
+              data.name
+            }</strong>! <a href="/edit/${data._id}">View item →</a>`,
+            id: Date.now()
+          });
+          return data;
+        })
+        .then(() => {
+          this.resetItemFormItem();
+          this.$router.push("/add");
+        })
         .catch(error => {
           console.log("ERROR!:::", error);
         });
@@ -61,12 +78,18 @@ export default {
       }
       axios
         .post(`${this.api}/edit/${this.itemFormItem._id}`, this.itemFormItem)
+        // .then(handle response to post here
+        // response = item data object to use as payload
+        // in setItemFormItem)
         .then(
           this.addFlash({
             type: "success",
             msg: `Successfully edited <strong>${
               this.itemFormItem.name
-            }</strong>!`
+            }</strong>! <a href="/edit/${
+              this.itemFormItem._id
+            }">View item →</a>`,
+            id: Date.now()
           })
         )
         .then(
