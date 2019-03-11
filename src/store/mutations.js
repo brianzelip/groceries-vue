@@ -102,3 +102,10 @@ export const ADD_FLASH = (state, payload) => {
   // Previously, I was passing an index to Vue.set(), but that wasn't working.
   state.flashes.push(payload);
 };
+
+export const REMOVE_FLASH = (state, payload) => {
+  const index = state.flashes.findIndex(flash => {
+    flash.flashId === payload;
+  });
+  state.flashes.splice(index, 1);
+};
