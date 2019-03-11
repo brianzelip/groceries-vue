@@ -1,7 +1,7 @@
 <template lang="pug">
   div(data-vue="app")
     TheHeader
-    Flash(v-if="haveAtLeastOneFlash")
+    TheFlashes(v-if="haveAtLeastOneFlash")
     main
       .container
         router-view
@@ -13,7 +13,7 @@ import { mapGetters } from "vuex";
 
 import TheHeader from "./components/global/TheHeader.vue";
 import TheFooter from "./components/global/TheFooter.vue";
-import Flash from "./components/Flash/Flash.vue";
+import TheFlashes from "./components/Flashes/TheFlashes.vue";
 
 export default {
   data() {
@@ -31,7 +31,7 @@ export default {
   components: {
     TheHeader,
     TheFooter,
-    Flash
+    TheFlashes
   },
   metaInfo() {
     return {
