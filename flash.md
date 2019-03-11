@@ -50,9 +50,13 @@ const flash = {
 // The var names below are for example only;
 // the objects themselves are what get committed to state.
 
+// add and edit item success flashes need to wait to get response
+// from the server
 const addItemSuccessFlash = {
   type: 'success',
-  msg: `Successfully added <strong>${item.name}</strong>!`,
+  msg: `Successfully added <strong>${item.name}</strong>! <a href="/edit/${
+    item._id
+  }">View item →</a>`,
   id: unixTimeStamp,
   routeWhereInitiated: 'add item form',
   routeWhereRendered: 'add item form'
