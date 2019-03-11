@@ -87,3 +87,7 @@ export const removeFlash = ({ commit }, payload) => {
   // payload is a flashId
   commit('REMOVE_FLASH', payload);
 };
+
+export const resetFlashes = ({ commit }) => {
+  commit('RESET_FLASHES');
+};
