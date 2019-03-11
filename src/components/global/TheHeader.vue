@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import { mapState, mapActions } from "vuex";
 import AddItemBtn from "./AddItemBtn.vue";
 
 export default {
@@ -19,16 +19,20 @@ export default {
     AddItemBtn
   },
   computed: {
+    ...mapState(["flashes"]),
     showAddItemBtn() {
       return this.$route.name === "add" ? false : true;
     }
   },
   methods: {
-    ...mapActions(["resetUserSelectedItems"]),
+    ...mapActions(["resetUserSelectedItems", "resetFlashes"]),
     resetApp() {
       this.$route.name === "home"
-        ? this.resetUserSelectedItems()
-        : (this.resetUserSelectedItems(), this.$router.push("/"));
+        ? (this.resetUserSelectedItems(),
+          this.flashes.length > 0 ? this.resetFlashes() : null)
+        : (this.resetUserSelectedItems(),
+          this.resetFlashes(),
+          this.$router.push("/"));
     }
   }
 };
