@@ -6,18 +6,22 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from "vuex";
+import { mapState, mapGetters, mapActions } from "vuex";
 
 export default {
   props: ["_id"],
   computed: {
+    ...mapState(["flashes"]),
     ...mapGetters(["currentItemFormItem"])
   },
   methods: {
-    ...mapActions(["setItemFormItem"]),
+    ...mapActions(["setItemFormItem", "resetFlashes"]),
     setState() {
       const item = this.currentItemFormItem(this._id)[0];
       this.setItemFormItem(item);
+      if (this.flashes.length > 0) {
+        this.resetFlashes();
+      }
     }
   }
 };
