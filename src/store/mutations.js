@@ -97,8 +97,7 @@ export const SET_ITEM_FORM_STORES_MOMS_IS_SELECTED = (state, payload) => {
 
 // SET
 export const ADD_FLASH = (state, payload) => {
-  const index = () => {
-    return state.flashes.length > 0 ? state.flashes.length - 1 : 0;
-  };
-  Vue.set(state.flashes, index(), payload);
+  // using array change detection mutation method, not Vue.set()
+  // see https://vuejs.org/v2/guide/list.html#Mutation-Methods
+  state.flashes.push(payload);
 };
