@@ -11,14 +11,15 @@
       <FlashViewItemLink :_id="flash._id"></FlashViewItemLink>
     </span>
     <button
+      @click="close"
       class="btn h3 p0 cursor"
-      href
     >&times;</button>
   </div>
 </template>
 
 <script>
 import FlashViewItemLink from "./FlashViewItemLink.vue";
+import { mapActions } from "vuex";
 
 export default {
   props: ["flash"],
@@ -26,8 +27,12 @@ export default {
     FlashViewItemLink
   },
   methods: {
+    ...mapActions(["removeFlash"]),
     success(formType, name) {
       return `Successfully ${formType}ed <strong>${name}</strong>!`;
+    },
+    close() {
+      this.removeFlash(this.flash._id);
     }
   }
 };
