@@ -109,3 +109,7 @@ export const REMOVE_FLASH = (state, payload) => {
   });
   state.flashes.splice(index, 1);
 };
+
+export const RESET_FLASHES = state => {
+  Vue.set(state, 'flashes', []);
+};
