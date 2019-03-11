@@ -83,30 +83,16 @@ export default {
       }
       axios
         .post(`${this.api}/edit/${this.itemFormItem._id}`, this.itemFormItem)
-        // .then(handle response to post here
-        // response = item data object to use as payload
-        // in setItemFormItem)
         .then(
           this.addFlash({
-            type: "success",
-            msg: `Successfully edited <strong>${
-              this.itemFormItem.name
-            }</strong>! <a href="/edit/${
-              this.itemFormItem._id
-            }">View item →</a>`,
-            id: Date.now()
+            flashType: "success",
+            formType: "edit",
+            name: this.itemFormItem.name,
+            _id: this.itemFormItem._id,
+            flashId: Date.now()
           })
         )
-        .then(
-          this.$router.push({
-            name: "home",
-            params: {
-              flash: `Successfully edited <strong>${
-                this.itemFormItem.name
-              }</strong>!`
-            }
-          })
-        )
+        .then(this.$router.push({ name: "home" }))
         .catch(error => {
           console.log("ERROR!:::", error);
         });
