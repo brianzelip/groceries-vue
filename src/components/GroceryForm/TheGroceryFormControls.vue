@@ -15,7 +15,7 @@
 
 <script>
 import axios from "axios";
-import { mapState, mapGetters } from "vuex";
+import { mapState, mapGetters, mapActions } from "vuex";
 
 import TheGroceryFormEmailSelector from "./TheGroceryFormEmailSelector.vue";
 import GroceryFormAddItemBtn from "../global/AddItemBtn.vue";
@@ -27,10 +27,29 @@ export default {
   },
   computed: {
     ...mapState(["api", "emailTo"]),
-    ...mapGetters(["emailBody"])
+    ...mapGetters(["emailBody", "userSelectedItemsCount"])
   },
   methods: {
+    ...mapActions(["addFlash"]),
     submitForm() {
+      if (this.userSelectedItemsCount < 1) {
+        this.addFlash({
+          flashType: "error",
+          formType: "grocery",
+          error: "items",
+          flashId: Date.now()
+        });
+        return;
+      }
+      if (this.emailTo.length < 1) {
+        this.addFlash({
+          flashType: "error",
+          formType: "grocery",
+          error: "email",
+          flashId: Date.now()
+        });
+        return;
+      }
       axios
         .post(`${this.api}/submit`, {
           html: this.emailBody,
