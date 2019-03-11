@@ -79,5 +79,11 @@ export const setItemFormStoresMomsIsSelected = ({ commit }, payload) => {
 
 // Flash actions
 export const addFlash = ({ commit }, payload) => {
+  // payload is a obj
   commit('ADD_FLASH', payload);
+};
+
+export const removeFlash = ({ commit }, payload) => {
+  // payload is a flashId
+  commit('REMOVE_FLASH', payload);
 };
