@@ -103,3 +103,11 @@ The solution I went with leaves only one set of created/watch, and simplifies th
 - steps:
   - wire up data fields to form inputs
   - send email receipients to api along with submitted list
+
+10. Pass flash messages when appropriate
+
+- branch name: flash
+- starting point: v0.14.0
+- ending poing: v0.15.0
+- steps:
+  - see [#24](https://github.com/brianzelip/groceries-vue/issues/24) for details
