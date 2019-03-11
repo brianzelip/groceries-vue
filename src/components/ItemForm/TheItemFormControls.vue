@@ -53,11 +53,11 @@ export default {
         .then(payload => {
           const data = payload.data;
           this.addFlash({
-            type: "success",
-            msg: `Successfully created <strong>${
-              data.name
-            }</strong>! <a href="/edit/${data._id}">View item →</a>`,
-            id: Date.now()
+            flashType: "success",
+            formType: "add",
+            name: data.name,
+            _id: data._id,
+            flashId: Date.now()
           });
           return data;
         })
