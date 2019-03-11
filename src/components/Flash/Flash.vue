@@ -5,13 +5,16 @@
       v-for="(flash, i) in flashes"
     >
       <div
-        :class="[`flash--${flash.type}`]"
+        :class="[`flash--${flash.flashType}`]"
         class="container flex flex-center mb3 flash"
       >
-        <h1
-          class="flex-grow m0 h4 regular"
-          v-html="flash.msg"
-        ></h1>
+        <span class="flex-grow">
+          <h1
+            class="inline-block m0 h4 regular"
+            v-html="success(flash.formType, flash.name)"
+          ></h1>
+          <FlashViewItemLink :_id="flash._id"></FlashViewItemLink>
+        </span>
         <button
           class="btn h3 p0 cursor"
           href
@@ -24,10 +27,19 @@
 <script>
 import { mapState } from "vuex";
 
+import FlashViewItemLink from "./FlashViewItemLink.vue";
+
 export default {
+  components: {
+    FlashViewItemLink
+  },
   computed: {
     ...mapState(["flashes"])
   },
-  props: ["_flash"]
+  methods: {
+    success(formType, name) {
+      return `Successfully ${formType}ed <strong>${name}</strong>!`;
+    }
+  }
 };
 </script>
