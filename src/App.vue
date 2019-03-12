@@ -1,7 +1,7 @@
 <template lang="pug">
   div(data-vue="app")
     TheHeader
-    TheFlashes(v-if="haveAtLeastOneFlash")
+    TheFlashes(v-if="haveAtLeastOneFlash" ref="flashes")
     main
       .container
         router-view
@@ -16,9 +16,6 @@ import TheFooter from "./components/global/TheFooter.vue";
 import TheFlashes from "./components/Flashes/TheFlashes.vue";
 
 export default {
-  data() {
-    return {};
-  },
   computed: {
     ...mapGetters(["haveAtLeastOneFlash"]),
     title() {
@@ -37,6 +34,18 @@ export default {
     return {
       title: this.title
     };
+  },
+  watch: {
+    haveAtLeastOneFlash() {
+      if (this.haveAtLeastOneFlash) {
+        console.log("YES WE HAVE A FLASH!");
+        this.$nextTick(() => {
+          console.log("cominag at ya from nextTick!");
+          console.log("this.$refs", this.$refs);
+          this.$refs.flashes.scrollTop = 0;
+        });
+      }
+    }
   }
 };
 </script>
