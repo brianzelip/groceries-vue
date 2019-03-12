@@ -47,6 +47,15 @@ export default {
       "resetItemFormItem"
     ]),
     postData() {
+      if (this.itemFormItem.name === "") {
+        this.addFlash({
+          flashType: "error",
+          formType: "item",
+          error: "name",
+          flashId: Date.now()
+        });
+        return;
+      }
       this.isEditRoute ? this.edit() : this.create();
     },
     create() {
