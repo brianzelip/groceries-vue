@@ -252,27 +252,6 @@ input[type='week'] {
   --border-color-error: color(color(#db3445 tint(75%)) shade(25%));
 }
 
-.flash {
-  padding: 1rem;
-  border-width: 1px;
-  border-style: solid;
-  border-radius: 3px;
-}
-
-/* Success */
-.flash--success {
-  background-color: var(--bg-color-success);
-  color: var(--color-success);
-  border-color: var(--border-color-success);
-}
-
-/* Error */
-.flash--error {
-  background-color: var(--bg-color-error);
-  color: var(--color-error);
-  border-color: var(--border-color-error);
-}
-
 .cursor {
   cursor: default;
 }
