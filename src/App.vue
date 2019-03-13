@@ -1,11 +1,11 @@
 <template lang="pug">
   div(data-vue="app")
     TheHeader
-    TheFlashes(v-if="haveAtLeastOneFlash" ref="flashes")
     main
       .container
         router-view
     TheFooter
+    TheFlashes(v-if="haveAtLeastOneFlash")
 </template>
 
 <script>
@@ -34,18 +34,6 @@ export default {
     return {
       title: this.title
     };
-  },
-  watch: {
-    haveAtLeastOneFlash() {
-      if (this.haveAtLeastOneFlash) {
-        console.log("YES WE HAVE A FLASH!");
-        this.$nextTick(() => {
-          console.log("cominag at ya from nextTick!");
-          console.log("this.$refs", this.$refs);
-          this.$refs.flashes.scrollTop = 0;
-        });
-      }
-    }
   }
 };
 </script>
