@@ -111,3 +111,16 @@ The solution I went with leaves only one set of created/watch, and simplifies th
 - ending poing: v0.15.0
 - steps:
   - see [#24](https://github.com/brianzelip/groceries-vue/issues/24) for details
+
+Re: how to bring flashes into focus of user -- bring the user to the flash, or the other way aroud?
+
+**_tl;dr_** the other way around!
+
+At commit #a4889f05, switched focus from scrolling to top to see flash on error when submitting grocery form, to keeping user scroll position, and showing flash as fixed position instead.
+
+In looking at the way https://artemsky.github.io/vue-snotify/ does flashes:
+
+- all flash <div>s exist in html, but don't have any content by default
+- flash <div>s are position fixed, with \$offset value of 10px per side, so `bottom: 10px, right: 10px` is my likely choice
+
+This redirection into better UI comes from https://forum.vuejs.org/t/scroll-to-component-via-watching-getter/58734/2?u=brianzelip.
