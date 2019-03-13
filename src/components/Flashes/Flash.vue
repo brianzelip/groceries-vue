@@ -58,6 +58,37 @@ export default {
     close() {
       this.removeFlash(this.flash._id);
     }
+  },
+  created() {
+    setTimeout(
+      () => {
+        this.close();
+      },
+      this.flash.flashType === "success" ? 4500 : 3500
+    );
   }
 };
 </script>
+
+<style lang="postcss">
+.flash {
+  padding: 1.5rem;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 3px;
+}
+
+/* Success */
+.flash--success {
+  background-color: var(--bg-color-success);
+  color: var(--color-success);
+  border-color: var(--border-color-success);
+}
+
+/* Error */
+.flash--error {
+  background-color: var(--bg-color-error);
+  color: var(--color-error);
+  border-color: var(--border-color-error);
+}
+</style>
