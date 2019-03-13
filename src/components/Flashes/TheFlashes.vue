@@ -28,7 +28,7 @@ export default {
 section {
   position: fixed;
   bottom: 50px;
-  left: calc(50% - 400px / 2);
-  width: 400px;
+  left: calc(50% - 500px / 2);
+  width: 500px;
 }
 </style>
