@@ -1,13 +1,11 @@
 <template>
   <section>
-    <transition-group>
-      <div
-        :key="i"
-        v-for="(flash, i) in flashes"
-      >
-        <Flash :flash="flash"></Flash>
-      </div>
-    </transition-group>
+    <div
+      :key="i"
+      v-for="(flash, i) in flashes"
+    >
+      <Flash :flash="flash"></Flash>
+    </div>
   </section>
 </template>
 
