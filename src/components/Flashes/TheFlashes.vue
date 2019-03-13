@@ -24,3 +24,11 @@ export default {
 };
 </script>
 
+<style scoped>
+section {
+  position: fixed;
+  bottom: 50px;
+  left: calc(50% - 400px / 2);
+  width: 400px;
+}
+</style>
