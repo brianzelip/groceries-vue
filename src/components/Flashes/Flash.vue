@@ -1,7 +1,7 @@
 <template>
   <div
     :class="[`flash--${flash.flashType}`]"
-    class="container flex flex-center mb3 flash"
+    class="container flex flex-center flash"
   >
     <span class="flex-grow">
       <h1
