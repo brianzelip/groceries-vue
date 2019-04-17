@@ -13,6 +13,11 @@ export const setAllPossibleGroceryItems = ({ state, commit }) => {
     });
 };
 
+export const setShowLoader = ({ commit }, payload) => {
+  //payload is a boolean
+  commit('SET_SHOW_LOADER', payload);
+};
+
 export const addItemToUserSelectedItems = ({ commit }, payload) => {
   //payload is an item object
   commit('ADD_ITEM_TO_USER_SELECTED_ITEMS', payload);
