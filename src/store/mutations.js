@@ -3,11 +3,8 @@ import Vue from 'vue';
 /* GroceryForm mutations */
 
 // SET
-export const SET_SHOW_LOADER = (state, payload) => {
-  //payload is a boolean, but we don't want to only set to !showLoader
-  // because it starts out false, and actions.setAllPossibleGroceryItems
-  // sets showLoader to false
-  Vue.set(state, 'showLoader', payload);
+export const SET_SHOW_LOADER = state => {
+  Vue.set(state, 'showLoader', !state.showLoader);
 };
 
 export const SET_ALL_POSSIBLE_GROCERY_ITEMS = (state, payload) => {
