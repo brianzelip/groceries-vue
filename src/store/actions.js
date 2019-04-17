@@ -2,12 +2,12 @@ import axios from 'axios';
 
 // GroceryForm actions
 export const setAllPossibleGroceryItems = ({ state, commit }) => {
-  commit('SET_SHOW_LOADER', true);
+  commit('SET_SHOW_LOADER');
   axios
     .get(`${state.api}/get`)
     .then(res => {
       console.log('axios.get worked! res.data =', res.data);
-      commit('SET_SHOW_LOADER', false);
+      commit('SET_SHOW_LOADER');
       commit('SET_ALL_POSSIBLE_GROCERY_ITEMS', res.data);
     })
     .catch(error => {
