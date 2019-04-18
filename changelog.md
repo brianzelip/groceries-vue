@@ -142,3 +142,4 @@ The solution I went with leaves only one set of created/watch, and simplifies th
 - steps:
   - update email selector component
   - update vuex
+  - update groceries-vue-api to use the hacked up new email context -- CHANGE THIS LATER!
