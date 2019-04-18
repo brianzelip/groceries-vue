@@ -47,6 +47,14 @@ export const resetEmailTo = ({ commit }) => {
   commit('RESET_EMAIL_TO');
 };
 
+export const setCustomEmail = ({ commit }, payload) => {
+  commit('SET_CUSTOM_EMAIL', payload);
+};
+
+export const resetCustomEmail = ({ commit }) => {
+  commit('RESET_CUSTOM_EMAIL');
+};
+
 // ItemForm actions
 export const resetItemFormItem = ({ commit }) => {
   commit('RESET_ITEM_FORM_ITEM');
