@@ -33,11 +33,16 @@ export default {
     ...mapState(["showLoader", "allPossibleGroceryItems"])
   },
   methods: {
-    ...mapActions(["setAllPossibleGroceryItems", "resetEmailTo"])
+    ...mapActions([
+      "setAllPossibleGroceryItems",
+      "resetEmailTo",
+      "resetCustomEmail"
+    ])
   },
   created() {
     this.setAllPossibleGroceryItems();
     this.resetEmailTo();
+    this.resetCustomEmail();
   }
 };
 </script>
