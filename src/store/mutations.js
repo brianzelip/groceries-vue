@@ -34,6 +34,14 @@ export const RESET_EMAIL_TO = state => {
   Vue.set(state, 'emailTo', []);
 };
 
+export const SET_CUSTOM_EMAIL = (state, payload) => {
+  Vue.set(state, 'customEmail', payload);
+};
+
+export const RESET_CUSTOM_EMAIL = state => {
+  Vue.set(state, 'customEmail', []);
+};
+
 // DELETE
 export const REMOVE_ITEM_FROM_USER_SELECTED_ITEMS = (state, payload) => {
   //payload is an item _id string
