@@ -39,7 +39,7 @@ export const SET_CUSTOM_EMAIL = (state, payload) => {
 };
 
 export const RESET_CUSTOM_EMAIL = state => {
-  Vue.set(state, 'customEmail', []);
+  Vue.set(state, 'customEmail', '');
 };
 
 // DELETE
