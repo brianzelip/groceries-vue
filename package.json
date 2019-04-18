@@ -1,6 +1,6 @@
 {
   "name": "groceries-vue",
-  "version": "0.15.0",
+  "version": "0.16.0",
   "description": "Rewrite of my groceries web app in Vue and Parcel",
   "main": "index.pug",
   "scripts": {
@@ -12,6 +12,7 @@
   "license": "MIT",
   "dependencies": {
     "axios": "^0.18.0",
+    "basscss": "^7.1.1",
     "vue": "^2.5.17",
     "vue-hot-reload-api": "^2.3.1",
     "vue-meta": "^1.5.6",
@@ -21,7 +22,7 @@
   "devDependencies": {
     "@vue/component-compiler-utils": "^1.3.1",
     "autoprefixer": "^9.3.1",
-    "parcel-bundler": "^1.11.0",
+    "parcel-bundler": "^1.12.3",
     "postcss-color-function": "^4.0.1",
     "postcss-custom-properties": "^8.0.9",
     "postcss-import": "^12.0.1",

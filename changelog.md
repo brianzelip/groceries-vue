@@ -123,3 +123,13 @@ The solution I went with leaves only one set of created/watch, and simplifies th
   - you'll need to set it to false, then back to true again for the next time, so there's always a cylce context that needs closure.
     - so maybe, since the spinner needs to be enabled in time for every `actions.setAllPossibleGroceryItems`, set this boolean state to true as the first order of business in `actions.setAllPossibleGroceryItems`, and later down the funtion, set the state to false
   - [another loading animation](https://stackoverflow.com/a/54349616/2145103) that I liked but is not cross platform, (the [other solution](https://stackoverflow.com/a/28074607/2145103) is janky if the text is centered, because the width is always changing, so the alignment is always changing too)
+
+12. Basscss as dependency, not local file
+
+- starting point: v0.15.0
+- ending point: v0.16.0
+- branch: basscss
+- steps:
+  - npm i basscss
+  - update main.css
+  - delete local basscss
