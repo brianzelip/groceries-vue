@@ -133,3 +133,12 @@ The solution I went with leaves only one set of created/watch, and simplifies th
   - npm i basscss
   - update main.css
   - delete local basscss
+
+13. Allow user to add their own email to submit
+
+- starting point: v0.16.0
+- ending point: v0.17.0
+- branch: email-input
+- steps:
+  - update email selector component
+  - update vuex
