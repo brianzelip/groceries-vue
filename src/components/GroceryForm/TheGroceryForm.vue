@@ -1,15 +1,17 @@
 <template>
   <form method="POST">
     <TheLoader v-if="showLoader"></TheLoader>
-    <ol class="list-reset border rounded">
-      <template v-for="item in allPossibleGroceryItems">
-        <GroceryFormItem
-          :item="item"
-          :key="item._id"
-        ></GroceryFormItem>
-      </template>
-    </ol>
-    <TheGroceryFormControls></TheGroceryFormControls>
+    <template v-else>
+      <ol class="list-reset border rounded">
+        <template v-for="item in allPossibleGroceryItems">
+          <GroceryFormItem
+            :item="item"
+            :key="item._id"
+          ></GroceryFormItem>
+        </template>
+      </ol>
+      <TheGroceryFormControls></TheGroceryFormControls>
+    </template>
   </form>
 </template>
 
