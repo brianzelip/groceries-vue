@@ -6,17 +6,21 @@
       id="customEmail"
       placeholder="enter email"
       type="text"
-      v-model="customEmail"
+      v-model="email"
     >
   </section>
 </template>
 
 <script>
+import { mapState } from "vuex";
+
 export default {
-  data() {
-    return {
-      customEmail: ""
-    };
+  computed: {
+    ...mapState(["customEmail"]),
+    get() {
+      return this.customEmail;
+    },
+    set(payload) {}
   }
 };
 </script>
