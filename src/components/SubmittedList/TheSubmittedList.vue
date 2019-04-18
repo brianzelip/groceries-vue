@@ -12,10 +12,12 @@ import { mapState, mapGetters } from "vuex";
 
 export default {
   computed: {
-    ...mapState(["emailTo"]),
+    ...mapState(["emailTo", "customEmail"]),
     ...mapGetters(["emailBody"]),
     recipients() {
-      return this.emailTo.length === 1
+      return this.emailTo.length === 0
+        ? this.customEmail
+        : this.emailTo.length === 1
         ? this.emailTo[0]
         : this.emailTo.join(" and ");
     }
