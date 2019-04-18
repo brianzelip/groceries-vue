@@ -8,6 +8,7 @@
         value="submit"
       >
       <TheGroceryFormEmailSelector></TheGroceryFormEmailSelector>
+      <TheGroceryFormEmailCustomInput></TheGroceryFormEmailCustomInput>
     </div>
     <GroceryFormAddItemBtn></GroceryFormAddItemBtn>
   </div>
@@ -18,11 +19,13 @@ import axios from "axios";
 import { mapState, mapGetters } from "vuex";
 
 import TheGroceryFormEmailSelector from "./TheGroceryFormEmailSelector.vue";
+import TheGroceryFormEmailCustomInput from "./TheGroceryFormEmailCustomInput.vue";
 import GroceryFormAddItemBtn from "../global/AddItemBtn.vue";
 
 export default {
   components: {
     TheGroceryFormEmailSelector,
+    TheGroceryFormEmailCustomInput,
     GroceryFormAddItemBtn
   },
   computed: {
