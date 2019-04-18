@@ -2,15 +2,22 @@ import axios from 'axios';
 
 // GroceryForm actions
 export const setAllPossibleGroceryItems = ({ state, commit }) => {
+  commit('SET_SHOW_LOADER');
   axios
     .get(`${state.api}/get`)
     .then(res => {
       console.log('axios.get worked! res.data =', res.data);
+      commit('SET_SHOW_LOADER');
       commit('SET_ALL_POSSIBLE_GROCERY_ITEMS', res.data);
     })
     .catch(error => {
       console.log('ERROR! ->', error);
     });
+};
+
+export const setShowLoader = ({ commit }, payload) => {
+  //payload is a boolean
+  commit('SET_SHOW_LOADER', payload);
 };
 
 export const addItemToUserSelectedItems = ({ commit }, payload) => {

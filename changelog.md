@@ -104,10 +104,22 @@ The solution I went with leaves only one set of created/watch, and simplifies th
   - wire up data fields to form inputs
   - send email receipients to api along with submitted list
 
-10. Pass flash messages when appropriate
+> > > > > possible conflict 10. Pass flash messages when appropriate
 
 - branch name: flash
 - starting point: v0.14.0
 - ending poing: v0.15.0
 - steps:
   - see [#24](https://github.com/brianzelip/groceries-vue/issues/24) for details
+
+> > > > > possble conflict 11. Show spinner when fetching all possible grocery items data
+
+- branch name: spinner
+- starting point: 0.14.0
+- ending point: 0.15.0
+- steps:
+  - see [How to Create a CSS Loader](https://www.w3schools.com/howto/howto_css_loader.asp) via w3schools!
+  - make a boolean state variable that holds the on/off state of whether or not to show spinner
+  - you'll need to set it to false, then back to true again for the next time, so there's always a cylce context that needs closure.
+    - so maybe, since the spinner needs to be enabled in time for every `actions.setAllPossibleGroceryItems`, set this boolean state to true as the first order of business in `actions.setAllPossibleGroceryItems`, and later down the funtion, set the state to false
+  - [another loading animation](https://stackoverflow.com/a/54349616/2145103) that I liked but is not cross platform, (the [other solution](https://stackoverflow.com/a/28074607/2145103) is janky if the text is centered, because the width is always changing, so the alignment is always changing too)

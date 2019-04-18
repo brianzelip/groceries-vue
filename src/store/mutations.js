@@ -3,6 +3,10 @@ import Vue from 'vue';
 /* GroceryForm mutations */
 
 // SET
+export const SET_SHOW_LOADER = state => {
+  Vue.set(state, 'showLoader', !state.showLoader);
+};
+
 export const SET_ALL_POSSIBLE_GROCERY_ITEMS = (state, payload) => {
   //payload is a data array
   Vue.set(state, 'allPossibleGroceryItems', payload);
