@@ -12,8 +12,9 @@ import TheHeader from "./components/global/TheHeader.vue";
 import TheFooter from "./components/global/TheFooter.vue";
 
 export default {
-  data() {
-    return {};
+  components: {
+    TheHeader,
+    TheFooter
   },
   computed: {
     title() {
@@ -22,10 +23,6 @@ export default {
         ? appTitle
         : `${this.$route.name} item | ${appTitle}`;
     }
-  },
-  components: {
-    TheHeader,
-    TheFooter
   },
   metaInfo() {
     return {

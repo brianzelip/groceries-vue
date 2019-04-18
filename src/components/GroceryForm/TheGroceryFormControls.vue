@@ -7,7 +7,8 @@
         type="submit"
         value="submit"
       >
-      <TheGroceryFormEmailSelector></TheGroceryFormEmailSelector>
+      <!-- <TheGroceryFormEmailSelector></TheGroceryFormEmailSelector> -->
+      <TheGroceryFormEmailCustomInput></TheGroceryFormEmailCustomInput>
     </div>
     <GroceryFormAddItemBtn></GroceryFormAddItemBtn>
   </div>
@@ -18,28 +19,35 @@ import axios from "axios";
 import { mapState, mapGetters } from "vuex";
 
 import TheGroceryFormEmailSelector from "./TheGroceryFormEmailSelector.vue";
+import TheGroceryFormEmailCustomInput from "./TheGroceryFormEmailCustomInput.vue";
 import GroceryFormAddItemBtn from "../global/AddItemBtn.vue";
 
 export default {
   components: {
     TheGroceryFormEmailSelector,
+    TheGroceryFormEmailCustomInput,
     GroceryFormAddItemBtn
   },
   computed: {
-    ...mapState(["api", "emailTo"]),
+    ...mapState(["api", "emailTo", "customEmail"]),
     ...mapGetters(["emailBody"])
   },
   methods: {
     submitForm() {
+      let recipients;
+      if (this.emailTo.length === 0) {
+        recipients = this.customEmail;
+      } else {
+        recipients = emailTo;
+      }
       axios
         .post(`${this.api}/submit`, {
           html: this.emailBody,
-          recipients: this.emailTo
+          recipients
         })
         .then(
           console.log(
-            "axios just posted to api, this.emailTo is: ",
-            this.emailTo
+            `axios just posted to api, the recipients are: ${recipients}`
           )
         )
         .then(this.$router.push("/submit"))
