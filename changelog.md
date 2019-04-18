@@ -122,3 +122,4 @@ The solution I went with leaves only one set of created/watch, and simplifies th
   - make a boolean state variable that holds the on/off state of whether or not to show spinner
   - you'll need to set it to false, then back to true again for the next time, so there's always a cylce context that needs closure.
     - so maybe, since the spinner needs to be enabled in time for every `actions.setAllPossibleGroceryItems`, set this boolean state to true as the first order of business in `actions.setAllPossibleGroceryItems`, and later down the funtion, set the state to false
+  - [another loading animation](https://stackoverflow.com/a/54349616/2145103) that I liked but is not cross platform, (the [other solution](https://stackoverflow.com/a/28074607/2145103) is janky if the text is centered, because the width is always changing, so the alignment is always changing too)
