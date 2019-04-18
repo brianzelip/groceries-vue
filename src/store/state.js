@@ -8,7 +8,7 @@ export const userSelectedItems = {};
 
 export const emailTo = [];
 
-export const customEmail = [];
+export const customEmail = '';
 
 export const storesRef = {
   tj: { name: 'TJ', order: 0 },
