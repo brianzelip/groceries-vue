@@ -1,4 +1,5 @@
 export const api = 'https://groceries-vue-api.glitch.me';
+// export const api = 'http://localhost:2601';
 
 export const showLoader = false;
 
